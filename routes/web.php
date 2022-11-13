@@ -21,7 +21,10 @@ Route::get('/{vue?}',function(){
 })->where('vue','[\/\w\.-]*');
 
 
-//Route::post('/register1','RegistrationController@register1');
- Route::post('/register1', [RegistrationController::class, 'register1']);
- Route::post('/register2', [RegistrationController::class, 'register2']);
-Route::post('/add_student', [RegistrationController::class, 'add_student']);
+Route::post('/register1','RegistrationController@register1');
+Route::post('/register2','RegistrationController@register2');
+Route::post('/add_student','RegistrationController@add_student');
+
+//  Route::post('/register1', [RegistrationController::class, 'register1']);
+//  Route::post('/register2', [RegistrationController::class, 'register2']);
+// Route::post('/add_student', [RegistrationController::class, 'add_student']);
