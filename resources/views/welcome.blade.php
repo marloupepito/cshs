@@ -6,12 +6,15 @@
         <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> 
     <script src="{{ asset('js/app.js') }}" defer></script>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-        <title>Laravel</title>
+        <title>Calatrava Monitoring System</title>
 
   <style>
       @media only screen and (max-width: 600px) {
           h1.nav {
             font-size:20px
+          }
+          div.registration,div.getStarted{
+            display: none;
           }
         }
         body{

@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\http\Controllers\RegistrationController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,3 +19,7 @@ Route::get('/', function () {
 Route::get('/{vue?}',function(){
     return view('welcome');
 })->where('vue','[\/\w\.-]*');
+
+
+//Route::post('/register1','RegistrationController@register1');
+ Route::post('/register1', [RegistrationController::class, 'register1']);
