@@ -75,7 +75,7 @@ export default{
 			fd.append("profile", this.profile);
 			axios.post('/add_student',fd)
 			.then(res=>{
-				 this.$router.push({path:'/register1'})
+				 this.$router.push({path:'/administrator'})
 			})
 			.catch(err=>{
 				this.error =err.response.data.errors
@@ -94,7 +94,6 @@ export default{
 			axios.post('/register2')
 	      	.then(res=>{
 		      		if(res.data.status === true){
-		      			console.log(res.data.console)
 	      				}else{
 	      					this.$router.push({ path:'/register'})
 	      			}

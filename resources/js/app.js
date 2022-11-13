@@ -8,10 +8,14 @@ require('./bootstrap');
 
 import VueRouter from 'vue-router'
 import routes from './components/routes/Route'
+
 window.Vue = require('vue').default;
   import Vue from 'vue'
   import Vuesax from 'vuesax'
   import 'vuesax/dist/vuesax.css' //Vuesax styles
+  import bottomNavigationVue from "bottom-navigation-vue";
+
+Vue.use(bottomNavigationVue);
   Vue.use(Vuesax, {
     // options here
   })

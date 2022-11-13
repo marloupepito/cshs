@@ -118,8 +118,6 @@ export default{
 			 this.$router.push({path:'/register2'})
 			})
 			.catch(err=>{
-				console.log(err.response.data.message)
-				console.log(err.response.data.errors.contact)
 				this.error2 =err.response.data.errors
 			})
 		}
