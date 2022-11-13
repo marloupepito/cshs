@@ -23,3 +23,5 @@ Route::get('/{vue?}',function(){
 
 //Route::post('/register1','RegistrationController@register1');
  Route::post('/register1', [RegistrationController::class, 'register1']);
+ Route::post('/register2', [RegistrationController::class, 'register2']);
+Route::post('/add_student', [RegistrationController::class, 'add_student']);

@@ -13,7 +13,7 @@
           h1.nav {
             font-size:20px
           }
-          div.registration,div.getStarted{
+          div.registration{
             display: none;
           }
         }

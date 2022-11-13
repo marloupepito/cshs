@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Registration;
+use App\Models\User;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Hash;
 class RegistrationController extends Controller
 {
      public function register1(Request $request){
@@ -36,4 +36,67 @@ class RegistrationController extends Controller
 
 
     }
+     public function register2(Request $request){
+        $register = $request->session()->get('register');
+        if($register){
+            return response()->json([
+                'status' => true,
+                'console' => $register
+            ]);
+        }else{
+            return response()->json([
+                'status' => false
+            ]); 
+        }
+     }
+     
+     public function add_student(Request $request){
+        $path = 'profile/';
+
+           $validated =  $request->validate([
+            'username'=>['required'],
+            'password'=>['required'],
+            'profile'=>['required'],
+        ]);
+
+        $register = $request->session()->get('register');
+        if($request->hasFile('profile')){
+            $profile = $request->file('profile');
+            $fileName = $profile->getClientOriginalName();
+            $profile->move($path, $fileName);
+
+                $student = new User;
+                $student->profile =$fileName;
+                $student->name = $register['name'];
+                $student->lastname = $register['lastname'];
+                $student->contact = $register['contact'];
+                $student->idnumber = $register['idnumber'];
+                $student->grade = $register['grade'];
+                $student->section = $register['section'];
+                $student->strand = $register['strand'];
+                $student->gender = $register['gender'];
+                $student->username = $request->username;
+                $student->password = Hash::make($request->password);
+                $student->save();
+
+               
+                if($student){
+                    $request->session()->forget('register'); 
+                       return response()->json([
+                            'status' => true
+                        ]);
+                }
+            
+        }else{
+              return response()->json([
+                'status' => false
+            ]); 
+        }
+
+                    
+
+   
+
+
+     }
 }

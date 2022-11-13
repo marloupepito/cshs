@@ -5669,6 +5669,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -5709,12 +5727,54 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      pp: '/images/logo.png',
+      profile: '',
+      username: '',
+      password: '',
+      error: ''
+    };
+  },
+  mounted: function mounted() {
+    this.mount();
+  },
   methods: {
     submit: function submit() {
-      this.$router.push({
-        path: '/register2'
+      var _this = this;
+      var fd = new FormData();
+      fd.append("username", this.username);
+      fd.append("password", this.password);
+      fd.append("profile", this.profile);
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post('/add_student', fd).then(function (res) {
+        _this.$router.push({
+          path: '/register1'
+        });
+      })["catch"](function (err) {
+        _this.error = err.response.data.errors;
       });
+    },
+    uploadPP: function uploadPP() {
+      this.$refs.uploadpp.click();
+    },
+    uploadPP2: function uploadPP2(event) {
+      this.profile = event.target.files[0];
+      this.pp = uploadpp.src = URL.createObjectURL(event.target.files[0]);
+      uploadpp.src = URL.createObjectURL(event.target.files[0]);
+    },
+    mount: function mount() {
+      var _this2 = this;
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post('/register2').then(function (res) {
+        if (res.data.status === true) {
+          console.log(res.data.console);
+        } else {
+          _this2.$router.push({
+            path: '/register'
+          });
+        }
+      })["catch"](function (err) {});
     }
   }
 });
@@ -29815,7 +29875,7 @@ var render = function () {
     _c("div", { staticClass: "col-md-6 col-12" }, [
       _vm._m(0),
       _vm._v(" "),
-      _c("div", { staticClass: "con-form row" }, [
+      _c("div", { staticClass: "con-form row p-1" }, [
         _c(
           "div",
           { staticClass: "col-md-6 col-12" },
@@ -30197,51 +30257,156 @@ var render = function () {
       1
     ),
     _vm._v(" "),
-    _c("div", { staticClass: "col-md-6 col-12" }, [
-      _vm._m(0),
-      _vm._v(" "),
-      _c("div", { staticClass: "con-form row" }, [
-        _c(
-          "div",
-          { staticClass: "col-md-12 col-12" },
-          [
-            _c("vs-input", {
-              staticClass: "mb-3",
-              attrs: { type: "text", block: "", placeholder: "Username" },
-            }),
-          ],
-          1
-        ),
+    _c(
+      "div",
+      { staticClass: "col-md-6 col-12" },
+      [
+        _vm._m(0),
+        _vm._v(" "),
+        _c("input", {
+          ref: "uploadpp",
+          attrs: {
+            hidden: "",
+            id: "uploadpp",
+            type: "file",
+            accept: "image/png, image/gif, image/jpeg",
+          },
+          on: { change: _vm.uploadPP2 },
+        }),
         _vm._v(" "),
         _c(
-          "div",
-          { staticClass: "col-md-12 col-12" },
-          [
-            _c("vs-input", {
-              staticClass: "mb-3",
-              attrs: { type: "password", block: "", placeholder: "Password" },
-            }),
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "col-md-12 col-12" },
+          "vs-avatar",
+          {
+            staticClass: "mb-3",
+            attrs: { history: "", success: "", size: "100" },
+          },
           [
             _c(
-              "vs-button",
+              "a",
               {
-                attrs: { block: "", color: "rgb(64, 191, 128)" },
-                on: { click: _vm.submit },
+                ref: "myBtn",
+                attrs: { href: "#" },
+                on: {
+                  click: function ($event) {
+                    return _vm.uploadPP()
+                  },
+                },
               },
-              [_c("h2", [_c("b", [_vm._v("CONFIRM")])])]
+              [_c("img", { attrs: { src: _vm.pp, alt: "" } })]
             ),
-          ],
-          1
+          ]
         ),
-      ]),
-    ]),
+        _vm._v(" "),
+        _vm.error.profile !== undefined
+          ? _c("div", { staticClass: "text-danger" }, [
+              _vm._v(
+                "\n\t\t\t\t\t\t\t\t         " +
+                  _vm._s(_vm.error.profile[0]) +
+                  "\n\t\t\t\t\t\t\t\t      "
+              ),
+            ])
+          : _vm._e(),
+        _vm._v(" "),
+        _c("div", { staticClass: "con-form row p-1" }, [
+          _c(
+            "div",
+            { staticClass: "col-md-12 col-12" },
+            [
+              _c("vs-input", {
+                staticClass: "mb-3",
+                attrs: { type: "text", block: "", placeholder: "Username" },
+                scopedSlots: _vm._u(
+                  [
+                    _vm.error.username !== undefined
+                      ? {
+                          key: "message-danger",
+                          fn: function () {
+                            return [
+                              _vm._v(
+                                "\n\t\t\t\t\t\t\t\t          " +
+                                  _vm._s(_vm.error.username[0]) +
+                                  "\n\t\t\t\t\t\t\t\t      "
+                              ),
+                            ]
+                          },
+                          proxy: true,
+                        }
+                      : null,
+                  ],
+                  null,
+                  true
+                ),
+                model: {
+                  value: _vm.username,
+                  callback: function ($$v) {
+                    _vm.username = $$v
+                  },
+                  expression: "username",
+                },
+              }),
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "col-md-12 col-12" },
+            [
+              _c("vs-input", {
+                staticClass: "mb-3",
+                attrs: { type: "password", block: "", placeholder: "Password" },
+                scopedSlots: _vm._u(
+                  [
+                    _vm.error.password !== undefined
+                      ? {
+                          key: "message-danger",
+                          fn: function () {
+                            return [
+                              _vm._v(
+                                "\n\t\t\t\t\t\t\t\t          " +
+                                  _vm._s(_vm.error.password[0]) +
+                                  "\n\t\t\t\t\t\t\t\t      "
+                              ),
+                            ]
+                          },
+                          proxy: true,
+                        }
+                      : null,
+                  ],
+                  null,
+                  true
+                ),
+                model: {
+                  value: _vm.password,
+                  callback: function ($$v) {
+                    _vm.password = $$v
+                  },
+                  expression: "password",
+                },
+              }),
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "col-md-12 col-12" },
+            [
+              _c(
+                "vs-button",
+                {
+                  attrs: { block: "", color: "rgb(64, 191, 128)" },
+                  on: { click: _vm.submit },
+                },
+                [_c("h2", [_c("b", [_vm._v("CONFIRM")])])]
+              ),
+            ],
+            1
+          ),
+        ]),
+      ],
+      1
+    ),
   ])
 }
 var staticRenderFns = [

@@ -19,7 +19,7 @@
 			                  </h1>
 
 
-			                <div class="con-form row">
+			                <div class="con-form row p-1">
 				                <div class="col-md-6 col-12">
 				                	<vs-input type="text" v-model="name" class="mb-3 " block placeholder="Name" >
 				                	 <template v-if="error2.name !== undefined" #message-danger>
