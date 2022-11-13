@@ -25,6 +25,13 @@ Route::get('/{vue?}',function(){
 // Route::post('/register2','RegistrationController@register2');
 // Route::post('/add_student','RegistrationController@add_student');
 
- Route::post('/register1', [RegistrationController::class, 'register1']);
- Route::post('/register2', [RegistrationController::class, 'register2']);
-Route::post('/add_student', [RegistrationController::class, 'add_student']);
+// Route::post('/register1',[RegistrationController::class, 'register1']);
+// Route::post('/register2',[RegistrationController::class, 'register2']);
+// Route::post('/add_student',[RegistrationController::class, 'add_student']);
+
+
+Route::controller(RegistrationController::class)->group(function () {
+    Route::post('/register1', 'register1');
+    Route::post('/register2', 'register2');
+    Route::post('/add_student', 'add_student');
+});
