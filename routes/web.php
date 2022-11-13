@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\http\Controllers\RegistrationController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,17 +20,10 @@ Route::get('/{vue?}',function(){
 })->where('vue','[\/\w\.-]*');
 
 
-// Route::post('/register1','RegistrationController@register1');
-// Route::post('/register2','RegistrationController@register2');
-// Route::post('/add_student','RegistrationController@add_student');
+Route::post('/register1','App\Http\Controllers\RegistrationController@register1');
+Route::post('/register2','App\Http\Controllers\RegistrationController@register2');
+Route::post('/add_student','App\Http\Controllers\RegistrationController@add_student');
 
 // Route::post('/register1',[RegistrationController::class, 'register1']);
 // Route::post('/register2',[RegistrationController::class, 'register2']);
 // Route::post('/add_student',[RegistrationController::class, 'add_student']);
-
-
-Route::controller(RegistrationController::class)->group(function () {
-    Route::post('/register1', 'register1');
-    Route::post('/register2', 'register2');
-    Route::post('/add_student', 'add_student');
-});
