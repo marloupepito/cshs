@@ -13,7 +13,9 @@ use Illuminate\Http\Request;
 |
 */
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+   if($request->user()->message !== 'Unauthenticated'){
     return $request->user();
+   }
 });
 
 Route::middleware('auth:sanctum')->get('/authenticated', function () {
