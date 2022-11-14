@@ -16,23 +16,19 @@ class RegistrationController extends Controller
         ]);
 
         if(Auth::attempt($request->only('username','password'))){
-
-            $request->session()->put('id', Auth::user()->id);
             return response()->json([
-                'status' => Auth::user(),
+                'status' => Auth::user()
                 'status2' => 'success'
             ]);
         }else{
             return response()->json([
-                'status' => 'Incorrect username or password!',
+                'status' => 'Incorrect username or password!'
                 'status2' => 'Incorrect username or password!'
             ]);
         }
         throw ValidationException::withMessages([
-            'status' => 'Incorrect username or password!',
-            'status2' => 'Incorrect username or password!',
+            'username' => ['Incorrect username or password!'],
         ]);
-        
       
      }
      public function register1(Request $request){
