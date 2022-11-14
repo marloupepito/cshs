@@ -5849,6 +5849,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -5867,8 +5868,9 @@ __webpack_require__.r(__webpack_exports__);
         path: '/register'
       });
     },
-    loginUser: function loginUser() {
+    loginUser: function loginUser(e) {
       var _this = this;
+      e.preventDefault();
       this.error = '';
       axios__WEBPACK_IMPORTED_MODULE_0___default().post('/login_user', {
         username: this.input1,
@@ -33961,109 +33963,117 @@ var render = function () {
       _c("div", { staticClass: "col-md-4 col-12" }, [
         _vm._m(0),
         _vm._v(" "),
-        _c("div", { staticClass: "con-form row" }, [
-          _c("div", { staticClass: "col-md-12" }, [
-            _vm.error !== ""
-              ? _c("div", { staticClass: "text-danger" }, [
-                  _vm._v(_vm._s(_vm.error)),
-                ])
-              : _vm._e(),
+        _c("form", { on: { submit: _vm.loginUser } }, [
+          _c("div", { staticClass: "con-form row" }, [
+            _c("div", { staticClass: "col-md-12" }, [
+              _vm.error !== ""
+                ? _c("div", { staticClass: "text-danger" }, [
+                    _vm._v(_vm._s(_vm.error)),
+                  ])
+                : _vm._e(),
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "col-md-12" },
+              [
+                _c("vs-input", {
+                  staticClass: "mb-3 mt-5",
+                  attrs: { block: "", placeholder: "Username" },
+                  model: {
+                    value: _vm.input1,
+                    callback: function ($$v) {
+                      _vm.input1 = $$v
+                    },
+                    expression: "input1",
+                  },
+                }),
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "col-md-12" },
+              [
+                _c("vs-input", {
+                  staticClass: "mb-3",
+                  attrs: {
+                    type: "password",
+                    block: "",
+                    placeholder: "Password",
+                  },
+                  model: {
+                    value: _vm.input2,
+                    callback: function ($$v) {
+                      _vm.input2 = $$v
+                    },
+                    expression: "input2",
+                  },
+                }),
+              ],
+              1
+            ),
           ]),
           _vm._v(" "),
           _c(
             "div",
-            { staticClass: "col-md-12" },
+            { staticClass: "flex" },
             [
-              _c("vs-input", {
-                staticClass: "mb-3 mt-5",
-                attrs: { block: "", placeholder: "Username" },
-                model: {
-                  value: _vm.input1,
-                  callback: function ($$v) {
-                    _vm.input1 = $$v
+              _c(
+                "vs-checkbox",
+                {
+                  model: {
+                    value: _vm.checkbox1,
+                    callback: function ($$v) {
+                      _vm.checkbox1 = $$v
+                    },
+                    expression: "checkbox1",
                   },
-                  expression: "input1",
                 },
-              }),
+                [_vm._v("Remember me")]
+              ),
             ],
             1
           ),
           _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "col-md-12" },
-            [
-              _c("vs-input", {
-                staticClass: "mb-3",
-                attrs: { type: "password", block: "", placeholder: "Password" },
-                model: {
-                  value: _vm.input2,
-                  callback: function ($$v) {
-                    _vm.input2 = $$v
-                  },
-                  expression: "input2",
-                },
-              }),
-            ],
-            1
-          ),
-        ]),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "flex" },
-          [
+          _c("div", { staticClass: "mt-3" }, [
             _c(
-              "vs-checkbox",
-              {
-                model: {
-                  value: _vm.checkbox1,
-                  callback: function ($$v) {
-                    _vm.checkbox1 = $$v
-                  },
-                  expression: "checkbox1",
-                },
-              },
-              [_vm._v("Remember me")]
-            ),
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "mt-3" }, [
-          _c(
-            "div",
-            { staticClass: "footer-dialog" },
-            [
-              _c(
-                "vs-button",
-                {
-                  attrs: { block: "", color: "rgb(64, 191, 128)" },
-                  on: { click: _vm.loginUser },
-                },
-                [
-                  _vm._v(
-                    "\n\t\t\t                      Sign In\n\t\t\t                    "
-                  ),
-                ]
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: "new" }, [
-                _vm._v("\n\t\t\t                      New Here? "),
+              "div",
+              { staticClass: "footer-dialog" },
+              [
                 _c(
-                  "a",
-                  { attrs: { href: "#" }, on: { click: _vm.gotoRegister } },
-                  [_vm._v("Create New Account")]
+                  "vs-button",
+                  {
+                    attrs: { block: "", color: "rgb(64, 191, 128)" },
+                    on: { click: _vm.loginUser },
+                  },
+                  [
+                    _vm._v(
+                      "\n\t\t\t                      Sign In\n\t\t\t                    "
+                    ),
+                  ]
                 ),
-                _c("br"),
                 _vm._v(" "),
-                _c("br"),
-                _vm._v(" "),
-                _c("a", { attrs: { href: "#" } }, [_vm._v("Forgot Password?")]),
-              ]),
-            ],
-            1
-          ),
+                _c("div", { staticClass: "new" }, [
+                  _vm._v("\n\t\t\t                      New Here? "),
+                  _c(
+                    "a",
+                    { attrs: { href: "#" }, on: { click: _vm.gotoRegister } },
+                    [_vm._v("Create New Account")]
+                  ),
+                  _c("br"),
+                  _vm._v(" "),
+                  _c("br"),
+                  _vm._v(" "),
+                  _c("a", { attrs: { href: "#" } }, [
+                    _vm._v("Forgot Password?"),
+                  ]),
+                ]),
+              ],
+              1
+            ),
+          ]),
         ]),
       ]),
     ]),

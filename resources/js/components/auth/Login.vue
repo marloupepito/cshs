@@ -13,7 +13,7 @@
 	            		 <h4 class="not-margin mt-5">
 			                    Welcome to <b>Attendance Monitoring</b>
 			                  </h4>
-
+			                  <form  @submit="loginUser">
 
 			                <div class="con-form row">
 			                	<div class="col-md-12">
@@ -43,6 +43,7 @@
 			                    </div>
 			                  </div>
 			                </div>
+			                </form>
 	           </div>
           </div>
 
@@ -67,7 +68,8 @@ import axios from 'axios'
 				this.$router.push({path:'/register'})
 
 			},
-			loginUser(){
+			loginUser(e){
+				e.preventDefault()
 				this.error=''
 				axios.post('/login_user',{
 					username:this.input1,
