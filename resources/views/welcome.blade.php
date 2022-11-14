@@ -13,14 +13,21 @@
         <title>Calatrava Monitoring System</title>
 
   <style>
-      @media only screen and (max-width: 600px) {
+         div.botNavbar{
+            display: none;
+          }
+          @media only screen and (max-width: 600px) {
           h1.nav {
             font-size:20px
           }
-          div.registration{
+          div.registration,.sideNavbar{
             display: none;
           }
+          div.botNavbar{
+            display: '' !important;
+          }
         }
+       
         body{
             background-color: white;
         }

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,7 +12,13 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+    return $request->user();
+});
 
+Route::middleware('auth:sanctum')->get('/authenticated', function () {
+    return true;
+});
 Route::get('/', function () {
     return view('welcome');
 });
@@ -23,6 +30,7 @@ Route::get('/{vue?}',function(){
 Route::post('/register1','App\Http\Controllers\RegistrationController@register1');
 Route::post('/register2','App\Http\Controllers\RegistrationController@register2');
 Route::post('/add_student','App\Http\Controllers\RegistrationController@add_student');
+Route::post('/login_user','App\Http\Controllers\RegistrationController@login_user');
 
 // Route::post('/register1',[RegistrationController::class, 'register1']);
 // Route::post('/register2',[RegistrationController::class, 'register2']);

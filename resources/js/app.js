@@ -12,7 +12,8 @@ import routes from './components/routes/Route'
 window.Vue = require('vue').default;
   import Vue from 'vue'
   import Vuesax from 'vuesax'
-  import 'vuesax/dist/vuesax.css' //Vuesax styles
+  import 'vuesax/dist/vuesax.css'
+    import 'boxicons/css/boxicons.min.css' 
   import bottomNavigationVue from "bottom-navigation-vue";
 
 Vue.use(bottomNavigationVue);

@@ -5,7 +5,7 @@
         <template >
           <img src="/images/logo.png" width="70" alt="">
         </template>
-        <h1 class="nav"><b>Holla Senior of CSHS-SA!</b></h1>
+        <h1 class="nav"><b>Hola Senior of CSHS-SA!</b></h1>
       </vs-navbar> 
       <Home /> 
     </div>

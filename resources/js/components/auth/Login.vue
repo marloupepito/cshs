@@ -16,6 +16,9 @@
 
 
 			                <div class="con-form row">
+			                	<div class="col-md-12">
+			                		 <div v-if="error !=='' " class="text-danger">{{error}}</div>
+			                	</div>
 				                <div class="col-md-12">
 				                	<vs-input v-model="input1" class="mb-3 mt-5 " block placeholder="Username" />
 				                </div>
@@ -30,7 +33,7 @@
 			                <div class="mt-3"
 			                >
 			                  <div class="footer-dialog">
-			                    <vs-button block color="rgb(64, 191, 128)">
+			                    <vs-button block color="rgb(64, 191, 128)" @click="loginUser">
 			                      Sign In
 			                    </vs-button>
 
@@ -49,16 +52,44 @@
 </template>
 
 <script>
+import axios from 'axios'
     export default {
+
       data:() => ({
         active: true,
         input1: '',
         input2: '',
-        checkbox1: false
+        checkbox1: false,
+        error:''
       }),
       methods:{
       	gotoRegister(){
 				this.$router.push({path:'/register'})
+
+			},
+			loginUser(){
+				this.error=''
+				axios.post('/login_user',{
+					username:this.input1,
+					password:this.input2
+					})
+				.then(res=>{
+					console.log(res.data.status)
+						if(res.data.status2 === 'success'){
+								if(res.data.status.usertype === 'admin'){
+									this.$router.push({path:'/administrator'})
+								}else if(res.data.status.usertype === 'teacher'){
+									this.$router.push({path:'/teacher'})
+								}else{
+									this.$router.push({path:'/student'})
+								}
+							}else{
+								this.error =res.data.status
+						}
+					})
+				.catch(err=>{
+					this.error = 'Invalid Username or Password!'
+					})
 			}
       }
     }

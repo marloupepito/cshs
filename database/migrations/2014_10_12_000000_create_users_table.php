@@ -1,4 +1,4 @@
-<?php
+w<?php
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -26,6 +26,8 @@ class CreateUsersTable extends Migration
             $table->string('gender')->nullable();
             $table->string('username')->nullable();
             $table->string('password')->nullable();
+            $table->string('access')->nullable();
+            $table->string('usertype')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

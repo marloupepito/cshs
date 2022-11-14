@@ -4,8 +4,36 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 class RegistrationController extends Controller
 {
+
+      public function login_user(Request $request){
+        $request->validate([
+            'username'=>['required'],
+            'password'=>['required'],
+        ]);
+
+        if(Auth::attempt($request->only('username','password'))){
+
+            $request->session()->put('id', Auth::user()->id);
+            return response()->json([
+                'status' => Auth::user(),
+                'status2' => 'success'
+            ]);
+        }else{
+            return response()->json([
+                'status' => 'Incorrect username or password!',
+                'status2' => 'Incorrect username or password!'
+            ]);
+        }
+        throw ValidationException::withMessages([
+            'status' => 'Incorrect username or password!',
+            'status2' => 'Incorrect username or password!',
+        ]);
+        
+      
+     }
      public function register1(Request $request){
         $validated =  $request->validate([
             'name'=>['required'],
