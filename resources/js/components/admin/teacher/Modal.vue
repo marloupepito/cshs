@@ -7,7 +7,7 @@
  <vs-dialog v-model="active" prevent-close>
         <template #header>
           <h4 class="not-margin">
-            Create to <b>Teacher</b>
+            Create <b>Teacher</b>
           </h4>
         </template>
 
@@ -69,7 +69,7 @@
 		      </template>
 		      </vs-select>
 
-		       <vs-input v-model="idnumber" block class="mb-3"  placeholder="ID Number">
+		       <vs-input type="number" v-model="idnumber" block class="mb-3"  placeholder="ID Number">
             <template #icon>
               @
             </template>
@@ -87,7 +87,7 @@
 		      </template>
           </vs-input>
 
-           <vs-input v-model="contact" block class="mb-3"  placeholder="Contact">
+           <vs-input type="number" v-model="contact" block class="mb-3"  placeholder="Contact">
             <template #icon>
               @
             </template>

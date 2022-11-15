@@ -85,7 +85,7 @@ class RegistrationController extends Controller
            $validated =  $request->validate([
             'username'=>['required'],
             'password'=>['required'],
-            'profile'=>['required'],
+            'profile'=>'required|max:5128',
         ]);
 
         $register = $request->session()->get('register');
@@ -136,7 +136,7 @@ class RegistrationController extends Controller
             'contact'=>['required'],
             'idnumber'=>['required'],
             'password'=>['required'],
-            'profile'=>['required'],
+            'profile'=>'required|max:5128',
         ]);
 
         $register = $request->session()->get('register');

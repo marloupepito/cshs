@@ -46,11 +46,11 @@
             not-click-selected
             open-expand-only-td
           >
-            <vs-td edit @click="edit = tr, editProp = 'idnumber', editActive = true">
-              {{ tr.idnumber }}
-            </vs-td>
             <vs-td >
               {{ tr.name }}
+            </vs-td>
+            <vs-td edit @click="edit = tr, editProp = 'idnumber', editActive = true">
+              {{ tr.idnumber }}
             </vs-td>
             <vs-td >
               {{ tr.username }}

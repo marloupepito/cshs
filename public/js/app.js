@@ -5313,6 +5313,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -5321,11 +5323,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {},
+  mounted: function mounted() {
+    var loading = this.$vs.loading({
+      text: 'Loading...',
+      type: 'circles'
+    });
+    axios__WEBPACK_IMPORTED_MODULE_0___default().get('/user').then(function (res) {
+      loading.close();
+    })["catch"](function (err) {
+      loading.close();
+    });
+  },
   data: function data() {
     return {
-      active: 0
+      active: true
     };
   }
 });
@@ -34292,7 +34306,7 @@ var render = function () {
               fn: function () {
                 return [
                   _c("h4", { staticClass: "not-margin" }, [
-                    _vm._v("\n            Create to "),
+                    _vm._v("\n            Create "),
                     _c("b", [_vm._v("Teacher")]),
                   ]),
                 ]
@@ -34513,7 +34527,7 @@ var render = function () {
               _vm._v(" "),
               _c("vs-input", {
                 staticClass: "mb-3",
-                attrs: { block: "", placeholder: "ID Number" },
+                attrs: { type: "number", block: "", placeholder: "ID Number" },
                 scopedSlots: _vm._u(
                   [
                     {
@@ -34593,7 +34607,7 @@ var render = function () {
               _vm._v(" "),
               _c("vs-input", {
                 staticClass: "mb-3",
-                attrs: { block: "", placeholder: "Contact" },
+                attrs: { type: "number", block: "", placeholder: "Contact" },
                 scopedSlots: _vm._u(
                   [
                     {
@@ -35001,6 +35015,10 @@ var render = function () {
                       ),
                     },
                     [
+                      _c("vs-td", [
+                        _vm._v("\n          " + _vm._s(tr.name) + "\n        "),
+                      ]),
+                      _vm._v(" "),
                       _c(
                         "vs-td",
                         {
@@ -35019,10 +35037,6 @@ var render = function () {
                           ),
                         ]
                       ),
-                      _vm._v(" "),
-                      _c("vs-td", [
-                        _vm._v("\n          " + _vm._s(tr.name) + "\n        "),
-                      ]),
                       _vm._v(" "),
                       _c("vs-td", [
                         _vm._v(
