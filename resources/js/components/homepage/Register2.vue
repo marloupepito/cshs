@@ -54,7 +54,6 @@
 </template>
 
 <script>
-import axios from 'axios'
 export default{
 	data:() => ({
 		pp:'/images/logo.png',

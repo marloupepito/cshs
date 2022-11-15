@@ -18,16 +18,33 @@
         {
           id: 1,
           icon: "text-white fas fa-home",
-          title: "Home"
+          title: "Home",
+          path:"/administrator"
         },
-        { id: 2, icon: "text-white fas fa-calendar", title: "Events" },
+        { 
+          id: 2, 
+          icon: "text-white fas fa-calendar", 
+          title: "Events",
+          path:"/administrator/events"
+        },
         {
           id: 3,
           icon: "text-white fas fa-user-circle",
           title: "Teachers",
+          path:"/administrator/teachers"
         },
-        { id: 4, icon: "text-white fas fa-users", title: "Students" },
-        { id: 5, icon: "text-white fas fa-sign-out-alt", title: "Logout" },
+        { 
+          id: 4, 
+          icon: "text-white fas fa-users", 
+          title: "Students",
+          path:"/administrator",
+        },
+        { 
+          id: 5, 
+          icon: "text-white fas fa-sign-out-alt", 
+          title: "Logout",
+          path:"/administrator/logout"
+        },
       ],
     }),
   };

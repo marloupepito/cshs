@@ -42,37 +42,37 @@
 
           <vs-sidebar-item to="/administrator/grade/7" color='black' id="Instagram">
             <template #icon>
-              <i class='bx bxl-instagram'></i>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class='bx bx-user-plus'></i>
             </template>
             Grade 7
           </vs-sidebar-item>
           <vs-sidebar-item to="/administrator/grade/8" id="twitter">
             <template #icon>
-              <i class='bx bxl-twitter' ></i>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class='bx bx-user-plus' ></i>
             </template>
             Grade 8
           </vs-sidebar-item>
           <vs-sidebar-item to="/administrator/grade/9" id="Facebook">
             <template #icon>
-              <i class='bx bxl-facebook' ></i>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class='bx bx-user-plus' ></i>
             </template>
             Grade 9
           </vs-sidebar-item>
           <vs-sidebar-item to="/administrator/grade/10" id="Facebook">
             <template #icon>
-              <i class='bx bxl-facebook' ></i>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class='bx bx-user-plus' ></i>
             </template>
             Grade 10
           </vs-sidebar-item>
           <vs-sidebar-item to="/administrator/grade/11" id="Facebook">
             <template #icon>
-              <i class='bx bxl-facebook' ></i>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class='bx bx-user-plus' ></i>
             </template>
             Grade 11
           </vs-sidebar-item>
           <vs-sidebar-item to="/administrator/grade/12" id="Facebook">
             <template #icon>
-              <i class='bx bxl-facebook' ></i>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class='bx bx-user-plus' ></i>
             </template>
             Grade 12
           </vs-sidebar-item>

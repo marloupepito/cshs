@@ -7,7 +7,11 @@ import Administrator from './../admin/_Index.vue'
 import TopNavbar from './../homepage/TopNavbar.vue'
 
 import AdminTopNavbar from './../admin/TopNavbar.vue'
-import Teacher from './../admin/Teacher.vue'
+import Teacher from './../admin/teacher/_Index.vue'
+import Loading from './../admin/Loading.vue'
+import Event from './../admin/event/_Index.vue'
+import Home from './../admin/home/_Index.vue'
+import Logout from './../admin/Logout.vue'
 const routes = [
   { path: '/', component: TopNavbar,
       children:[
@@ -30,9 +34,12 @@ const routes = [
           })
         },
         children:[
+          { path:'/administrator', component:Home},
+          { path:'/administrator/loading', component:Loading},
           { path:'/administrator/teachers', component:Teacher},
-          { path:'/administrator/events', component:Teacher},
+          { path:'/administrator/events', component:Event},
           { path:'/administrator/grade/:id', component:Teacher},
+          { path:'/administrator/logout', component:Logout},
 
         ]
     },
