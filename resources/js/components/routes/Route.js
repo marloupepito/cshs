@@ -11,7 +11,13 @@ import Teacher from './../admin/teacher/_Index.vue'
 import Loading from './../admin/Loading.vue'
 import Event from './../admin/event/_Index.vue'
 import Home from './../admin/home/_Index.vue'
+import Grade from './../admin/student/_Index.vue'
+import Loading2 from './../admin/student/Loading.vue'
+import Loading3 from './../admin/event/Loading.vue'
 import Logout from './../admin/Logout.vue'
+
+import Student from './../student/_Index.vue'
+import EventPost from './../admin/event/Event.vue'
 const routes = [
   { path: '/', component: TopNavbar,
       children:[
@@ -38,7 +44,27 @@ const routes = [
           { path:'/administrator/loading', component:Loading},
           { path:'/administrator/teachers', component:Teacher},
           { path:'/administrator/events', component:Event},
-          { path:'/administrator/grade/:id', component:Teacher},
+          { path:'/administrator/grade/:id', component:Grade},
+          { path:'/administrator/loading2', component:Loading2},
+          { path:'/administrator/loading3', component:Loading3},
+          { path:'/administrator/logout', component:Logout},
+
+        ]
+    },
+      { path: '/student', component: Student,
+      beforeEnter: (to, from, next) => {
+          axios.get('/authenticated')
+          .then(res=>{
+            next()
+           
+          })
+          .catch(err=>{
+            return next({ path: '/'})
+          })
+        },
+        children:[
+        { path:'/student', component:EventPost},
+          { path:'/student/events', component:EventPost},
           { path:'/administrator/logout', component:Logout},
 
         ]

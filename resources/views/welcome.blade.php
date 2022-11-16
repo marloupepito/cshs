@@ -27,7 +27,9 @@
             display: '' !important;
           }
         }
-       
+        div.vs-card{
+            margin: 0px !important;
+        }
         body{
             background-color: white;
         }

@@ -43,29 +43,61 @@
 				                	</vs-input>
 				                </div>
 				                <div  class="col-md-6 col-12">
-				                	 <vs-input type="text" class="mb-3 " v-model="idnumber" block  placeholder="ID Number" >
+				                	 <vs-input type="number" class="mb-3 " v-model="idnumber" block  placeholder="ID Number" >
 				                	  <template v-if="error2.idnumber !== undefined" #message-danger>
 								          Required
 								      </template>
 				                	</vs-input>
 				                </div>
 				                <div  class="col-md-6 col-12">
-				                	 <vs-input type="text" class="mb-3 " v-model="grade" block  placeholder="Grade" >
-				                	  <template v-if="error2.grade !== undefined" #message-danger>
-								          Required
-								      </template>
-				                	</vs-input>
+				                	   <vs-select
+									        label-placeholder="Grade"
+									        v-model="grade"
+									        block
+									        block class="mb-3"
+									      >
+									        <vs-option label="Grade 11" value="Grade 11">
+									          Grade 11
+									        </vs-option>
+									        <vs-option label="Grade 12" value="Grade 12">
+									          Grade 12
+									        </vs-option>
+									        <template v-if="error2.grade !== undefined" #message-danger>
+									          {{error2.grade[0]}}
+									      </template>
+									      </vs-select>
 				                </div>
-				                <div  class="col-md-6 col-12">
-				                	 <vs-input type="text" class="mb-3 " v-model="section" block  placeholder="Section" >
-				                	  <template v-if="error2.section !== undefined" #message-danger>
-								          Required
-								      </template>
-				                	</vs-input>
+				               
+				                 <div  class="col-md-6 col-12">
+				                	   <vs-select
+									        label-placeholder="Strand"
+									        v-model="strand"
+									        block
+									        block class="mb-3"
+									      >
+									        <vs-option label="TVL" value="TVL">
+									          TVL
+									        </vs-option>
+									        <vs-option label="ABM" value="ABM">
+									          ABM
+									        </vs-option>
+									         <vs-option label="HUMSS" value="HUMSS">
+									          HUMSS
+									        </vs-option>
+									         <vs-option label="STEM" value="STEM">
+									          STEM
+									        </vs-option>
+									         <vs-option label="GAS" value="GAS">
+									          GAS
+									        </vs-option>
+									        <template v-if="error2.strand !== undefined" #message-danger>
+									          {{error2.strand[0]}}
+									      </template>
+									      </vs-select>
 				                </div>
 				                 <div  class="col-md-6 col-12">
-				                	 <vs-input type="text" class="mb-3 " v-model="strand" block  placeholder="Strand" >
-				                	  <template v-if="error2.strand !== undefined" #message-danger>
+				                	 <vs-input type="text" class="mb-3 " v-model="section" block  placeholder="Section" >
+				                	  <template v-if="error2.section !== undefined" #message-danger>
 								          Required
 								      </template>
 				                	</vs-input>

@@ -1,11 +1,11 @@
 
 <template>
     <div class="center">
-      <div class="row">
+    	<!-- <div class="row">
           <div class="col-md-4 p-3">
              <Modal />
           </div>
-      </div>
+      </div>-->
       <vs-table
         v-model="selected"
         >
@@ -30,7 +30,7 @@
               Grade
             </vs-th>
             <vs-th sort @click="users = $vs.sortData($event ,users, 'section')">
-              Section
+              Option
             </vs-th>
           </vs-tr>
         </template>
@@ -59,7 +59,12 @@
             {{ tr.grade }}
             </vs-td>
              <vs-td>
-            {{ tr.section }}
+            <vs-button v-if="tr.access === null" @click="func('approved',tr.id)" block border flat icon>
+                   Approve
+                  </vs-button>
+                  <vs-button v-if="tr.access === 'approved'"  block success color="success" border flat icon>
+                   Approved
+                  </vs-button>
             </vs-td>
 
             <template #expand>
@@ -69,8 +74,8 @@
                     <img :src="`/profile/`+tr.profile" alt="">
                   </vs-avatar>
                 </div>
-                <div class="col-md-3 col-6">    
-                {{ tr.section }}
+                <div class="col-md-3 col-6">  	
+          		  {{ tr.section }}
                 </div>
                <!--  <div class="col-md-2 col-6">
                   <vs-button @click="func('delete',tr.id)" block border danger>
@@ -113,13 +118,29 @@ import Modal from './Modal.vue'
 import axios from 'axios'
     export default {
       mounted(){
-        this.reload()
+      	  this.grade = window.location.pathname.split('/')[3]
+          this.reload()
         },
         methods:{
+        	func(e,id){
+        			axios.post('/option',{
+        				option:e,
+        				id:id
+        				})
+        			.then(res=>{
+        				this.reload()
+        			})
+        			.catch(err=>{
+
+        			})
+        		},
             reload(){
-              axios.post('/get_teacher')
+              axios.post('/get_student',{
+              	grade:'Grade '+this.grade
+              	})
               .then(res=>{
                   this.users= res.data.status
+              
                 })
               .catch(err=>{
 
@@ -130,6 +151,7 @@ import axios from 'axios'
         Modal
         },
       data:() => ({
+      	grade:'',
         editActive: false,
         edit: null,
         editProp: {},
@@ -144,4 +166,3 @@ import axios from 'axios'
     }
     </script>
 
-        

@@ -76,14 +76,18 @@ import axios from 'axios'
 					password:this.input2
 					})
 				.then(res=>{
-					console.log(res.data.status)
 						if(res.data.status2 === 'success'){
 								if(res.data.status.usertype === 'admin'){
 									this.$router.push({path:'/administrator'})
 								}else if(res.data.status.usertype === 'teacher'){
 									this.$router.push({path:'/teacher'})
 								}else{
-									this.$router.push({path:'/student'})
+									if(res.data.status.access === null){
+										this.error = 'Your account not already approved!'
+									}else{
+										this.$router.push({path:'/student'})
+									}
+									
 								}
 							}else{
 								this.error =res.data.status

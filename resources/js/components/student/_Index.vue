@@ -1,24 +1,17 @@
 <template>
-  <div>
-    <div class="center examplex mt-5 container">
-      <TopNavbar />
-      <SidebarNav />
-      <router-view></router-view> 
-    </div>
-    
-      <BottomNavbar />
-  </div>
-  </template>
+	<div>
+		<router-view></router-view> 
+		<BottomNavbar />
+	</div>
+</template>
+
+
 
 <script>
 
-import TopNavbar from './TopNavbar.vue'
-import SidebarNav from './SideNavbar.vue'
 import BottomNavbar from './BottomNavbar.vue'
   export default {
     components:{
-      SidebarNav,
-      TopNavbar,
       BottomNavbar
       },
     data:() => ({
@@ -27,7 +20,7 @@ import BottomNavbar from './BottomNavbar.vue'
     mounted(){
       axios.get('/user')
       .then(res=>{
-        if(res.data.usertype === 'admin'){
+        if(res.data.usertype === 'student'){
 
         }else{
           axios.post('/logout')
@@ -39,4 +32,3 @@ import BottomNavbar from './BottomNavbar.vue'
     }
   }
   </script>
-

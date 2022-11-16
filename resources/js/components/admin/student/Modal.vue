@@ -1,7 +1,7 @@
 <template>
 	<div>
 		 <vs-button color="rgb(64, 191, 128)" @click="active=!active">
-                Create Teacher
+                Create Student
               </vs-button>
 
  <vs-dialog v-model="active" prevent-close>

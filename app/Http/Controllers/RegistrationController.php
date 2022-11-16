@@ -180,4 +180,21 @@ class RegistrationController extends Controller
                 'status' => $teacher
             ]); 
      }
+      public function get_student(Request $request){
+        $student = User::where([['usertype','=','student'],['grade','=',$request->grade]])->get();
+          return response()->json([
+                'status' => $student
+            ]); 
+     }
+       public function option(Request $request){
+        if($request->option === 'delete'){
+             User::where('id',$request->id)->delete();
+        }else{
+            User::where('id', $request->id)
+             ->update(['access' => 'approved']);
+        }
+          return response()->json([
+                'status' => 'success'
+            ]); 
+     }
 }

@@ -35,6 +35,11 @@ Route::post('/add_student','App\Http\Controllers\RegistrationController@add_stud
 Route::post('/login_user','App\Http\Controllers\RegistrationController@login_user');
 Route::post('/add_teacher','App\Http\Controllers\RegistrationController@add_teacher');
 Route::post('/get_teacher','App\Http\Controllers\RegistrationController@get_teacher');
+Route::post('/get_student','App\Http\Controllers\RegistrationController@get_student');
+Route::post('/option','App\Http\Controllers\RegistrationController@option');
+
+Route::post('/add_event','App\Http\Controllers\EventController@add_event');
+Route::post('/get_event','App\Http\Controllers\EventController@get_event');
 
 // Route::post('/register1',[RegistrationController::class, 'register1']);
 // Route::post('/register2',[RegistrationController::class, 'register2']);
