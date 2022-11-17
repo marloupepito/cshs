@@ -44,8 +44,8 @@ class CreateUsersTable extends Migration
 
          Schema::create('attendance', function (Blueprint $table) {
             $table->id();
-            $table->string('student_id')->nullable();
-            $table->string('event_id')->nullable();
+            $table->bigInteger('student_id')->nullable();
+            $table->bigInteger('event_id')->nullable();
             $table->string('ms')->nullable();
             $table->string('me')->nullable();
             $table->string('ass')->nullable();
