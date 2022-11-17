@@ -1,9 +1,11 @@
 <template>
-	<div>
-		<router-view></router-view> 
-		<BottomNavbar />
-	</div>
-</template>
+  <div>
+    <div class="center examplex mt-5 container">
+      <router-view></router-view> 
+    </div>
+      <BottomNavbar />
+  </div>
+  </template>
 
 
 

@@ -5739,6 +5739,72 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -5752,15 +5818,42 @@ __webpack_require__.r(__webpack_exports__);
     this.mount();
   },
   methods: {
-    mount: function mount() {
+    EventTimeIn: function EventTimeIn(status, id) {
       var _this = this;
+      if (status === 'co1' || status === 'co2' || status === 'co3') {
+        alert('The event is already cut off!');
+      } else if (status === 'Finish') {
+        alert('The event is already end!');
+      } else {
+        axios.post('/add_attendance', {
+          event_id: id,
+          status: status
+        }).then(function (res) {
+          _this.mount();
+          alert('check');
+        });
+      }
+    },
+    mount: function mount() {
+      var _this2 = this;
       axios.post('/get_event').then(function (res) {
-        _this.event = res.data.status;
+        _this2.event = res.data.status;
       });
       axios.get('/user').then(function (res) {
-        _this.usertype = res.data.usertype;
-        _this.user = res.data;
+        _this2.usertype = res.data.usertype;
+        _this2.user = res.data;
       });
+    },
+    setTime: function setTime(e, id) {
+      var _this3 = this;
+      axios.post('/event_set_time', {
+        status: e,
+        id: id
+      }).then(function (res) {
+        _this3.$router.push({
+          path: '/administrator/loading3'
+        });
+      })["catch"](function (err) {});
     }
   }
 });
@@ -7249,12 +7342,40 @@ __webpack_require__.r(__webpack_exports__);
         title: "History",
         path: "/student/events"
       }, {
-        id: 5,
+        id: 3,
         icon: "text-white fas fa-user-circle",
         title: "Profile",
         path: "/student/events"
       }]
     };
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/student/Loading.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/student/Loading.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  mounted: function mounted() {
+    this.$router.push({
+      path: '/student/loading'
+    });
   }
 });
 
@@ -7272,6 +7393,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _BottomNavbar_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./BottomNavbar.vue */ "./resources/js/components/student/BottomNavbar.vue");
+//
+//
 //
 //
 //
@@ -7439,7 +7562,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _admin_event_Loading_vue__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./../admin/event/Loading.vue */ "./resources/js/components/admin/event/Loading.vue");
 /* harmony import */ var _admin_Logout_vue__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./../admin/Logout.vue */ "./resources/js/components/admin/Logout.vue");
 /* harmony import */ var _student_Index_vue__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./../student/_Index.vue */ "./resources/js/components/student/_Index.vue");
-/* harmony import */ var _admin_event_Event_vue__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./../admin/event/Event.vue */ "./resources/js/components/admin/event/Event.vue");
+/* harmony import */ var _student_Loading_vue__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./../student/Loading.vue */ "./resources/js/components/student/Loading.vue");
+/* harmony import */ var _admin_event_Event_vue__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./../admin/event/Event.vue */ "./resources/js/components/admin/event/Event.vue");
+
 
 
 
@@ -7524,12 +7649,15 @@ var routes = [{
   },
   children: [{
     path: '/student',
-    component: _admin_event_Event_vue__WEBPACK_IMPORTED_MODULE_16__["default"]
+    component: _admin_event_Event_vue__WEBPACK_IMPORTED_MODULE_17__["default"]
+  }, {
+    path: '/student/loading',
+    component: _student_Loading_vue__WEBPACK_IMPORTED_MODULE_16__["default"]
   }, {
     path: '/student/events',
-    component: _admin_event_Event_vue__WEBPACK_IMPORTED_MODULE_16__["default"]
+    component: _admin_event_Event_vue__WEBPACK_IMPORTED_MODULE_17__["default"]
   }, {
-    path: '/administrator/logout',
+    path: '/student/logout',
     component: _admin_Logout_vue__WEBPACK_IMPORTED_MODULE_14__["default"]
   }]
 }];
@@ -33350,6 +33478,45 @@ component.options.__file = "resources/js/components/student/BottomNavbar.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/student/Loading.vue":
+/*!*****************************************************!*\
+  !*** ./resources/js/components/student/Loading.vue ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Loading_vue_vue_type_template_id_28732dcd___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Loading.vue?vue&type=template&id=28732dcd& */ "./resources/js/components/student/Loading.vue?vue&type=template&id=28732dcd&");
+/* harmony import */ var _Loading_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Loading.vue?vue&type=script&lang=js& */ "./resources/js/components/student/Loading.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Loading_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Loading_vue_vue_type_template_id_28732dcd___WEBPACK_IMPORTED_MODULE_0__.render,
+  _Loading_vue_vue_type_template_id_28732dcd___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/student/Loading.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/student/_Index.vue":
 /*!****************************************************!*\
   !*** ./resources/js/components/student/_Index.vue ***!
@@ -33770,6 +33937,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_BottomNavbar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./BottomNavbar.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/student/BottomNavbar.vue?vue&type=script&lang=js&");
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_BottomNavbar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/student/Loading.vue?vue&type=script&lang=js&":
+/*!******************************************************************************!*\
+  !*** ./resources/js/components/student/Loading.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Loading_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Loading.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/student/Loading.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Loading_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -34440,6 +34623,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_BottomNavbar_vue_vue_type_template_id_f516824c___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_BottomNavbar_vue_vue_type_template_id_f516824c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./BottomNavbar.vue?vue&type=template&id=f516824c& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/student/BottomNavbar.vue?vue&type=template&id=f516824c&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/student/Loading.vue?vue&type=template&id=28732dcd&":
+/*!************************************************************************************!*\
+  !*** ./resources/js/components/student/Loading.vue?vue&type=template&id=28732dcd& ***!
+  \************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Loading_vue_vue_type_template_id_28732dcd___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Loading_vue_vue_type_template_id_28732dcd___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Loading_vue_vue_type_template_id_28732dcd___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Loading.vue?vue&type=template&id=28732dcd& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/student/Loading.vue?vue&type=template&id=28732dcd&");
 
 
 /***/ }),
@@ -35607,6 +35807,76 @@ var render = function () {
                     fn: function () {
                       return [
                         _c("div", { staticClass: "row" }, [
+                          _vm.usertype === "student"
+                            ? _c(
+                                "div",
+                                { staticClass: "col-md-12 col-12" },
+                                [
+                                  _c(
+                                    "vs-button",
+                                    {
+                                      staticClass: "btn-chat",
+                                      attrs: {
+                                        size: "small",
+                                        block: "",
+                                        color:
+                                          i.status === null
+                                            ? "primary"
+                                            : i.status === "MS"
+                                            ? "success"
+                                            : i.status === "co1"
+                                            ? "warn"
+                                            : i.status === "ME"
+                                            ? "success"
+                                            : i.status === "co2"
+                                            ? "warn"
+                                            : i.status === "AS"
+                                            ? "success"
+                                            : i.status === "co3"
+                                            ? "warn"
+                                            : i.status === "AE"
+                                            ? "success"
+                                            : "danger",
+                                      },
+                                      on: {
+                                        click: function ($event) {
+                                          return _vm.EventTimeIn(i.status, i.id)
+                                        },
+                                      },
+                                    },
+                                    [
+                                      _c("span", { staticClass: "span" }, [
+                                        _vm._v(
+                                          "\n\t\t\t\t\t          \t" +
+                                            _vm._s(
+                                              i.status === null
+                                                ? "The Event is not already starting!"
+                                                : i.status === "MS"
+                                                ? "Morning In"
+                                                : i.status === "co1"
+                                                ? "Cut Off"
+                                                : i.status === "ME"
+                                                ? "Morning Out"
+                                                : i.status === "co2"
+                                                ? "Cut Off"
+                                                : i.status === "AS"
+                                                ? "Afternoon In"
+                                                : i.status === "co3"
+                                                ? "Cut Off"
+                                                : i.status === "AE"
+                                                ? "Afternoon Out"
+                                                : "Event Ended!"
+                                            ) +
+                                            "\n\t\t\t\t\t        "
+                                        ),
+                                      ]),
+                                    ]
+                                  ),
+                                ],
+                                1
+                              )
+                            : _vm._e(),
+                          _vm._v(" "),
                           _vm.usertype === "admin"
                             ? _c(
                                 "div",
@@ -35617,9 +35887,16 @@ var render = function () {
                                     {
                                       staticClass: "btn-chat",
                                       attrs: {
+                                        disabled:
+                                          i.status === null ? false : true,
                                         size: "small",
                                         block: "",
                                         color: "success",
+                                      },
+                                      on: {
+                                        click: function ($event) {
+                                          return _vm.setTime("MS", i.id)
+                                        },
                                       },
                                     },
                                     [
@@ -35645,9 +35922,51 @@ var render = function () {
                                     {
                                       staticClass: "btn-chat",
                                       attrs: {
+                                        disabled:
+                                          i.status === "MS" ? false : true,
                                         size: "small",
                                         block: "",
-                                        color: "warning",
+                                        color: "warn",
+                                      },
+                                      on: {
+                                        click: function ($event) {
+                                          return _vm.setTime("co1", i.id)
+                                        },
+                                      },
+                                    },
+                                    [
+                                      _c("span", { staticClass: "span" }, [
+                                        _vm._v(
+                                          "\n\t\t\t\t\t          \tCut Off\n\t\t\t\t\t        "
+                                        ),
+                                      ]),
+                                    ]
+                                  ),
+                                ],
+                                1
+                              )
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.usertype === "admin"
+                            ? _c(
+                                "div",
+                                { staticClass: "col-md-6 col-6" },
+                                [
+                                  _c(
+                                    "vs-button",
+                                    {
+                                      staticClass: "btn-chat",
+                                      attrs: {
+                                        disabled:
+                                          i.status === "co1" ? false : true,
+                                        size: "small",
+                                        block: "",
+                                        color: "primary",
+                                      },
+                                      on: {
+                                        click: function ($event) {
+                                          return _vm.setTime("ME", i.id)
+                                        },
                                       },
                                     },
                                     [
@@ -35673,9 +35992,51 @@ var render = function () {
                                     {
                                       staticClass: "btn-chat",
                                       attrs: {
+                                        disabled:
+                                          i.status === "ME" ? false : true,
+                                        size: "small",
+                                        block: "",
+                                        color: "warn",
+                                      },
+                                      on: {
+                                        click: function ($event) {
+                                          return _vm.setTime("co2", i.id)
+                                        },
+                                      },
+                                    },
+                                    [
+                                      _c("span", { staticClass: "span" }, [
+                                        _vm._v(
+                                          "\n\t\t\t\t\t          \tCut Off\n\t\t\t\t\t        "
+                                        ),
+                                      ]),
+                                    ]
+                                  ),
+                                ],
+                                1
+                              )
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.usertype === "admin"
+                            ? _c(
+                                "div",
+                                { staticClass: "col-md-6 col-6" },
+                                [
+                                  _c(
+                                    "vs-button",
+                                    {
+                                      staticClass: "btn-chat",
+                                      attrs: {
+                                        disabled:
+                                          i.status === "co2" ? false : true,
                                         size: "small",
                                         block: "",
                                         color: "success",
+                                      },
+                                      on: {
+                                        click: function ($event) {
+                                          return _vm.setTime("AS", i.id)
+                                        },
                                       },
                                     },
                                     [
@@ -35701,15 +36062,92 @@ var render = function () {
                                     {
                                       staticClass: "btn-chat",
                                       attrs: {
+                                        disabled:
+                                          i.status === "AS" ? false : true,
+                                        size: "small",
+                                        block: "",
+                                        color: "warn",
+                                      },
+                                      on: {
+                                        click: function ($event) {
+                                          return _vm.setTime("co3", i.id)
+                                        },
+                                      },
+                                    },
+                                    [
+                                      _c("span", { staticClass: "span" }, [
+                                        _vm._v(
+                                          "\n\t\t\t\t\t          \tCut Off\n\t\t\t\t\t        "
+                                        ),
+                                      ]),
+                                    ]
+                                  ),
+                                ],
+                                1
+                              )
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.usertype === "admin"
+                            ? _c(
+                                "div",
+                                { staticClass: "col-md-6 col-6" },
+                                [
+                                  _c(
+                                    "vs-button",
+                                    {
+                                      staticClass: "btn-chat",
+                                      attrs: {
+                                        disabled:
+                                          i.status === "co3" ? false : true,
                                         size: "small",
                                         block: "",
                                         color: "warning",
+                                      },
+                                      on: {
+                                        click: function ($event) {
+                                          return _vm.setTime("AE", i.id)
+                                        },
                                       },
                                     },
                                     [
                                       _c("span", { staticClass: "span" }, [
                                         _vm._v(
                                           "\n\t\t\t\t\t          \tAfternoon End\n\t\t\t\t\t        "
+                                        ),
+                                      ]),
+                                    ]
+                                  ),
+                                ],
+                                1
+                              )
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.usertype === "admin"
+                            ? _c(
+                                "div",
+                                { staticClass: "col-md-6 col-6" },
+                                [
+                                  _c(
+                                    "vs-button",
+                                    {
+                                      staticClass: "btn-chat",
+                                      attrs: {
+                                        disabled:
+                                          i.status === "AE" ? false : true,
+                                        size: "small",
+                                        block: "",
+                                        color: "warn",
+                                      },
+                                      on: {
+                                        click: function ($event) {
+                                          return _vm.setTime("Finish", i.id)
+                                        },
+                                      },
+                                    },
+                                    [
+                                      _c("span", { staticClass: "span" }, [
+                                        _vm._v(
+                                          "\n\t\t\t\t\t          \tCut Off\n\t\t\t\t\t        "
                                         ),
                                       ]),
                                     ]
@@ -38743,6 +39181,31 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/student/Loading.vue?vue&type=template&id=28732dcd&":
+/*!***************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/student/Loading.vue?vue&type=template&id=28732dcd& ***!
+  \***************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [_vm._v("\n\tLoading...\n")])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/student/_Index.vue?vue&type=template&id=1e986592&":
 /*!**************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/student/_Index.vue?vue&type=template&id=1e986592& ***!
@@ -38759,7 +39222,20 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_c("router-view"), _vm._v(" "), _c("BottomNavbar")], 1)
+  return _c(
+    "div",
+    [
+      _c(
+        "div",
+        { staticClass: "center examplex mt-5 container" },
+        [_c("router-view")],
+        1
+      ),
+      _vm._v(" "),
+      _c("BottomNavbar"),
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true

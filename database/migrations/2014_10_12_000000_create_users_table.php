@@ -41,6 +41,18 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
+
+         Schema::create('attendance', function (Blueprint $table) {
+            $table->id();
+            $table->string('student_id')->nullable();
+            $table->string('event_id')->nullable();
+            $table->string('ms')->nullable();
+            $table->string('me')->nullable();
+            $table->string('ass')->nullable();
+            $table->string('ae')->nullable();
+            $table->rememberToken();
+            $table->timestamps();
+        });
     }
 
     /**

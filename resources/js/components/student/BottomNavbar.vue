@@ -28,11 +28,12 @@
           path:"/student/events"
         },
         { 
-          id: 5, 
+          id: 3, 
           icon: "text-white fas fa-user-circle", 
           title: "Profile",
           path:"/student/events"
         },
+     
       ],
     }),
   };

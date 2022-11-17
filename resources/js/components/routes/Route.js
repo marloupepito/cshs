@@ -17,6 +17,7 @@ import Loading3 from './../admin/event/Loading.vue'
 import Logout from './../admin/Logout.vue'
 
 import Student from './../student/_Index.vue'
+import Loading4 from './../student/Loading.vue'
 import EventPost from './../admin/event/Event.vue'
 const routes = [
   { path: '/', component: TopNavbar,
@@ -64,8 +65,9 @@ const routes = [
         },
         children:[
         { path:'/student', component:EventPost},
+         { path:'/student/loading', component:Loading4},
           { path:'/student/events', component:EventPost},
-          { path:'/administrator/logout', component:Logout},
+          { path:'/student/logout', component:Logout},
 
         ]
     },

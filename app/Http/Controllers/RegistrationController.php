@@ -20,6 +20,7 @@ class RegistrationController extends Controller
         ]);
 
         if(Auth::attempt($request->only('username','password'))){
+            $request->session()->put('id', Auth::user()->id);
             return response()->json([
                 'status' => Auth::user(),
                 'status2' => 'success'

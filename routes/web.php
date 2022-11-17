@@ -40,7 +40,9 @@ Route::post('/option','App\Http\Controllers\RegistrationController@option');
 
 Route::post('/add_event','App\Http\Controllers\EventController@add_event');
 Route::post('/get_event','App\Http\Controllers\EventController@get_event');
+Route::post('/event_set_time','App\Http\Controllers\EventController@event_set_time');
 
+Route::post('/add_attendance','App\Http\Controllers\AttendanceController@add_attendance');
 // Route::post('/register1',[RegistrationController::class, 'register1']);
 // Route::post('/register2',[RegistrationController::class, 'register2']);
 // Route::post('/add_student',[RegistrationController::class, 'add_student']);
