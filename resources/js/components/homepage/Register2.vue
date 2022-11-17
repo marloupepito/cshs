@@ -74,7 +74,7 @@ export default{
 			fd.append("profile", this.profile);
 			axios.post('/add_student',fd)
 			.then(res=>{
-				 this.$router.push({path:'/administrator'})
+				 this.$router.push({path:'/login'})
 			})
 			.catch(err=>{
 				this.error =err.response.data.errors

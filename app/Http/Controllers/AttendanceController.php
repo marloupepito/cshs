@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Attendance;
+use Illuminate\Support\Facades\DB;
 class AttendanceController extends Controller
 {
     public function add_attendance(Request $request){
@@ -63,8 +64,17 @@ class AttendanceController extends Controller
                   ->update(['ae' => 'check']);
                 }
             }
-
-
                
     }
+      
+      public function get_attendance(Request $request){
+       $attendance = DB::table('attendance')
+       ->join('users', 'attendance.student_id', '=', 'users.id')
+       ->get();
+        return response()->json([
+            'status' => $attendance
+        ]);
+      }
+
+    
 }

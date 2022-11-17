@@ -1,7 +1,7 @@
 <template>
   
   <CurvedBottomNavigation
-  class="botNavbar text-white"
+  class="botNavbar"
    foreground-color='white'
   badge-color='#FBC02D'
   background-color='rgb(64, 191, 128)'
@@ -37,7 +37,20 @@
           id: 4, 
           icon: "text-white fas fa-users", 
           title: "Students",
-          path:"/administrator",
+          childs:[
+            {
+              id: 7, 
+              icon: "text-white fas fa-users", 
+              title: "Grade11",
+              path:"/administrator/grade/11",
+            },
+             {
+              id: 6, 
+              icon: "text-white fas fa-users", 
+              title: "Grade12",
+              path:"/administrator/grade/12",
+            }
+          ],
         },
         { 
           id: 5, 
