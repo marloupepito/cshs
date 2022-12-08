@@ -1,6 +1,6 @@
 
 <template>
-    <div class="center">
+    <div class="center m-3">
       <vs-table
         v-model="selected"
         >
@@ -10,17 +10,26 @@
         <template #thead>
           <vs-tr>
         
-            <vs-th class="w-25" sort @click="events = $vs.sortData($event ,events, 'idnumber')">
-             WHAT
+            <vs-th class="w-25" sort >
+              What
             </vs-th>
-            <vs-th class="w-25" sort @click="events = $vs.sortData($event ,events, 'grade')">
-              WHEN
+            <vs-th class="w-25" sort >
+              When
             </vs-th>
-            <vs-th class="w-25" sort @click="events = $vs.sortData($event ,events, 'section')">
-              WHERE
+             <vs-th class="w-25" sort>
+              Where
             </vs-th>
-            <vs-th class="w-25" sort @click="events = $vs.sortData($event ,events, 'Gender')">
-              <center>ATTENDANCE</center>
+            <vs-th class="w-25" sort>
+              Morning Start
+            </vs-th>
+            <vs-th class="w-25" sort>
+              Morning End
+            </vs-th>
+            <vs-th class="w-25" sort>
+              Afternoon Start
+            </vs-th>
+            <vs-th class="w-25" sort>
+              Afternoon End
             </vs-th>
           </vs-tr>
         </template>
@@ -43,10 +52,17 @@
              <vs-td>
             {{ tr.where }}
             </vs-td>
-               <vs-td>
-                 <vs-button color="rgb(64, 191, 128)" @click="checkAttendance(tr.id)" class="btn-chat" block size="small" >
-                  CHECK ATTENDANCE
-                  </vs-button>
+              <vs-td>
+            {{ tr.ms }}
+            </vs-td>
+              <vs-td>
+            {{ tr.me }}
+            </vs-td>
+              <vs-td>
+            {{ tr.ass }}
+            </vs-td>
+              <vs-td>
+            {{ tr.ae }}
             </vs-td>
           </vs-tr>
         </template>
@@ -65,11 +81,8 @@ import axios from 'axios'
         this.mount();
         },
       methods:{
-        checkAttendance(id){
-          this.$router.push({path:'/administrator/check_attendance?'+id})
-          },
         mount(){
-         axios.post('/get_event')
+         axios.post('/get_student_attendance')
           .then(res =>{
             this.events =res.data.status
             console.log(res.data.status)

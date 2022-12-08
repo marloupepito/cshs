@@ -33,6 +33,9 @@
         body{
             background-color: white;
         }
+        input.vs-input{
+            width: 100%;
+        }
   </style>
     </head>
     <body>

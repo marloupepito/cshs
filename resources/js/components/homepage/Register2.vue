@@ -74,9 +74,21 @@ export default{
 			fd.append("profile", this.profile);
 			axios.post('/add_student',fd)
 			.then(res=>{
+				this.$swal({
+				  icon: 'success',
+				  title: 'Your work has been saved',
+				  showConfirmButton: false,
+				  timer: 1500
+				})
 				 this.$router.push({path:'/login'})
 			})
 			.catch(err=>{
+				this.$swal({
+				  icon: 'error',
+				  title: 'Error Registration!',
+				  showConfirmButton: false,
+				  timer: 1500
+				})
 				this.error =err.response.data.errors
 				})
 		},

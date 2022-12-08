@@ -122,6 +122,7 @@ import axios from 'axios'
           this.reload()
         },
         methods:{
+          
         	func(e,id){
         			axios.post('/option',{
         				option:e,
@@ -129,6 +130,12 @@ import axios from 'axios'
         				})
         			.then(res=>{
         				this.reload()
+                this.$swal({
+                  icon: 'success',
+                  title: 'Student approved!',
+                  showConfirmButton: false,
+                  timer: 1500
+                })
         			})
         			.catch(err=>{
 
@@ -140,7 +147,7 @@ import axios from 'axios'
               	})
               .then(res=>{
                   this.users= res.data.status
-              
+                console.log(res.data.status)
                 })
               .catch(err=>{
 

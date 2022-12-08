@@ -37,8 +37,23 @@
 
 		    <div class="row">
 
+						    <div  v-if="usertype !== 'student'" class="col-md-12 col-12">
+			    	 	  	  <vs-button @click="getQR(i.qr)" class="btn-chat" block size="small" color="blue">
+						        <span class="span">
+						          	QRCODE
+						        </span>
+						      </vs-button>
+			    	</div>
 
+			    		    <div  v-if="usertype !== 'student'" class="col-md-12 col-12">
+			    	 	  	  <vs-button @click="gotoAttendance($router.push({path:'/teacher/check_attendance?'+i.id}))" class="btn-chat" block size="small" color="warn">
+						        <span class="span">
+						          	SHOW ATTENDANCE
+						        </span>
+						      </vs-button>
+			    	</div>
 			    	<div  v-if="usertype === 'student'" class="col-md-12 col-12">
+			    		<vs-button class="d-none"></vs-button>
 			    	  		<vs-button class="btn-chat" @click="EventTimeIn(i.status,i.id)" size="small" block 
 			    	  		:color="i.status === null?'primary':
 			    	  		i.status === 'MS'?'success':
@@ -132,12 +147,14 @@
 			    	</div>
 
 			    	<div  v-if="usertype === 'admin'" class="col-md-12 col-12">
-			    	 	  	  <vs-button class="btn-chat" block size="small" color="danger">
+			    	 	  	  <vs-button @click="deleteEvent(i.id)" class="btn-chat" block size="small" color="danger">
 						        <span class="span">
 						          	Delete
 						        </span>
 						      </vs-button>
 			    	</div>
+
+			    	
 
 		    	</div>
 		  
@@ -159,20 +176,84 @@ export default {
       	this.mount()
       	},
       methods:{
+      	deleteEvent(id){
+      		this.$swal({
+					  title: 'Are you sure?',
+					  text: "You won't be able to revert this!",
+					  icon: 'warning',
+					  showCancelButton: true,
+					  confirmButtonColor: '#3085d6',
+					  cancelButtonColor: '#d33',
+					  confirmButtonText: 'Yes, delete it!'
+					}).then((result) => {
+					  if (result.isConfirmed) {
+					    axios.post('/delete_event',{
+		      			id:id
+		      			})
+		      		.then(res=>{
+		      			this.$router.push({path:'/administrator/loading3'})
+		      			this.$swal({
+												  icon: 'success',
+												  title: 'Event has been deleted!',
+												  showConfirmButton: false,
+												  timer: 1500
+												})
+		      			})
+					  }
+					})
+      		
+      		},
+      	 getQR(e){
+            this.$swal({
+              showConfirmButton: false,
+              showCloseButton: true,
+              imageUrl: "http://api.qrserver.com/v1/create-qr-code/?data=" + e,
+              imageAlt: 'QR CODE'
+              })
+          },
       	EventTimeIn(status,id){
       		if(status === 'co1' || status === 'co2' || status === 'co3'){
-      			alert('The event is already cut off!');
+	      			this.$swal({
+							  icon: 'error',
+							  title: 'The event is already cut off!',
+							  showConfirmButton: false,
+							  timer: 1500
+							})
       		}else if(status === 'Finish'){
-      			alert('The event is already end!');
-      		}else{
-  				axios.post('/add_attendance',{
-  				event_id:id,
-  				status:status
-  				})
-      			.then(res=>{
-      				this.mount();
-      				alert('check')
-      			})
+	      			this.$swal({
+							  icon: 'error',
+							  title: 'The event is already end!',
+							  showConfirmButton: false,
+							  timer: 1500
+							})
+      		}else if(status === null){
+      			this.$swal({
+							  icon: 'error',
+							  title: 'The event not is already starting!',
+							  showConfirmButton: false,
+							  timer: 1500
+							})
+      			}else{
+      				axios.post('/get_event',{
+      					verify:'verify',
+      					id:id,
+      					status:status
+      					})
+		      		.then(res =>{
+		      		if(res.data.status === 'continue'){
+		      				this.$router.push({path:'/student/scanner?'+id})
+		      				}else{
+		      							this.$swal({
+												  icon: 'warning',
+												  title: 'Attendance is already checked!',
+												  showConfirmButton: false,
+												  timer: 1500
+												})
+
+		      				}
+		      		})
+		      		
+  						
       		}
       	},
       	 mount(){
@@ -192,6 +273,12 @@ export default {
       			id:id
       			})
       		.then(res=>{
+      				this.$swal({
+				  icon: 'success',
+				  title: 'save!',
+				  showConfirmButton: false,
+				  timer: 1500
+				})
       			this.$router.push({path:'/administrator/loading3'})
       		})
       		.catch(err=>{

@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Attendance;
 use Illuminate\Support\Facades\DB;
-class AttendanceController extends Controller
+class AttendancesController extends Controller
 {
-    public function add_attendance(Request $request){
+     public function add_attendance(Request $request){
 
         $request->validate([
             'event_id'=>['required'],
@@ -76,5 +76,14 @@ class AttendanceController extends Controller
         ]);
       }
 
-    
+         public function get_all_attendance(Request $request){
+           $attendance = DB::table('attendance')
+           ->where('event_id','=',$request->id)
+           ->join('users', 'attendance.student_id', '=', 'users.id')
+       ->get();
+        return response()->json([
+            'status' => $attendance
+        ]);
+      }
+
 }

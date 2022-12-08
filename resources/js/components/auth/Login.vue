@@ -13,7 +13,7 @@
 	            		 <h4 class="not-margin mt-5">
 			                    Welcome to <b>Attendance Monitoring</b>
 			                  </h4>
-			                  <form  @submit="loginUser">
+			                <form  @submit="loginUser">
 
 			                <div class="con-form row">
 			                	<div class="col-md-12">

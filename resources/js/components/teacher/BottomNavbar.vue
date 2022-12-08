@@ -19,37 +19,45 @@
           id: 1,
           icon: "text-white fas fa-home",
           title: "Events",
-          path:"/student"
+          path:"/teacher",
         },
         { 
           id: 2, 
-          icon: "text-white fas fa-clock", 
-          title: "History",
-          path:"/student/history"
+          icon: "text-white fas fa-users", 
+          title: "Grade 11",
+          path:"/teacher/loading?11"
         },
         { 
           id: 3, 
-          icon: "text-white fas fa-user-circle", 
-          title: "Profile",
-          path:"/student/profile"
+          icon: "text-white fas fa-users", 
+          title: "Grade 12",
+          path:"/teacher/loading?12"
         },
-        { 
+         { 
           icon: "text-white fas fa-sign-out-alt", 
-          title: "Logout",
-          path:"/student/logout"
+          title: "Grade 12",
+          path:"/teacher/logout",
         },
      
       ],
     }),
+    methods:{
+      logoutClick(){
+        alert('ss')
+      }
+      },
     mounted(){
-       const grade = window.location.pathname.split('/')[2]
-      if(grade === 'history'){
+     const grade = window.location.pathname.split('/')[3]
+      if(grade === '11'){
         this.selected = 2
-      }else if(grade === 'profile'){
+      }else if(grade === '12'){
         this.selected = 3
       }else{
         this.selected = 1
       }
+      },
+    methods:{
+
     }
   };
 </script>

@@ -13,6 +13,7 @@ class Event extends Model
         'what',
         'when',
         'where',
-        'status'
+        'status',
+        'qr'
      ];
 }

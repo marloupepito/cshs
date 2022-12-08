@@ -1,11 +1,11 @@
 <template>
   
-  <CurvedBottomNavigation
-  class="botNavbar"
-   foreground-color='white'
+ <RingBottomNavigation
+   background-color='rgb(64, 191, 128)'
+  border-color='#4F7A28'
+  title-color='rgb(10, 10, 10)'
   badge-color='#FBC02D'
-  background-color='rgb(64, 191, 128)'
-  icon-color='dark'
+  icon-color='#669C35'
    :options="options" v-model="selected" />
 </template>
 
@@ -17,8 +17,8 @@
       options: [
         {
           id: 1,
-          icon: "text-white fas fa-home",
-          title: "Home",
+          icon: "text-white fas fa-list",
+          title: "Event",
           path:"/administrator"
         },
         { 
@@ -33,27 +33,19 @@
           title: "Teachers",
           path:"/administrator/teachers"
         },
-        { 
-          id: 4, 
-          icon: "text-white fas fa-users", 
-          title: "Students",
-          childs:[
-            {
-              id: 7, 
+        {
+              id: 4, 
               icon: "text-white fas fa-users", 
               title: "Grade11",
-              path:"/administrator/grade/11",
+              path:"/administrator/loading2?11",
             },
              {
-              id: 6, 
+              id: 5, 
               icon: "text-white fas fa-users", 
               title: "Grade12",
-              path:"/administrator/grade/12",
-            }
-          ],
-        },
+              path:"/administrator/loading2?12",
+            },
         { 
-          id: 5, 
           icon: "text-white fas fa-sign-out-alt", 
           title: "Logout",
           path:"/administrator/logout"

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="center examplex container p-0">
+    <div class="center examplex mt-5 container">
       <router-view></router-view> 
     </div>
       <BottomNavbar />
@@ -22,7 +22,7 @@ import BottomNavbar from './BottomNavbar.vue'
     mounted(){
       axios.get('/user')
       .then(res=>{
-        if(res.data.usertype === 'student'){
+        if(res.data.usertype === 'teacher'){
 
         }else{
           axios.post('/logout')

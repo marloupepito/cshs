@@ -14,9 +14,9 @@
         </template>
         <vs-sidebar-item to="/administrator"  color='black' id="administrator">
           <template #icon>
-            <i class='bx bx-home'></i>
+            <i class='bx bx-list-ol'></i>
           </template>
-          Home
+          Event List
         </vs-sidebar-item>
         <vs-sidebar-item to="/administrator/events"  color='black' id="events">
           <template #icon>

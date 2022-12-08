@@ -145,12 +145,23 @@ import axios from 'axios'
 			axios.post('/add_teacher',fd)
 			.then(res=>{
 				this.active=false
-
+					this.$swal({
+				  icon: 'success',
+				  title: 'Saved!',
+				  showConfirmButton: false,
+				  timer: 1500
+				})
 					this.loading=false
 				 this.$router.push({path:'/administrator/loading'})
 
 			})
 			.catch(err=>{
+					this.$swal({
+				  icon: 'error',
+				  title: 'error!',
+				  showConfirmButton: false,
+				  timer: 1500
+				})
 				this.error =err.response.data.errors
 				this.loading=false
 				})

@@ -38,6 +38,7 @@ class CreateUsersTable extends Migration
             $table->string('when')->nullable();
             $table->string('where')->nullable();
             $table->string('status')->nullable();
+            $table->string('qr')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

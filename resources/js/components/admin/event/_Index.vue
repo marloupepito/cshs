@@ -49,6 +49,12 @@ import Event from './Event.vue'
 	        		this.where=''
 	      			this.loading=false
 	      			this.$router.push({path:'/administrator/loading3'})
+	      					this.$swal({
+							  icon: 'success',
+							  title: 'Event Added',
+							  showConfirmButton: false,
+							  timer: 1500
+							})
 	      		})
 	      		.catch(err=>{
 	      			this.loading=false

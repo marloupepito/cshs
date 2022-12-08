@@ -8,19 +8,24 @@ require('./bootstrap');
 
 import VueRouter from 'vue-router'
 import routes from './components/routes/Route'
-
+import VueSweetalert2 from 'vue-sweetalert2'
 window.Vue = require('vue').default;
   import Vue from 'vue'
   import Vuesax from 'vuesax'
   import 'vuesax/dist/vuesax.css'
     import 'boxicons/css/boxicons.min.css' 
   import bottomNavigationVue from "bottom-navigation-vue";
-
+import 'sweetalert2/dist/sweetalert2.min.css'
+import VueQrcodeReader from "vue-qrcode-reader";
+Vue.use(VueQrcodeReader)
 Vue.use(bottomNavigationVue);
   Vue.use(Vuesax, {
     // options here
   })
+
   Vue.use(VueRouter);
+  Vue.use(VueSweetalert2);
+  
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
