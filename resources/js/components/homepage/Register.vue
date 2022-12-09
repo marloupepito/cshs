@@ -102,12 +102,14 @@
 								      </template>
 				                	</vs-input>
 				                </div>
-				                <div  class="col-md-6 col-12">
-				                	 <vs-input type="text" class="mb-3 " v-model="gender" block  placeholder="Gender" >
-				                	  <template v-if="error2.gender !== undefined" #message-danger>
-								          Required
-								      </template>
-				                	</vs-input>
+				                <div  class="col-md-6 col-12 row">
+
+				                <vs-radio class="col-md-6 col-6" v-model="gender" val="Male">
+							         Male
+							        </vs-radio>
+							        <vs-radio class="col-md-6 col-6" v-model="gender" val="Female">
+							          Female
+							        </vs-radio>
 				                </div>
 				                <div  class="col-md-12 col-12 mt-5 mb-3">
 				                	 <vs-button @click="registerNext" block color="rgb(64, 191, 128)">

@@ -30,6 +30,9 @@
               Grade
             </vs-th>
             <vs-th sort @click="users = $vs.sortData($event ,users, 'section')">
+              Approve
+            </vs-th>
+            <vs-th sort @click="users = $vs.sortData($event ,users, 'section')">
               Option
             </vs-th>
           </vs-tr>
@@ -102,6 +105,9 @@
                 </div>
               </div>
             </template>
+             <vs-td>
+            <Option :data="tr"/>
+            </vs-td>
           </vs-tr>
         </template>
         <template #footer>
@@ -115,8 +121,13 @@
 <script>
 
 import Modal from './Modal.vue'
+import Option from './Option.vue'
 import axios from 'axios'
     export default {
+      components:{
+        Option,
+        Modal
+        },
       mounted(){
       	  this.grade = window.location.pathname.split('/')[3]
           this.reload()
@@ -154,9 +165,6 @@ import axios from 'axios'
                 })
             }
           },
-      components:{
-        Modal
-        },
       data:() => ({
       	grade:'',
         editActive: false,

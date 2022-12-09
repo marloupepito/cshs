@@ -5465,7 +5465,7 @@ __webpack_require__.r(__webpack_exports__);
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete it!'
+      confirmButtonText: 'Yes!'
     }).then(function (result) {
       if (result.isConfirmed) {
         _this.$swal({
@@ -6570,6 +6570,198 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/admin/student/Option.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/admin/student/Option.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ['data'],
+  data: function data() {
+    return {
+      value: '',
+      active: false,
+      error: [],
+      loading: false,
+      data2: [],
+      grade: ''
+    };
+  },
+  mounted: function mounted() {
+    this.grade = window.location.pathname.split('/')[3];
+  },
+  methods: {
+    clickMe: function clickMe() {
+      this.$router.push({
+        path: '/administrator/loading2?' + this.grade
+      });
+    },
+    clickOption: function clickOption(e) {
+      var _this = this;
+      if (e === 'edit') {
+        this.data2 = this.data;
+        this.active = true;
+        this.value = '';
+      } else {
+        this.$swal({
+          title: 'Are you sure?',
+          text: "You won't be able to revert this!",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Yes, delete it!'
+        }).then(function (result) {
+          if (result.isConfirmed) {
+            _this.$swal({
+              icon: 'success',
+              title: 'Your work has been saved',
+              showConfirmButton: false,
+              timer: 1500
+            });
+          }
+        });
+      }
+    },
+    submit: function submit() {
+      console.log(this.data2.name);
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/admin/student/Table.vue?vue&type=script&lang=js&":
 /*!**************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/admin/student/Table.vue?vue&type=script&lang=js& ***!
@@ -6582,8 +6774,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _Modal_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Modal.vue */ "./resources/js/components/admin/student/Modal.vue");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _Option_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Option.vue */ "./resources/js/components/admin/student/Option.vue");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
 //
 //
 //
@@ -6698,10 +6891,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+
 
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  components: {
+    Option: _Option_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+    Modal: _Modal_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
   mounted: function mounted() {
     this.grade = window.location.pathname.split('/')[3];
     this.reload();
@@ -6709,7 +6913,7 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     func: function func(e, id) {
       var _this = this;
-      axios__WEBPACK_IMPORTED_MODULE_1___default().post('/option', {
+      axios__WEBPACK_IMPORTED_MODULE_2___default().post('/option', {
         option: e,
         id: id
       }).then(function (res) {
@@ -6724,16 +6928,13 @@ __webpack_require__.r(__webpack_exports__);
     },
     reload: function reload() {
       var _this2 = this;
-      axios__WEBPACK_IMPORTED_MODULE_1___default().post('/get_student', {
+      axios__WEBPACK_IMPORTED_MODULE_2___default().post('/get_student', {
         grade: 'Grade ' + this.grade
       }).then(function (res) {
         _this2.users = res.data.status;
         console.log(res.data.status);
       })["catch"](function (err) {});
     }
-  },
-  components: {
-    Modal: _Modal_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   data: function data() {
     return {
@@ -6981,6 +7182,193 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/admin/teacher/Option.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/admin/teacher/Option.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ['data'],
+  data: function data() {
+    return {
+      value: '',
+      active: false,
+      error: [],
+      loading: false,
+      data2: []
+    };
+  },
+  mounted: function mounted() {},
+  methods: {
+    clickMe: function clickMe() {
+      this.$router.push({
+        path: '/administrator/loading'
+      });
+    },
+    clickOption: function clickOption(e) {
+      var _this = this;
+      if (e === 'edit') {
+        this.data2 = this.data;
+        this.active = true;
+        this.value = '';
+      } else {
+        this.$swal({
+          title: 'Are you sure?',
+          text: "You won't be able to revert this!",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Yes, delete it!'
+        }).then(function (result) {
+          if (result.isConfirmed) {
+            _this.$swal({
+              icon: 'success',
+              title: 'Your work has been saved',
+              showConfirmButton: false,
+              timer: 1500
+            });
+          }
+        });
+      }
+    },
+    submit: function submit() {
+      console.log(this.data2.name);
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/admin/teacher/Table.vue?vue&type=script&lang=js&":
 /*!**************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/admin/teacher/Table.vue?vue&type=script&lang=js& ***!
@@ -6992,9 +7380,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _Modal_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Modal.vue */ "./resources/js/components/admin/teacher/Modal.vue");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _Option_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Option.vue */ "./resources/js/components/admin/teacher/Option.vue");
+/* harmony import */ var _Modal_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Modal.vue */ "./resources/js/components/admin/teacher/Modal.vue");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
 //
 //
 //
@@ -7104,6 +7493,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 
@@ -7114,13 +7512,14 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     reload: function reload() {
       var _this = this;
-      axios__WEBPACK_IMPORTED_MODULE_1___default().post('/get_teacher').then(function (res) {
+      axios__WEBPACK_IMPORTED_MODULE_2___default().post('/get_teacher').then(function (res) {
         _this.users = res.data.status;
       })["catch"](function (err) {});
     }
   },
   components: {
-    Modal: _Modal_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+    Modal: _Modal_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+    Option: _Option_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   data: function data() {
     return {
@@ -7554,6 +7953,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
 //
 //
 //
@@ -34187,6 +34588,45 @@ component.options.__file = "resources/js/components/admin/student/Modal.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/admin/student/Option.vue":
+/*!**********************************************************!*\
+  !*** ./resources/js/components/admin/student/Option.vue ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Option_vue_vue_type_template_id_6c2dd1f4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Option.vue?vue&type=template&id=6c2dd1f4& */ "./resources/js/components/admin/student/Option.vue?vue&type=template&id=6c2dd1f4&");
+/* harmony import */ var _Option_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Option.vue?vue&type=script&lang=js& */ "./resources/js/components/admin/student/Option.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Option_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Option_vue_vue_type_template_id_6c2dd1f4___WEBPACK_IMPORTED_MODULE_0__.render,
+  _Option_vue_vue_type_template_id_6c2dd1f4___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/admin/student/Option.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/admin/student/Table.vue":
 /*!*********************************************************!*\
   !*** ./resources/js/components/admin/student/Table.vue ***!
@@ -34300,6 +34740,45 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
 /* hot reload */
 if (false) { var api; }
 component.options.__file = "resources/js/components/admin/teacher/Modal.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/teacher/Option.vue":
+/*!**********************************************************!*\
+  !*** ./resources/js/components/admin/teacher/Option.vue ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Option_vue_vue_type_template_id_9db46c26___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Option.vue?vue&type=template&id=9db46c26& */ "./resources/js/components/admin/teacher/Option.vue?vue&type=template&id=9db46c26&");
+/* harmony import */ var _Option_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Option.vue?vue&type=script&lang=js& */ "./resources/js/components/admin/teacher/Option.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Option_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Option_vue_vue_type_template_id_9db46c26___WEBPACK_IMPORTED_MODULE_0__.render,
+  _Option_vue_vue_type_template_id_9db46c26___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/admin/teacher/Option.vue"
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
 
 /***/ }),
@@ -35209,6 +35688,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/admin/student/Option.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/components/admin/student/Option.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Option_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Option.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/admin/student/Option.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Option_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/components/admin/student/Table.vue?vue&type=script&lang=js&":
 /*!**********************************************************************************!*\
   !*** ./resources/js/components/admin/student/Table.vue?vue&type=script&lang=js& ***!
@@ -35254,6 +35749,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Modal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Modal.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/admin/teacher/Modal.vue?vue&type=script&lang=js&");
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Modal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/teacher/Option.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/components/admin/teacher/Option.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Option_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Option.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/admin/teacher/Option.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Option_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -36027,6 +36538,23 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/admin/student/Option.vue?vue&type=template&id=6c2dd1f4&":
+/*!*****************************************************************************************!*\
+  !*** ./resources/js/components/admin/student/Option.vue?vue&type=template&id=6c2dd1f4& ***!
+  \*****************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Option_vue_vue_type_template_id_6c2dd1f4___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Option_vue_vue_type_template_id_6c2dd1f4___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Option_vue_vue_type_template_id_6c2dd1f4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Option.vue?vue&type=template&id=6c2dd1f4& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/admin/student/Option.vue?vue&type=template&id=6c2dd1f4&");
+
+
+/***/ }),
+
 /***/ "./resources/js/components/admin/student/Table.vue?vue&type=template&id=daf795c2&":
 /*!****************************************************************************************!*\
   !*** ./resources/js/components/admin/student/Table.vue?vue&type=template&id=daf795c2& ***!
@@ -36074,6 +36602,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Modal_vue_vue_type_template_id_18fc1165___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Modal_vue_vue_type_template_id_18fc1165___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Modal.vue?vue&type=template&id=18fc1165& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/admin/teacher/Modal.vue?vue&type=template&id=18fc1165&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/teacher/Option.vue?vue&type=template&id=9db46c26&":
+/*!*****************************************************************************************!*\
+  !*** ./resources/js/components/admin/teacher/Option.vue?vue&type=template&id=9db46c26& ***!
+  \*****************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Option_vue_vue_type_template_id_9db46c26___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Option_vue_vue_type_template_id_9db46c26___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Option_vue_vue_type_template_id_9db46c26___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Option.vue?vue&type=template&id=9db46c26& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/admin/teacher/Option.vue?vue&type=template&id=9db46c26&");
 
 
 /***/ }),
@@ -39079,6 +39624,426 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/admin/student/Option.vue?vue&type=template&id=6c2dd1f4&":
+/*!********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/admin/student/Option.vue?vue&type=template&id=6c2dd1f4& ***!
+  \********************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c("div", { staticClass: "row" }, [
+        _c(
+          "div",
+          { staticClass: "col-md-6 col-6 p-0" },
+          [
+            _c(
+              "vs-button",
+              {
+                attrs: { icon: "", border: "", size: "small" },
+                on: {
+                  click: function ($event) {
+                    return _vm.clickOption("edit")
+                  },
+                },
+              },
+              [_c("i", { staticClass: "bx bx-pencil" })]
+            ),
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "col-md-6 col-6 p-0" },
+          [
+            _c(
+              "vs-button",
+              {
+                attrs: { color: "danger", border: "", icon: "", size: "small" },
+                on: {
+                  click: function ($event) {
+                    return _vm.clickOption("delete")
+                  },
+                },
+              },
+              [_c("i", { staticClass: "bx bx-trash-alt" })]
+            ),
+          ],
+          1
+        ),
+      ]),
+      _vm._v(" "),
+      _c(
+        "vs-dialog",
+        {
+          attrs: { "prevent-close": "" },
+          on: { close: _vm.clickMe },
+          scopedSlots: _vm._u([
+            {
+              key: "header",
+              fn: function () {
+                return [
+                  _c("h4", { staticClass: "not-margin" }, [
+                    _vm._v("\n            Edit "),
+                    _c("b", [_vm._v("Student")]),
+                  ]),
+                ]
+              },
+              proxy: true,
+            },
+            {
+              key: "footer",
+              fn: function () {
+                return [
+                  _c(
+                    "div",
+                    { staticClass: "footer-dialog" },
+                    [
+                      _c(
+                        "vs-button",
+                        {
+                          attrs: {
+                            block: "",
+                            color: "rgb(64, 191, 128)",
+                            loading: _vm.loading,
+                          },
+                          on: { click: _vm.submit },
+                        },
+                        [_vm._v("\n              Submit\n            ")]
+                      ),
+                    ],
+                    1
+                  ),
+                ]
+              },
+              proxy: true,
+            },
+          ]),
+          model: {
+            value: _vm.active,
+            callback: function ($$v) {
+              _vm.active = $$v
+            },
+            expression: "active",
+          },
+        },
+        [
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "con-form" },
+            [
+              _vm._v("\n\n       \t\t\n        Fullname\n          "),
+              _c("vs-input", {
+                attrs: { block: "", placeholder: "Fullname" },
+                scopedSlots: _vm._u(
+                  [
+                    {
+                      key: "icon",
+                      fn: function () {
+                        return [_vm._v("\n              @\n            ")]
+                      },
+                      proxy: true,
+                    },
+                    _vm.error.fullname !== undefined
+                      ? {
+                          key: "message-danger",
+                          fn: function () {
+                            return [
+                              _vm._v(
+                                "\n\t\t          " +
+                                  _vm._s(_vm.error.fullname[0]) +
+                                  "\n\t\t      "
+                              ),
+                            ]
+                          },
+                          proxy: true,
+                        }
+                      : null,
+                  ],
+                  null,
+                  true
+                ),
+                model: {
+                  value: _vm.data2.name,
+                  callback: function ($$v) {
+                    _vm.$set(_vm.data2, "name", $$v)
+                  },
+                  expression: "data2.name",
+                },
+              }),
+              _vm._v("\n          Grade\n         \t  "),
+              _c(
+                "vs-select",
+                {
+                  attrs: { block: "", block: "" },
+                  scopedSlots: _vm._u(
+                    [
+                      _vm.error.grade !== undefined
+                        ? {
+                            key: "message-danger",
+                            fn: function () {
+                              return [
+                                _vm._v(
+                                  "\n\t\t          " +
+                                    _vm._s(_vm.error.grade[0]) +
+                                    "\n\t\t      "
+                                ),
+                              ]
+                            },
+                            proxy: true,
+                          }
+                        : null,
+                    ],
+                    null,
+                    true
+                  ),
+                  model: {
+                    value: _vm.data2.grade,
+                    callback: function ($$v) {
+                      _vm.$set(_vm.data2, "grade", $$v)
+                    },
+                    expression: "data2.grade",
+                  },
+                },
+                [
+                  _c(
+                    "vs-option",
+                    { attrs: { label: "Grade 11", value: "Grade 11" } },
+                    [_vm._v("\n\t\t          Grade 11\n\t\t        ")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "vs-option",
+                    { attrs: { label: "Grade 12", value: "12" } },
+                    [_vm._v("\n\t\t          Grade 12\n\t\t        ")]
+                  ),
+                ],
+                1
+              ),
+              _vm._v("\n\t\t      ID Number\n\t\t       "),
+              _c("vs-input", {
+                attrs: { type: "number", block: "", placeholder: "ID Number" },
+                scopedSlots: _vm._u(
+                  [
+                    {
+                      key: "icon",
+                      fn: function () {
+                        return [_vm._v("\n              @\n            ")]
+                      },
+                      proxy: true,
+                    },
+                    _vm.error.idnumber !== undefined
+                      ? {
+                          key: "message-danger",
+                          fn: function () {
+                            return [
+                              _vm._v(
+                                "\n\t\t\t          " +
+                                  _vm._s(_vm.error.idnumber[0]) +
+                                  "\n\t\t\t      "
+                              ),
+                            ]
+                          },
+                          proxy: true,
+                        }
+                      : null,
+                  ],
+                  null,
+                  true
+                ),
+                model: {
+                  value: _vm.data2.idnumber,
+                  callback: function ($$v) {
+                    _vm.$set(_vm.data2, "idnumber", $$v)
+                  },
+                  expression: "data2.idnumber",
+                },
+              }),
+              _vm._v("\n          Section\n          "),
+              _c("vs-input", {
+                attrs: { block: "", placeholder: "Section" },
+                scopedSlots: _vm._u(
+                  [
+                    {
+                      key: "icon",
+                      fn: function () {
+                        return [_vm._v("\n              @\n            ")]
+                      },
+                      proxy: true,
+                    },
+                    _vm.error.section !== undefined
+                      ? {
+                          key: "message-danger",
+                          fn: function () {
+                            return [
+                              _vm._v(
+                                "\n\t\t          " +
+                                  _vm._s(_vm.error.section[0]) +
+                                  "\n\t\t      "
+                              ),
+                            ]
+                          },
+                          proxy: true,
+                        }
+                      : null,
+                  ],
+                  null,
+                  true
+                ),
+                model: {
+                  value: _vm.data2.section,
+                  callback: function ($$v) {
+                    _vm.$set(_vm.data2, "section", $$v)
+                  },
+                  expression: "data2.section",
+                },
+              }),
+              _vm._v("\n          Contact\n           "),
+              _c("vs-input", {
+                attrs: { type: "number", block: "", placeholder: "Contact" },
+                scopedSlots: _vm._u(
+                  [
+                    {
+                      key: "icon",
+                      fn: function () {
+                        return [_vm._v("\n              @\n            ")]
+                      },
+                      proxy: true,
+                    },
+                    _vm.error.contact !== undefined
+                      ? {
+                          key: "message-danger",
+                          fn: function () {
+                            return [
+                              _vm._v(
+                                "\n\t\t          " +
+                                  _vm._s(_vm.error.contact[0]) +
+                                  "\n\t\t      "
+                              ),
+                            ]
+                          },
+                          proxy: true,
+                        }
+                      : null,
+                  ],
+                  null,
+                  true
+                ),
+                model: {
+                  value: _vm.data2.contact,
+                  callback: function ($$v) {
+                    _vm.$set(_vm.data2, "contact", $$v)
+                  },
+                  expression: "data2.contact",
+                },
+              }),
+              _vm._v("\n          Username\n          "),
+              _c("vs-input", {
+                attrs: { block: "", placeholder: "Username" },
+                scopedSlots: _vm._u(
+                  [
+                    {
+                      key: "icon",
+                      fn: function () {
+                        return [_c("i", { staticClass: "bx bxs-user" })]
+                      },
+                      proxy: true,
+                    },
+                    _vm.error.username !== undefined
+                      ? {
+                          key: "message-danger",
+                          fn: function () {
+                            return [
+                              _vm._v(
+                                "\n\t\t          " +
+                                  _vm._s(_vm.error.username[0]) +
+                                  "\n\t\t      "
+                              ),
+                            ]
+                          },
+                          proxy: true,
+                        }
+                      : null,
+                  ],
+                  null,
+                  true
+                ),
+                model: {
+                  value: _vm.data2.username,
+                  callback: function ($$v) {
+                    _vm.$set(_vm.data2, "username", $$v)
+                  },
+                  expression: "data2.username",
+                },
+              }),
+              _vm._v("\n          Password\n          "),
+              _c("vs-input", {
+                attrs: { type: "password", block: "", placeholder: "Password" },
+                scopedSlots: _vm._u(
+                  [
+                    {
+                      key: "icon",
+                      fn: function () {
+                        return [_c("i", { staticClass: "bx bxs-lock" })]
+                      },
+                      proxy: true,
+                    },
+                    _vm.error.password !== undefined
+                      ? {
+                          key: "message-danger",
+                          fn: function () {
+                            return [
+                              _vm._v(
+                                "\n\t\t          " +
+                                  _vm._s(_vm.error.password[0]) +
+                                  "\n\t\t      "
+                              ),
+                            ]
+                          },
+                          proxy: true,
+                        }
+                      : null,
+                  ],
+                  null,
+                  true
+                ),
+                model: {
+                  value: _vm.data2.password,
+                  callback: function ($$v) {
+                    _vm.$set(_vm.data2, "password", $$v)
+                  },
+                  expression: "data2.password",
+                },
+              }),
+            ],
+            1
+          ),
+        ]
+      ),
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/admin/student/Table.vue?vue&type=template&id=daf795c2&":
 /*!*******************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/admin/student/Table.vue?vue&type=template&id=daf795c2& ***!
@@ -39209,6 +40174,23 @@ var render = function () {
                         },
                       },
                       [_vm._v("\n          Grade\n        ")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "vs-th",
+                      {
+                        attrs: { sort: "" },
+                        on: {
+                          click: function ($event) {
+                            _vm.users = _vm.$vs.sortData(
+                              $event,
+                              _vm.users,
+                              "section"
+                            )
+                          },
+                        },
+                      },
+                      [_vm._v("\n          Approve\n        ")]
                     ),
                     _vm._v(" "),
                     _c(
@@ -39432,6 +40414,9 @@ var render = function () {
                         ],
                         1
                       ),
+                      _vm._v(" "),
+                      _vm._v(" "),
+                      _c("vs-td", [_c("Option", { attrs: { data: tr } })], 1),
                     ],
                     1
                   )
@@ -39954,6 +40939,426 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/admin/teacher/Option.vue?vue&type=template&id=9db46c26&":
+/*!********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/admin/teacher/Option.vue?vue&type=template&id=9db46c26& ***!
+  \********************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c("div", { staticClass: "row" }, [
+        _c(
+          "div",
+          { staticClass: "col-md-6 col-6 p-0" },
+          [
+            _c(
+              "vs-button",
+              {
+                attrs: { icon: "", border: "", size: "small" },
+                on: {
+                  click: function ($event) {
+                    return _vm.clickOption("edit")
+                  },
+                },
+              },
+              [_c("i", { staticClass: "bx bx-pencil" })]
+            ),
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "col-md-6 col-6 p-0" },
+          [
+            _c(
+              "vs-button",
+              {
+                attrs: { color: "danger", border: "", icon: "", size: "small" },
+                on: {
+                  click: function ($event) {
+                    return _vm.clickOption("delete")
+                  },
+                },
+              },
+              [_c("i", { staticClass: "bx bx-trash-alt" })]
+            ),
+          ],
+          1
+        ),
+      ]),
+      _vm._v(" "),
+      _c(
+        "vs-dialog",
+        {
+          attrs: { "prevent-close": "" },
+          on: { close: _vm.clickMe },
+          scopedSlots: _vm._u([
+            {
+              key: "header",
+              fn: function () {
+                return [
+                  _c("h4", { staticClass: "not-margin" }, [
+                    _vm._v("\n            Edit "),
+                    _c("b", [_vm._v("Teacher")]),
+                  ]),
+                ]
+              },
+              proxy: true,
+            },
+            {
+              key: "footer",
+              fn: function () {
+                return [
+                  _c(
+                    "div",
+                    { staticClass: "footer-dialog" },
+                    [
+                      _c(
+                        "vs-button",
+                        {
+                          attrs: {
+                            block: "",
+                            color: "rgb(64, 191, 128)",
+                            loading: _vm.loading,
+                          },
+                          on: { click: _vm.submit },
+                        },
+                        [_vm._v("\n              Submit\n            ")]
+                      ),
+                    ],
+                    1
+                  ),
+                ]
+              },
+              proxy: true,
+            },
+          ]),
+          model: {
+            value: _vm.active,
+            callback: function ($$v) {
+              _vm.active = $$v
+            },
+            expression: "active",
+          },
+        },
+        [
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "con-form" },
+            [
+              _vm._v("\n        Fullname\n          "),
+              _c("vs-input", {
+                attrs: { block: "", placeholder: "Fullname" },
+                scopedSlots: _vm._u(
+                  [
+                    {
+                      key: "icon",
+                      fn: function () {
+                        return [_vm._v("\n              @\n            ")]
+                      },
+                      proxy: true,
+                    },
+                    _vm.error.fullname !== undefined
+                      ? {
+                          key: "message-danger",
+                          fn: function () {
+                            return [
+                              _vm._v(
+                                "\n\t\t          " +
+                                  _vm._s(_vm.error.fullname[0]) +
+                                  "\n\t\t      "
+                              ),
+                            ]
+                          },
+                          proxy: true,
+                        }
+                      : null,
+                  ],
+                  null,
+                  true
+                ),
+                model: {
+                  value: _vm.data2.name,
+                  callback: function ($$v) {
+                    _vm.$set(_vm.data2, "name", $$v)
+                  },
+                  expression: "data2.name",
+                },
+              }),
+              _vm._v("\n          Grade\n         \t  "),
+              _c(
+                "vs-select",
+                {
+                  attrs: { block: "", block: "" },
+                  scopedSlots: _vm._u(
+                    [
+                      _vm.error.grade !== undefined
+                        ? {
+                            key: "message-danger",
+                            fn: function () {
+                              return [
+                                _vm._v(
+                                  "\n\t\t          " +
+                                    _vm._s(_vm.error.grade[0]) +
+                                    "\n\t\t      "
+                                ),
+                              ]
+                            },
+                            proxy: true,
+                          }
+                        : null,
+                    ],
+                    null,
+                    true
+                  ),
+                  model: {
+                    value: _vm.data2.grade,
+                    callback: function ($$v) {
+                      _vm.$set(_vm.data2, "grade", $$v)
+                    },
+                    expression: "data2.grade",
+                  },
+                },
+                [
+                  _c(
+                    "vs-option",
+                    { attrs: { label: "Grade 11", value: "Grade 11" } },
+                    [_vm._v("\n\t\t          Grade 11\n\t\t        ")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "vs-option",
+                    { attrs: { label: "Grade 12", value: "12" } },
+                    [_vm._v("\n\t\t          Grade 12\n\t\t        ")]
+                  ),
+                ],
+                1
+              ),
+              _vm._v("\n\t\t      ID Number\n\t\t       "),
+              _c("vs-input", {
+                attrs: { type: "number", block: "", placeholder: "ID Number" },
+                scopedSlots: _vm._u(
+                  [
+                    {
+                      key: "icon",
+                      fn: function () {
+                        return [_vm._v("\n              @\n            ")]
+                      },
+                      proxy: true,
+                    },
+                    _vm.error.idnumber !== undefined
+                      ? {
+                          key: "message-danger",
+                          fn: function () {
+                            return [
+                              _vm._v(
+                                "\n\t\t\t          " +
+                                  _vm._s(_vm.error.idnumber[0]) +
+                                  "\n\t\t\t      "
+                              ),
+                            ]
+                          },
+                          proxy: true,
+                        }
+                      : null,
+                  ],
+                  null,
+                  true
+                ),
+                model: {
+                  value: _vm.data2.idnumber,
+                  callback: function ($$v) {
+                    _vm.$set(_vm.data2, "idnumber", $$v)
+                  },
+                  expression: "data2.idnumber",
+                },
+              }),
+              _vm._v("\n          Section\n          "),
+              _c("vs-input", {
+                attrs: { block: "", placeholder: "Section" },
+                scopedSlots: _vm._u(
+                  [
+                    {
+                      key: "icon",
+                      fn: function () {
+                        return [_vm._v("\n              @\n            ")]
+                      },
+                      proxy: true,
+                    },
+                    _vm.error.section !== undefined
+                      ? {
+                          key: "message-danger",
+                          fn: function () {
+                            return [
+                              _vm._v(
+                                "\n\t\t          " +
+                                  _vm._s(_vm.error.section[0]) +
+                                  "\n\t\t      "
+                              ),
+                            ]
+                          },
+                          proxy: true,
+                        }
+                      : null,
+                  ],
+                  null,
+                  true
+                ),
+                model: {
+                  value: _vm.data2.section,
+                  callback: function ($$v) {
+                    _vm.$set(_vm.data2, "section", $$v)
+                  },
+                  expression: "data2.section",
+                },
+              }),
+              _vm._v("\n          Contact #\n           "),
+              _c("vs-input", {
+                attrs: { type: "number", block: "", placeholder: "Contact" },
+                scopedSlots: _vm._u(
+                  [
+                    {
+                      key: "icon",
+                      fn: function () {
+                        return [_vm._v("\n              @\n            ")]
+                      },
+                      proxy: true,
+                    },
+                    _vm.error.contact !== undefined
+                      ? {
+                          key: "message-danger",
+                          fn: function () {
+                            return [
+                              _vm._v(
+                                "\n\t\t          " +
+                                  _vm._s(_vm.error.contact[0]) +
+                                  "\n\t\t      "
+                              ),
+                            ]
+                          },
+                          proxy: true,
+                        }
+                      : null,
+                  ],
+                  null,
+                  true
+                ),
+                model: {
+                  value: _vm.data2.contact,
+                  callback: function ($$v) {
+                    _vm.$set(_vm.data2, "contact", $$v)
+                  },
+                  expression: "data2.contact",
+                },
+              }),
+              _vm._v("\n          Username\n          "),
+              _c("vs-input", {
+                attrs: { block: "", placeholder: "Username" },
+                scopedSlots: _vm._u(
+                  [
+                    {
+                      key: "icon",
+                      fn: function () {
+                        return [_c("i", { staticClass: "bx bxs-user" })]
+                      },
+                      proxy: true,
+                    },
+                    _vm.error.username !== undefined
+                      ? {
+                          key: "message-danger",
+                          fn: function () {
+                            return [
+                              _vm._v(
+                                "\n\t\t          " +
+                                  _vm._s(_vm.error.username[0]) +
+                                  "\n\t\t      "
+                              ),
+                            ]
+                          },
+                          proxy: true,
+                        }
+                      : null,
+                  ],
+                  null,
+                  true
+                ),
+                model: {
+                  value: _vm.data2.username,
+                  callback: function ($$v) {
+                    _vm.$set(_vm.data2, "username", $$v)
+                  },
+                  expression: "data2.username",
+                },
+              }),
+              _vm._v("\n          Password\n          "),
+              _c("vs-input", {
+                attrs: { type: "password", block: "", placeholder: "Password" },
+                scopedSlots: _vm._u(
+                  [
+                    {
+                      key: "icon",
+                      fn: function () {
+                        return [_c("i", { staticClass: "bx bxs-lock" })]
+                      },
+                      proxy: true,
+                    },
+                    _vm.error.password !== undefined
+                      ? {
+                          key: "message-danger",
+                          fn: function () {
+                            return [
+                              _vm._v(
+                                "\n\t\t          " +
+                                  _vm._s(_vm.error.password[0]) +
+                                  "\n\t\t      "
+                              ),
+                            ]
+                          },
+                          proxy: true,
+                        }
+                      : null,
+                  ],
+                  null,
+                  true
+                ),
+                model: {
+                  value: _vm.data2.password,
+                  callback: function ($$v) {
+                    _vm.$set(_vm.data2, "password", $$v)
+                  },
+                  expression: "data2.password",
+                },
+              }),
+            ],
+            1
+          ),
+        ]
+      ),
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/admin/teacher/Table.vue?vue&type=template&id=2120da06&":
 /*!*******************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/admin/teacher/Table.vue?vue&type=template&id=2120da06& ***!
@@ -40105,6 +41510,23 @@ var render = function () {
                         },
                       },
                       [_vm._v("\n          Section\n        ")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "vs-th",
+                      {
+                        attrs: { sort: "" },
+                        on: {
+                          click: function ($event) {
+                            _vm.users = _vm.$vs.sortData(
+                              $event,
+                              _vm.users,
+                              "section"
+                            )
+                          },
+                        },
+                      },
+                      [_vm._v("\n          Option\n        ")]
                     ),
                   ],
                   1
@@ -40266,6 +41688,8 @@ var render = function () {
                           "\n        " + _vm._s(tr.section) + "\n        "
                         ),
                       ]),
+                      _vm._v(" "),
+                      _c("vs-td", [_c("Option", { attrs: { data: tr } })], 1),
                     ],
                     1
                   )
@@ -41048,38 +42472,43 @@ var render = function () {
         _vm._v(" "),
         _c(
           "div",
-          { staticClass: "col-md-6 col-12" },
+          { staticClass: "col-md-6 col-12 row" },
           [
-            _c("vs-input", {
-              staticClass: "mb-3",
-              attrs: { type: "text", block: "", placeholder: "Gender" },
-              scopedSlots: _vm._u(
-                [
-                  _vm.error2.gender !== undefined
-                    ? {
-                        key: "message-danger",
-                        fn: function () {
-                          return [
-                            _vm._v(
-                              "\n\t\t\t\t\t\t\t\t          Required\n\t\t\t\t\t\t\t\t      "
-                            ),
-                          ]
-                        },
-                        proxy: true,
-                      }
-                    : null,
-                ],
-                null,
-                true
-              ),
-              model: {
-                value: _vm.gender,
-                callback: function ($$v) {
-                  _vm.gender = $$v
+            _c(
+              "vs-radio",
+              {
+                staticClass: "col-md-6 col-6",
+                attrs: { val: "Male" },
+                model: {
+                  value: _vm.gender,
+                  callback: function ($$v) {
+                    _vm.gender = $$v
+                  },
+                  expression: "gender",
                 },
-                expression: "gender",
               },
-            }),
+              [_vm._v("\n\t\t\t\t\t\t\t         Male\n\t\t\t\t\t\t\t        ")]
+            ),
+            _vm._v(" "),
+            _c(
+              "vs-radio",
+              {
+                staticClass: "col-md-6 col-6",
+                attrs: { val: "Female" },
+                model: {
+                  value: _vm.gender,
+                  callback: function ($$v) {
+                    _vm.gender = $$v
+                  },
+                  expression: "gender",
+                },
+              },
+              [
+                _vm._v(
+                  "\n\t\t\t\t\t\t\t          Female\n\t\t\t\t\t\t\t        "
+                ),
+              ]
+            ),
           ],
           1
         ),

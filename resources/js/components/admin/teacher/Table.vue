@@ -32,6 +32,9 @@
             <vs-th sort @click="users = $vs.sortData($event ,users, 'section')">
               Section
             </vs-th>
+            <vs-th sort @click="users = $vs.sortData($event ,users, 'section')">
+              Option
+            </vs-th>
           </vs-tr>
         </template>
         <template #tbody>
@@ -43,7 +46,7 @@
             not-click-selected
             open-expand-only-td
           >
-            <vs-td >
+            <vs-td>
               {{ tr.name }}
             </vs-td>
             <vs-td edit @click="edit = tr, editProp = 'idnumber', editActive = true">
@@ -61,6 +64,11 @@
              <vs-td>
             {{ tr.section }}
             </vs-td>
+
+             <vs-td>
+            <Option :data="tr"/>
+            </vs-td>
+
 
             <template #expand>
               <div class="con-content row">
@@ -109,6 +117,7 @@
   </template>
 <script>
 
+  import Option from './Option.vue'
 import Modal from './Modal.vue'
 import axios from 'axios'
     export default {
@@ -127,7 +136,8 @@ import axios from 'axios'
             }
           },
       components:{
-        Modal
+        Modal,
+        Option
         },
       data:() => ({
         editActive: false,

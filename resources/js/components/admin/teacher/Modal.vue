@@ -130,6 +130,7 @@ import axios from 'axios'
 	 	error:'',
 	 	loading:false
       }),
+     
       methods:{
       	submit(){
       		this.loading=true
