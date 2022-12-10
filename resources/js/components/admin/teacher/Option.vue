@@ -139,6 +139,7 @@ export default {
   		this.$router.push({path:'/administrator/loading'})
   		},
   	clickOption(e){
+  		console.log(this.data)
   		if(e === 'edit'){
   				this.data2 = this.data
   			this.active =true
@@ -154,18 +155,33 @@ export default {
 					  confirmButtonText: 'Yes, delete it!'
 					}).then((result) => {
 					  if (result.isConfirmed) {
-					    this.$swal({
-							  icon: 'success',
-							  title: 'Your work has been saved',
-							  showConfirmButton: false,
-							  timer: 1500
-							})
+					  	axios.post('/delete_user',this.data)
+					  	.then(res=>{
+					  		this.$router.push({path:'/administrator/loading'})
+					  		 this.$swal({
+									  icon: 'success',
+									  title: 'Your work has been deleted',
+									  showConfirmButton: false,
+									  timer: 1500
+									})
+					  	})
+					   
 					  }
 					})
   			}
   	},
   	submit(){
-  		console.log(this.data2.name)
+  		axios.post('/update_teacher',this.data2)
+  		.then(res=>{
+  			console.log(res.data.console)
+  			this.$router.push({path:'/administrator/loading'})
+  			 this.$swal({
+							  icon: 'success',
+							  title: 'Your work has been saved',
+							  showConfirmButton: false,
+							  timer: 1500
+							})
+  			})
   	}
   }
 }

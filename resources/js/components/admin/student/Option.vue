@@ -55,7 +55,7 @@
 		        <vs-option label="Grade 11" value="Grade 11">
 		          Grade 11
 		        </vs-option>
-		        <vs-option label="Grade 12" value="12">
+		        <vs-option label="Grade 12" value="Grade 12">
 		          Grade 12
 		        </vs-option>
 		        <template v-if="error.grade !== undefined" #message-danger>
@@ -71,6 +71,30 @@
 			          {{error.idnumber[0]}}
 			      </template>
           </vs-input>
+       			   Strand
+        					   <vs-select
+									        v-model="data2.strand"
+									        block
+									      >
+									        <vs-option label="TVL" value="TVL">
+									          TVL
+									        </vs-option>
+									        <vs-option label="ABM" value="ABM">
+									          ABM
+									        </vs-option>
+									         <vs-option label="HUMSS" value="HUMSS">
+									          HUMSS
+									        </vs-option>
+									         <vs-option label="STEM" value="STEM">
+									          STEM
+									        </vs-option>
+									         <vs-option label="GAS" value="GAS">
+									          GAS
+									        </vs-option>
+									        <template v-if="error.strand !== undefined" #message-danger>
+									          {{error.strand[0]}}
+									      </template>
+									      </vs-select>
           Section
           <vs-input v-model="data2.section" block  placeholder="Section">
             <template #icon>
@@ -157,18 +181,32 @@ export default {
 					  confirmButtonText: 'Yes, delete it!'
 					}).then((result) => {
 					  if (result.isConfirmed) {
-					    this.$swal({
-							  icon: 'success',
-							  title: 'Your work has been saved',
-							  showConfirmButton: false,
-							  timer: 1500
-							})
+					   	axios.post('/delete_user',this.data)
+					  	.then(res=>{
+  			this.$router.push({path:'/administrator/loading2?'+this.grade})
+					  		 this.$swal({
+									  icon: 'success',
+									  title: 'Your work has been deleted',
+									  showConfirmButton: false,
+									  timer: 1500
+									})
+					  	})
 					  }
 					})
   			}
   	},
   	submit(){
-  		console.log(this.data2.name)
+  		axios.post('/update_student',this.data2)
+  		.then(res=>{
+  			this.$router.push({path:'/administrator/loading2?'+this.grade})
+  			 this.$swal({
+							  icon: 'success',
+							  title: 'Your work has been saved',
+							  showConfirmButton: false,
+							  timer: 1500
+							})
+  			})
+
   	}
   }
 }

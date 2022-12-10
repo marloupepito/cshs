@@ -6705,6 +6705,30 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['data'],
@@ -6744,18 +6768,34 @@ __webpack_require__.r(__webpack_exports__);
           confirmButtonText: 'Yes, delete it!'
         }).then(function (result) {
           if (result.isConfirmed) {
-            _this.$swal({
-              icon: 'success',
-              title: 'Your work has been saved',
-              showConfirmButton: false,
-              timer: 1500
+            axios.post('/delete_user', _this.data).then(function (res) {
+              _this.$router.push({
+                path: '/administrator/loading2?' + _this.grade
+              });
+              _this.$swal({
+                icon: 'success',
+                title: 'Your work has been deleted',
+                showConfirmButton: false,
+                timer: 1500
+              });
             });
           }
         });
       }
     },
     submit: function submit() {
-      console.log(this.data2.name);
+      var _this2 = this;
+      axios.post('/update_student', this.data2).then(function (res) {
+        _this2.$router.push({
+          path: '/administrator/loading2?' + _this2.grade
+        });
+        _this2.$swal({
+          icon: 'success',
+          title: 'Your work has been saved',
+          showConfirmButton: false,
+          timer: 1500
+        });
+      });
     }
   }
 });
@@ -7336,6 +7376,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     clickOption: function clickOption(e) {
       var _this = this;
+      console.log(this.data);
       if (e === 'edit') {
         this.data2 = this.data;
         this.active = true;
@@ -7351,18 +7392,35 @@ __webpack_require__.r(__webpack_exports__);
           confirmButtonText: 'Yes, delete it!'
         }).then(function (result) {
           if (result.isConfirmed) {
-            _this.$swal({
-              icon: 'success',
-              title: 'Your work has been saved',
-              showConfirmButton: false,
-              timer: 1500
+            axios.post('/delete_user', _this.data).then(function (res) {
+              _this.$router.push({
+                path: '/administrator/loading'
+              });
+              _this.$swal({
+                icon: 'success',
+                title: 'Your work has been deleted',
+                showConfirmButton: false,
+                timer: 1500
+              });
             });
           }
         });
       }
     },
     submit: function submit() {
-      console.log(this.data2.name);
+      var _this2 = this;
+      axios.post('/update_teacher', this.data2).then(function (res) {
+        console.log(res.data.console);
+        _this2.$router.push({
+          path: '/administrator/loading'
+        });
+        _this2.$swal({
+          icon: 'success',
+          title: 'Your work has been saved',
+          showConfirmButton: false,
+          timer: 1500
+        });
+      });
     }
   }
 });
@@ -39827,7 +39885,7 @@ var render = function () {
                   _vm._v(" "),
                   _c(
                     "vs-option",
-                    { attrs: { label: "Grade 12", value: "12" } },
+                    { attrs: { label: "Grade 12", value: "Grade 12" } },
                     [_vm._v("\n\t\t          Grade 12\n\t\t        ")]
                   ),
                 ],
@@ -39872,6 +39930,77 @@ var render = function () {
                   expression: "data2.idnumber",
                 },
               }),
+              _vm._v("\n       \t\t\t   Strand\n        \t\t\t\t\t   "),
+              _c(
+                "vs-select",
+                {
+                  attrs: { block: "" },
+                  scopedSlots: _vm._u(
+                    [
+                      _vm.error.strand !== undefined
+                        ? {
+                            key: "message-danger",
+                            fn: function () {
+                              return [
+                                _vm._v(
+                                  "\n\t\t\t\t\t\t\t\t\t          " +
+                                    _vm._s(_vm.error.strand[0]) +
+                                    "\n\t\t\t\t\t\t\t\t\t      "
+                                ),
+                              ]
+                            },
+                            proxy: true,
+                          }
+                        : null,
+                    ],
+                    null,
+                    true
+                  ),
+                  model: {
+                    value: _vm.data2.strand,
+                    callback: function ($$v) {
+                      _vm.$set(_vm.data2, "strand", $$v)
+                    },
+                    expression: "data2.strand",
+                  },
+                },
+                [
+                  _c("vs-option", { attrs: { label: "TVL", value: "TVL" } }, [
+                    _vm._v(
+                      "\n\t\t\t\t\t\t\t\t\t          TVL\n\t\t\t\t\t\t\t\t\t        "
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("vs-option", { attrs: { label: "ABM", value: "ABM" } }, [
+                    _vm._v(
+                      "\n\t\t\t\t\t\t\t\t\t          ABM\n\t\t\t\t\t\t\t\t\t        "
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "vs-option",
+                    { attrs: { label: "HUMSS", value: "HUMSS" } },
+                    [
+                      _vm._v(
+                        "\n\t\t\t\t\t\t\t\t\t          HUMSS\n\t\t\t\t\t\t\t\t\t        "
+                      ),
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("vs-option", { attrs: { label: "STEM", value: "STEM" } }, [
+                    _vm._v(
+                      "\n\t\t\t\t\t\t\t\t\t          STEM\n\t\t\t\t\t\t\t\t\t        "
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("vs-option", { attrs: { label: "GAS", value: "GAS" } }, [
+                    _vm._v(
+                      "\n\t\t\t\t\t\t\t\t\t          GAS\n\t\t\t\t\t\t\t\t\t        "
+                    ),
+                  ]),
+                ],
+                1
+              ),
               _vm._v("\n          Section\n          "),
               _c("vs-input", {
                 attrs: { block: "", placeholder: "Section" },

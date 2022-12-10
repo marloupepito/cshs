@@ -8,6 +8,79 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 class RegistrationController extends Controller
 {
+     public function update_student(Request $request){
+        if($request->password !== null){
+             User::where('id', $request->id)
+          ->update([
+                'name' => $request->name,
+                'contact' => $request->contact,
+                'idnumber' => $request->idnumber,
+                'grade' => $request->grade,
+                'section' => $request->section,
+                'strand' => $request->strand,
+                'username' => $request->username,
+                'password' => Hash::make($request->password),
+          ]);
+           return response()->json([
+                'status' => 'success',
+            ]);
+        }else{
+             User::where('id', $request->id)
+          ->update([
+                'name' => $request->name,
+                'contact' => $request->contact,
+                'idnumber' => $request->idnumber,
+                'grade' => $request->grade,
+                'section' => $request->section,
+                'strand' => $request->strand,
+                'username' => $request->username,
+              ]);
+               return response()->json([
+                    'status' => 'success',
+
+                ]);
+        }
+       
+    }
+    public function update_teacher(Request $request){
+        if($request->password !== null){
+                 User::where('id', $request->id)
+          ->update([
+                'name' => $request->name,
+                'contact' => $request->contact,
+                'idnumber' => $request->idnumber,
+                'grade' => $request->grade,
+                'section' => $request->section,
+                'username' => $request->username,
+                'password' => Hash::make($request->password),
+          ]);
+           return response()->json([
+                'status' => 'success',
+            ]);
+        }else{
+         User::where('id', $request->id)
+          ->update([
+                'name' => $request->name,
+                'contact' => $request->contact,
+                'idnumber' => $request->idnumber,
+                'grade' => $request->grade,
+                'section' => $request->section,
+                'username' => $request->username,
+          ]);
+           return response()->json([
+                'status' => 'success',
+            ]); 
+        }
+        
+    }
+
+    public function delete_user(Request $request){
+            $aa= User::where('id', $request->id)->delete();
+            return response()->json([
+                'status' => $request->id,
+            ]);
+    }
+
 
     public function logout(Request $request){
         $request->session()->invalidate();
