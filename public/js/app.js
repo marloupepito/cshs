@@ -5847,6 +5847,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -38154,35 +38159,69 @@ var render = function () {
                                 "div",
                                 { staticClass: "col-md-12 col-12" },
                                 [
-                                  _c(
-                                    "vs-button",
-                                    {
-                                      staticClass: "btn-chat",
-                                      attrs: {
-                                        block: "",
-                                        size: "small",
-                                        color: "warn",
-                                      },
-                                      on: {
-                                        click: function ($event) {
-                                          _vm.gotoAttendance(
-                                            _vm.$router.push({
-                                              path:
-                                                "/teacher/check_attendance?" +
-                                                i.id,
-                                            })
-                                          )
+                                  _vm.usertype === "admin"
+                                    ? _c(
+                                        "vs-button",
+                                        {
+                                          staticClass: "btn-chat",
+                                          attrs: {
+                                            block: "",
+                                            size: "small",
+                                            color: "warn",
+                                          },
+                                          on: {
+                                            click: function ($event) {
+                                              _vm.gotoAttendance(
+                                                _vm.$router.push({
+                                                  path:
+                                                    "/administrator/check_attendance?" +
+                                                    i.id,
+                                                })
+                                              )
+                                            },
+                                          },
                                         },
-                                      },
-                                    },
-                                    [
-                                      _c("span", { staticClass: "span" }, [
-                                        _vm._v(
-                                          "\n\t\t\t\t\t          \tSHOW ATTENDANCE\n\t\t\t\t\t        "
-                                        ),
-                                      ]),
-                                    ]
-                                  ),
+                                        [
+                                          _c("span", { staticClass: "span" }, [
+                                            _vm._v(
+                                              "\n\t\t\t\t\t          \tSHOW ATTENDANCE\n\t\t\t\t\t        "
+                                            ),
+                                          ]),
+                                        ]
+                                      )
+                                    : _vm._e(),
+                                  _vm._v(" "),
+                                  _vm.usertype === "teacher"
+                                    ? _c(
+                                        "vs-button",
+                                        {
+                                          staticClass: "btn-chat",
+                                          attrs: {
+                                            block: "",
+                                            size: "small",
+                                            color: "warn",
+                                          },
+                                          on: {
+                                            click: function ($event) {
+                                              _vm.gotoAttendance(
+                                                _vm.$router.push({
+                                                  path:
+                                                    "/teacher/check_attendance?" +
+                                                    i.id,
+                                                })
+                                              )
+                                            },
+                                          },
+                                        },
+                                        [
+                                          _c("span", { staticClass: "span" }, [
+                                            _vm._v(
+                                              "\n\t\t\t\t\t          \tSHOW ATTENDANCE\n\t\t\t\t\t        "
+                                            ),
+                                          ]),
+                                        ]
+                                      )
+                                    : _vm._e(),
                                 ],
                                 1
                               )

@@ -46,7 +46,12 @@
 			    	</div>
 
 			    		    <div  v-if="usertype !== 'student'" class="col-md-12 col-12">
-			    	 	  	  <vs-button @click="gotoAttendance($router.push({path:'/teacher/check_attendance?'+i.id}))" class="btn-chat" block size="small" color="warn">
+			    	 	  	 <vs-button v-if="usertype === 'admin'" @click="gotoAttendance($router.push({path:'/administrator/check_attendance?'+i.id}))" class="btn-chat" block size="small" color="warn">
+						        <span class="span">
+						          	SHOW ATTENDANCE
+						        </span>
+						      </vs-button>
+						       <vs-button v-if="usertype === 'teacher'" @click="gotoAttendance($router.push({path:'/teacher/check_attendance?'+i.id}))" class="btn-chat" block size="small" color="warn">
 						        <span class="span">
 						          	SHOW ATTENDANCE
 						        </span>
