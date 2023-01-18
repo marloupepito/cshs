@@ -23,6 +23,9 @@
             <vs-th sort @click="users = $vs.sortData($event ,users, 'idnumber')">
               ID Number
             </vs-th>
+            <vs-th sort @click="users = $vs.sortData($event ,users, 'strand')">
+              Strand
+            </vs-th>
             <vs-th sort @click="users = $vs.sortData($event ,users, 'contact')">
               Contact
             </vs-th>
@@ -54,6 +57,9 @@
             </vs-td>
             <vs-td >
               {{ tr.idnumber }}
+            </vs-td>
+            <vs-td>
+            {{ tr.strand }}
             </vs-td>
             <vs-td>
             {{ tr.contact }}

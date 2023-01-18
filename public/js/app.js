@@ -5458,29 +5458,37 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   mounted: function mounted() {
     var _this = this;
-    this.$swal({
-      title: 'Are you sure?',
-      text: "You want to Logout!",
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes!'
-    }).then(function (result) {
-      if (result.isConfirmed) {
-        _this.$swal({
-          icon: 'success',
-          title: 'Logout Success',
-          showConfirmButton: false,
-          timer: 1500
-        });
-        axios.post('/logout').then(function (res) {
-          window.location = '/login';
-          sessionStorage.clear();
-        });
-      } else {
-        _this.$router.go(-1);
-      }
+    axios.get('/user').then(function (res) {
+      _this.$swal({
+        title: 'Are you sure?',
+        text: "You want to Logout!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes!'
+      }).then(function (result) {
+        if (result.isConfirmed) {
+          _this.$swal({
+            icon: 'success',
+            title: 'Logout Success',
+            showConfirmButton: false,
+            timer: 1500
+          });
+          axios.post('/logout').then(function (res) {
+            _this.$router.push({
+              path: '/login'
+            });
+            sessionStorage.clear();
+          });
+        } else {
+          _this.$router.go(-1);
+        }
+      });
+    })["catch"](function (err) {
+      _this.$router.push({
+        path: '/'
+      });
     });
   }
 });
@@ -5498,6 +5506,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
 //
 //
 //
@@ -6942,6 +6951,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 
@@ -7697,6 +7712,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -7706,7 +7734,8 @@ __webpack_require__.r(__webpack_exports__);
       input1: '',
       input2: '',
       checkbox1: false,
-      error: ''
+      error: '',
+      hasVisiblePassword: false
     };
   },
   methods: {
@@ -8144,6 +8173,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
+      loading: false,
       name: '',
       lastname: '',
       contact: '',
@@ -8159,6 +8189,7 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     registerNext: function registerNext() {
       var _this = this;
+      this.loading = true;
       axios__WEBPACK_IMPORTED_MODULE_0___default().post('/register1', {
         name: this.name,
         lastname: this.lastname,
@@ -8169,10 +8200,12 @@ __webpack_require__.r(__webpack_exports__);
         strand: this.strand,
         gender: this.gender
       }).then(function (res) {
+        _this.loading = false;
         _this.$router.push({
           path: '/register2'
         });
       })["catch"](function (err) {
+        _this.loading = false;
         _this.error2 = err.response.data.errors;
       });
     }
@@ -8247,15 +8280,27 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      pp: '/images/logo.png',
+      pp: '/images/profileupload.png',
       profile: '',
       username: '',
       password: '',
-      error: ''
+      error: '',
+      loading: false,
+      hasVisiblePassword: false
     };
   },
   mounted: function mounted() {
@@ -8264,6 +8309,7 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     submit: function submit() {
       var _this = this;
+      this.loading = true;
       var fd = new FormData();
       fd.append("username", this.username);
       fd.append("password", this.password);
@@ -8275,6 +8321,7 @@ __webpack_require__.r(__webpack_exports__);
           showConfirmButton: false,
           timer: 1500
         });
+        _this.loading = false;
         _this.$router.push({
           path: '/login'
         });
@@ -8285,6 +8332,7 @@ __webpack_require__.r(__webpack_exports__);
           showConfirmButton: false,
           timer: 1500
         });
+        _this.loading = false;
         _this.error = err.response.data.errors;
       });
     },
@@ -37624,13 +37672,13 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("RingBottomNavigation", {
+  return _c("CurvedBottomNavigation", {
+    staticStyle: { "z-index": "1 !important" },
     attrs: {
-      "background-color": "rgb(64, 191, 128)",
-      "border-color": "#4F7A28",
-      "title-color": "rgb(10, 10, 10)",
+      "foreground-color": "#F7F7F8",
       "badge-color": "#FBC02D",
-      "icon-color": "#669C35",
+      "background-color": "rgb(64, 191, 128)",
+      "icon-color": "#0000008A",
       options: _vm.options,
     },
     model: {
@@ -37722,6 +37770,7 @@ var render = function () {
       _c(
         "vs-sidebar",
         {
+          staticStyle: { "z-index": "1 !important" },
           attrs: {
             color: "rgb(64, 191, 128)",
             absolute: "",
@@ -37949,6 +37998,7 @@ var render = function () {
           _c(
             "vs-navbar",
             {
+              staticStyle: { "z-index": "1 !important" },
               attrs: {
                 color: "rgb(64, 191, 128)",
                 fixed: "",
@@ -40319,6 +40369,23 @@ var render = function () {
                             _vm.users = _vm.$vs.sortData(
                               $event,
                               _vm.users,
+                              "strand"
+                            )
+                          },
+                        },
+                      },
+                      [_vm._v("\n          Strand\n        ")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "vs-th",
+                      {
+                        attrs: { sort: "" },
+                        on: {
+                          click: function ($event) {
+                            _vm.users = _vm.$vs.sortData(
+                              $event,
+                              _vm.users,
                               "contact"
                             )
                           },
@@ -40520,6 +40587,10 @@ var render = function () {
                         _vm._v(
                           "\n          " + _vm._s(tr.idnumber) + "\n        "
                         ),
+                      ]),
+                      _vm._v(" "),
+                      _c("vs-td", [
+                        _vm._v("\n        " + _vm._s(tr.strand) + "\n        "),
                       ]),
                       _vm._v(" "),
                       _c("vs-td", [
@@ -42008,12 +42079,30 @@ var render = function () {
               { staticClass: "col-md-12" },
               [
                 _c("vs-input", {
-                  staticClass: "mb-3",
                   attrs: {
                     type: "password",
-                    block: "",
                     placeholder: "Password",
+                    visiblePassword: _vm.hasVisiblePassword,
+                    "icon-after": "",
                   },
+                  on: {
+                    "click-icon": function ($event) {
+                      _vm.hasVisiblePassword = !_vm.hasVisiblePassword
+                    },
+                  },
+                  scopedSlots: _vm._u([
+                    {
+                      key: "icon",
+                      fn: function () {
+                        return [
+                          !_vm.hasVisiblePassword
+                            ? _c("i", { staticClass: "bx bx-show-alt" })
+                            : _c("i", { staticClass: "bx bx-hide" }),
+                        ]
+                      },
+                      proxy: true,
+                    },
+                  ]),
                   model: {
                     value: _vm.input2,
                     callback: function ($$v) {
@@ -42399,7 +42488,9 @@ var render = function () {
                         fn: function () {
                           return [
                             _vm._v(
-                              "\n\t\t\t\t\t\t\t\t          Required\n\t\t\t\t\t\t\t\t      "
+                              "\n\t\t\t\t\t\t\t\t\t\t" +
+                                _vm._s(_vm.error2.contact[0]) +
+                                "\n\t\t\t\t\t\t\t\t      "
                             ),
                           ]
                         },
@@ -42428,7 +42519,7 @@ var render = function () {
           [
             _c("vs-input", {
               staticClass: "mb-3",
-              attrs: { type: "number", block: "", placeholder: "ID Number" },
+              attrs: { block: "", placeholder: "ID Number" },
               scopedSlots: _vm._u(
                 [
                   _vm.error2.idnumber !== undefined
@@ -42468,7 +42559,7 @@ var render = function () {
               "vs-select",
               {
                 staticClass: "mb-3",
-                attrs: { "label-placeholder": "Grade", block: "", block: "" },
+                attrs: { "label-placeholder": "Grade", block: "" },
                 scopedSlots: _vm._u(
                   [
                     _vm.error2.grade !== undefined
@@ -42533,7 +42624,7 @@ var render = function () {
               "vs-select",
               {
                 staticClass: "mb-3",
-                attrs: { "label-placeholder": "Strand", block: "", block: "" },
+                attrs: { "label-placeholder": "Strand", block: "" },
                 scopedSlots: _vm._u(
                   [
                     _vm.error2.strand !== undefined
@@ -42688,7 +42779,11 @@ var render = function () {
             _c(
               "vs-button",
               {
-                attrs: { block: "", color: "rgb(64, 191, 128)" },
+                attrs: {
+                  loading: _vm.loading,
+                  block: "",
+                  color: "rgb(64, 191, 128)",
+                },
                 on: { click: _vm.registerNext },
               },
               [_c("h2", [_c("b", [_vm._v("NEXT")])])]
@@ -42777,10 +42872,7 @@ var render = function () {
         _vm._v(" "),
         _c(
           "vs-avatar",
-          {
-            staticClass: "mb-3",
-            attrs: { history: "", success: "", size: "100" },
-          },
+          { staticClass: "mb-3", attrs: { history: "", size: "100" } },
           [
             _c(
               "a",
@@ -42797,7 +42889,7 @@ var render = function () {
             ),
           ]
         ),
-        _vm._v(" "),
+        _vm._v("\n\t\t\t\t\t\t\t  Upload Image\n\t\t\t\t\t\t      \t\t "),
         _vm.error.profile !== undefined
           ? _c("div", { staticClass: "text-danger" }, [
               _vm._v(
@@ -42854,10 +42946,30 @@ var render = function () {
             { staticClass: "col-md-12 col-12" },
             [
               _c("vs-input", {
-                staticClass: "mb-3",
-                attrs: { type: "password", block: "", placeholder: "Password" },
+                attrs: {
+                  type: "password",
+                  placeholder: "Password",
+                  visiblePassword: _vm.hasVisiblePassword,
+                  "icon-after": "",
+                },
+                on: {
+                  "click-icon": function ($event) {
+                    _vm.hasVisiblePassword = !_vm.hasVisiblePassword
+                  },
+                },
                 scopedSlots: _vm._u(
                   [
+                    {
+                      key: "icon",
+                      fn: function () {
+                        return [
+                          !_vm.hasVisiblePassword
+                            ? _c("i", { staticClass: "bx bx-show-alt" })
+                            : _c("i", { staticClass: "bx bx-hide" }),
+                        ]
+                      },
+                      proxy: true,
+                    },
                     _vm.error.password !== undefined
                       ? {
                           key: "message-danger",
@@ -42891,12 +43003,16 @@ var render = function () {
           _vm._v(" "),
           _c(
             "div",
-            { staticClass: "col-md-12 col-12" },
+            { staticClass: "col-md-12 col-12 mt-5" },
             [
               _c(
                 "vs-button",
                 {
-                  attrs: { block: "", color: "rgb(64, 191, 128)" },
+                  attrs: {
+                    loading: _vm.loading,
+                    block: "",
+                    color: "rgb(64, 191, 128)",
+                  },
                   on: { click: _vm.submit },
                 },
                 [_c("h2", [_c("b", [_vm._v("CONFIRM")])])]
@@ -43006,13 +43122,13 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("RingBottomNavigation", {
+  return _c("CurvedBottomNavigation", {
+    staticStyle: { "z-index": "1 !important" },
     attrs: {
-      "background-color": "rgb(64, 191, 128)",
-      "border-color": "#4F7A28",
-      "title-color": "rgb(10, 10, 10)",
+      "foreground-color": "#F7F7F8",
       "badge-color": "#FBC02D",
-      "icon-color": "#669C35",
+      "background-color": "rgb(64, 191, 128)",
+      "icon-color": "#0000008A",
       options: _vm.options,
     },
     model: {
@@ -43387,13 +43503,13 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("RingBottomNavigation", {
+  return _c("CurvedBottomNavigation", {
+    staticStyle: { "z-index": "1 !important" },
     attrs: {
-      "background-color": "rgb(64, 191, 128)",
-      "border-color": "#4F7A28",
-      "title-color": "rgb(10, 10, 10)",
+      "foreground-color": "#F7F7F8",
       "badge-color": "#FBC02D",
-      "icon-color": "#669C35",
+      "background-color": "rgb(64, 191, 128)",
+      "icon-color": "#0000008A",
       options: _vm.options,
     },
     model: {

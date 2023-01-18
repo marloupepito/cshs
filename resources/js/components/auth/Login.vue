@@ -23,7 +23,20 @@
 				                	<vs-input v-model="input1" class="mb-3 mt-5 " block placeholder="Username" />
 				                </div>
 				                <div  class="col-md-12">
-				                	 <vs-input type="password" class="mb-3 " block v-model="input2" placeholder="Password" />
+									<vs-input
+									type="password"
+									v-model="input2"
+									placeholder="Password"
+									:visiblePassword="hasVisiblePassword"
+									icon-after
+									@click-icon="hasVisiblePassword = !hasVisiblePassword">
+									<template #icon>
+									<i v-if="!hasVisiblePassword" class='bx bx-show-alt'></i>
+									<i v-else class='bx bx-hide'></i>
+									</template>
+
+
+								</vs-input>
 				                </div>
 			                </div>
 			     			
@@ -61,8 +74,10 @@ import axios from 'axios'
         input1: '',
         input2: '',
         checkbox1: false,
-        error:''
+        error:'',
+		hasVisiblePassword: false
       }),
+	
       methods:{
       	gotoRegister(){
 				this.$router.push({path:'/register'})

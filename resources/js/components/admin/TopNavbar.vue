@@ -1,7 +1,7 @@
 <template>
   <div class="col-md-12 container" style="margin-top:120px">
       <center> 
-        <vs-navbar color="rgb(64, 191, 128)" fixed textWhite  padding-scroll v-model="active">
+        <vs-navbar color="rgb(64, 191, 128)" fixed textWhite  padding-scroll v-model="active"  style="z-index:1 !important">
           <template >
             <img src="/images/logo.png" width="70" alt="">
           </template>

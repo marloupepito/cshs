@@ -7,8 +7,9 @@
 <script>
 	export default {
 		mounted(){
-
-			this.$swal({
+      axios.get('/user')
+          .then(res=>{
+            this.$swal({
             title: 'Are you sure?',
             text: "You want to Logout!",
             icon: 'warning',
@@ -26,13 +27,19 @@
                 })
               axios.post('/logout')
       				.then(res=>{
-      					window.location='/login'
+      					this.$router.push({path:'/login'})
       					sessionStorage.clear()
       				})
             }else{
             	this.$router.go(-1)
             }
           })
+           
+          })
+          .catch(err=>{
+            this.$router.push({path:'/'})
+          })
+		
 			
 		}
 	}

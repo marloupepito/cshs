@@ -1,11 +1,11 @@
 <template>
   
- <RingBottomNavigation
-   background-color='rgb(64, 191, 128)'
-  border-color='#4F7A28'
-  title-color='rgb(10, 10, 10)'
+ <CurvedBottomNavigation
+ style="z-index:1 !important"
+ foreground-color='#F7F7F8'
   badge-color='#FBC02D'
-  icon-color='#669C35'
+  background-color='rgb(64, 191, 128)'
+  icon-color='#0000008A'
    :options="options" v-model="selected" />
 </template>
 

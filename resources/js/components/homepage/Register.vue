@@ -38,12 +38,12 @@
 				                 <div class="col-md-6 col-12">
 				                	<vs-input type="number" class="mb-3 " v-model="contact" block placeholder="Contact" >
 				                	 <template v-if="error2.contact !== undefined" #message-danger>
-								          Required
+										{{error2.contact[0]}}
 								      </template>
 				                	</vs-input>
 				                </div>
 				                <div  class="col-md-6 col-12">
-				                	 <vs-input type="number" class="mb-3 " v-model="idnumber" block  placeholder="ID Number" >
+				                	 <vs-input  class="mb-3 " v-model="idnumber" block  placeholder="ID Number" >
 				                	  <template v-if="error2.idnumber !== undefined" #message-danger>
 								          Required
 								      </template>
@@ -54,7 +54,7 @@
 									        label-placeholder="Grade"
 									        v-model="grade"
 									        block
-									        block class="mb-3"
+									         class="mb-3"
 									      >
 									        <vs-option label="Grade 11" value="Grade 11">
 									          Grade 11
@@ -73,7 +73,7 @@
 									        label-placeholder="Strand"
 									        v-model="strand"
 									        block
-									        block class="mb-3"
+									      class="mb-3"
 									      >
 									        <vs-option label="TVL" value="TVL">
 									          TVL
@@ -112,7 +112,7 @@
 							        </vs-radio>
 				                </div>
 				                <div  class="col-md-12 col-12 mt-5 mb-3">
-				                	 <vs-button @click="registerNext" block color="rgb(64, 191, 128)">
+				                	 <vs-button :loading="loading" @click="registerNext" block color="rgb(64, 191, 128)">
 						            	 <h2><b>NEXT</b></h2>
 						            </vs-button>
 				                </div>
@@ -125,6 +125,7 @@
 import axios from 'axios'
 export default{
 	 data:() => ({
+		loading:false,
 	 	name:'',
 	 	lastname:'',
 		contact:'',
@@ -138,6 +139,7 @@ export default{
       }),
 	methods:{
 		registerNext(){
+			this.loading =true
 			axios.post('/register1',{
 				name:this.name,
 				lastname:this.lastname,
@@ -149,9 +151,11 @@ export default{
 				gender:this.gender,
 				})
 			.then(res=>{
+				this.loading =false
 			 this.$router.push({path:'/register2'})
 			})
 			.catch(err=>{
+				this.loading =false
 				this.error2 =err.response.data.errors
 			})
 		}

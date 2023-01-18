@@ -18,10 +18,10 @@
 			                    Create <b>Account</b>
 			                  </h1>
 			                  <input hidden id="uploadpp" @change="uploadPP2" ref="uploadpp" type="file"   accept="image/png, image/gif, image/jpeg"/>
-			                  <vs-avatar history success size="100" class="mb-3">
+			                  <vs-avatar history  size="100" class="mb-3">
 						        <a href="#" @click="uploadPP()"  ref="myBtn"><img :src="pp" alt=""></a>
-						       		
 						      </vs-avatar>
+							  Upload Image
 						      		 <div v-if="error.profile !== undefined" class="text-danger">
 								         {{error.profile[0]}}
 								      </div>
@@ -36,15 +36,25 @@
 				                </div>
 
 				                <div  class="col-md-12 col-12">
-				                	 <vs-input type="password" class="mb-3 "  v-model="password" block  placeholder="Password" >
-				                	 <template v-if="error.password !== undefined" #message-danger>
+									 <vs-input
+									type="password"
+									v-model="password"
+									placeholder="Password"
+									:visiblePassword="hasVisiblePassword"
+									icon-after
+									@click-icon="hasVisiblePassword = !hasVisiblePassword">
+									<template #icon>
+									<i v-if="!hasVisiblePassword" class='bx bx-show-alt'></i>
+									<i v-else class='bx bx-hide'></i>
+									</template>
+									<template v-if="error.password !== undefined" #message-danger>
 								          {{error.password[0]}}
 								      </template>
-								     </vs-input>
+									  </vs-input>
 				                </div>
 				               
-				                <div  class="col-md-12 col-12">
-				                	 <vs-button @click="submit" block color="rgb(64, 191, 128)">
+				                <div  class="col-md-12 col-12 mt-5">
+				                	 <vs-button :loading="loading" @click="submit" block color="rgb(64, 191, 128)">
 						            	 <h2><b>CONFIRM</b></h2>
 						         	   </vs-button>
 				                </div>
@@ -56,18 +66,20 @@
 <script>
 export default{
 	data:() => ({
-		pp:'/images/logo.png',
+		pp:'/images/profileupload.png',
 	 	profile:'',
 	 	username:'',
 	 	password:'',
-	 	error:''
+	 	error:'',
+		loading:false,
+		hasVisiblePassword: false
       }),
       mounted(){
       		this.mount()
       	},
 	methods:{
 		submit(){
-
+			this.loading=true
 			var fd = new FormData();
 			fd.append("username",this.username);
 			fd.append("password",this.password);
@@ -80,6 +92,7 @@ export default{
 				  showConfirmButton: false,
 				  timer: 1500
 				})
+				this.loading=false
 				 this.$router.push({path:'/login'})
 			})
 			.catch(err=>{
@@ -89,6 +102,7 @@ export default{
 				  showConfirmButton: false,
 				  timer: 1500
 				})
+				this.loading=false
 				this.error =err.response.data.errors
 				})
 		},

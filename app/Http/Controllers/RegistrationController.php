@@ -113,7 +113,7 @@ class RegistrationController extends Controller
         $validated =  $request->validate([
             'name'=>['required'],
             'lastname'=>['required'],
-            'contact'=>['required'],
+            'contact'=>'required|min:11|max:11|unique:users',
             'idnumber'=>['required'],
             'grade'=>['required'],
             'section'=>['required'],

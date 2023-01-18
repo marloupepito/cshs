@@ -2,6 +2,7 @@
 <template>
     <div class="hidden sideNavbar">
       <vs-sidebar
+      style="z-index:1 !important"
       color="rgb(64, 191, 128)" 
         absolute
         hover-expand
