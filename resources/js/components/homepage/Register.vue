@@ -78,6 +78,12 @@
 									        <vs-option label="TVL" value="TVL">
 									          TVL
 									        </vs-option>
+											<vs-option label="TVL-Cookery" value="TVL-Cookery">
+									          TVL-Cookery
+									        </vs-option>
+											<vs-option label="TVL-SMAW" value="TVL-SMAW">
+									          TVL-SMAW
+									        </vs-option>
 									        <vs-option label="ABM" value="ABM">
 									          ABM
 									        </vs-option>

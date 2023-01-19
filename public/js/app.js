@@ -8228,6 +8228,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -40713,7 +40719,13 @@ var render = function () {
                     },
                     [
                       _c("vs-td", [
-                        _vm._v("\n          " + _vm._s(tr.name) + "\n        "),
+                        _vm._v(
+                          "\n          " +
+                            _vm._s(tr.name) +
+                            " " +
+                            _vm._s(tr.lastname) +
+                            "\n        "
+                        ),
                       ]),
                       _vm._v(" "),
                       _c(
@@ -42891,6 +42903,26 @@ var render = function () {
                     "\n\t\t\t\t\t\t\t\t\t          TVL\n\t\t\t\t\t\t\t\t\t        "
                   ),
                 ]),
+                _vm._v(" "),
+                _c(
+                  "vs-option",
+                  { attrs: { label: "TVL-Cookery", value: "TVL-Cookery" } },
+                  [
+                    _vm._v(
+                      "\n\t\t\t\t\t\t\t\t\t          TVL-Cookery\n\t\t\t\t\t\t\t\t\t        "
+                    ),
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "vs-option",
+                  { attrs: { label: "TVL-SMAW", value: "TVL-SMAW" } },
+                  [
+                    _vm._v(
+                      "\n\t\t\t\t\t\t\t\t\t          TVL-SMAW\n\t\t\t\t\t\t\t\t\t        "
+                    ),
+                  ]
+                ),
                 _vm._v(" "),
                 _c("vs-option", { attrs: { label: "ABM", value: "ABM" } }, [
                   _vm._v(

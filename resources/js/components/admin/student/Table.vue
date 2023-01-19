@@ -50,7 +50,7 @@
             open-expand-only-td
           >
             <vs-td >
-              {{ tr.name }}
+              {{ tr.name }} {{ tr.lastname }}
             </vs-td>
             <vs-td edit @click="edit = tr, editProp = 'idnumber', editActive = true">
               {{ tr.username }}
