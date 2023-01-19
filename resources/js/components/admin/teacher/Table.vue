@@ -6,7 +6,6 @@
              <Modal />
           </div>
       </div>
-      <br />
       <vs-table
         v-model="selected"
         >
@@ -111,7 +110,7 @@
         <template #footer>
           <vs-pagination v-model="page" :length="$vs.getLength($vs.getSearch(users, search), max)" />
         </template>
-      </vs-table>
+      </vs-table><br />
 
       
     </div>
