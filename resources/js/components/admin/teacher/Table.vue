@@ -6,6 +6,7 @@
              <Modal />
           </div>
       </div>
+      <br />
       <vs-table
         v-model="selected"
         >

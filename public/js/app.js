@@ -7608,6 +7608,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -41864,6 +41865,8 @@ var render = function () {
       _c("div", { staticClass: "row" }, [
         _c("div", { staticClass: "col-md-4 p-3" }, [_c("Modal")], 1),
       ]),
+      _vm._v(" "),
+      _c("br"),
       _vm._v(" "),
       _c("vs-table", {
         scopedSlots: _vm._u([
