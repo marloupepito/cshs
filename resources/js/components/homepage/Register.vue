@@ -96,11 +96,42 @@
 									      </vs-select>
 				                </div>
 				                 <div  class="col-md-6 col-12">
-				                	 <vs-input type="text" class="mb-3 " v-model="section" block  placeholder="Section" >
-				                	  <template v-if="error2.section !== undefined" #message-danger>
-								          Required
-								      </template>
-				                	</vs-input>
+				                
+									<vs-select
+									        label-placeholder="Section"
+											v-model="section"
+									        block
+									      class="mb-3"
+									      >
+									        <vs-option label="Section A" value="Section A">
+									          Section A
+									        </vs-option>
+									        <vs-option label="Section B" value="Section B">
+									          Section B
+									        </vs-option>
+									         <vs-option label="Section C" value="Section C">
+									          Section C
+									        </vs-option>
+									         <vs-option label="Section D" value="Section D">
+									          Section D
+									        </vs-option>
+									         <vs-option label="Section E" value="Section E">
+									          Section E
+									        </vs-option>
+											<vs-option label="Section F" value="Section F">
+									          Section F
+									        </vs-option>
+											<vs-option label="Section G" value="Section G">
+									          Section G
+									        </vs-option>
+											<vs-option label="Section H" value="Section H">
+									          Section H
+									        </vs-option>
+									        <template v-if="error2.section !== undefined" #message-danger>
+									          {{error2.section[0]}}
+									      </template>
+									      </vs-select>
+
 				                </div>
 				                <div  class="col-md-6 col-12 row">
 

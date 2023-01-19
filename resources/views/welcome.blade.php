@@ -36,6 +36,9 @@
         input.vs-input{
             width: 100%;
         }
+        button.vs-sidebar__item.hasIcon::after{
+          background-color:rgb(64, 191, 128) !important
+        }
     
   </style>
     </head>

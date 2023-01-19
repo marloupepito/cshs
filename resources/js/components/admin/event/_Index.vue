@@ -3,15 +3,15 @@
 		<div class="col-md-6">
 			<h3><center>Create <b>Event</b></center></h3>
 			<form @submit="submit">
-				<textarea placeholder="When" v-model="what" class="form-control mb-3"/>
-	           <textarea placeholder="What" v-model="when" class="form-control mb-3" />
+				<textarea placeholder="What" v-model="what" class="form-control mb-3"/>
+	           <textarea placeholder="When" v-model="when" class="form-control mb-3" />
 	           <textarea placeholder="Where" v-model="where" class="form-control mb-3"/>
-	           <vs-button block color="rgb(64, 191, 128)" :loading="loading" @click="submit">
+	           <vs-button  style="z-index:-1 !important" block color="rgb(64, 191, 128)" :loading="loading" @click="submit">
 	              Submit
 	            </vs-button>
 			</form>
 		</div>
-		<div class="col-md-4 offset-md-2">
+		<div class="col-md-6">
 				<Event />
 		</div>
 	</div>

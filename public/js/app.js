@@ -5861,6 +5861,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -7174,6 +7176,33 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -7187,7 +7216,7 @@ __webpack_require__.r(__webpack_exports__);
       contact: '',
       idnumber: '',
       password: '',
-      pp: '/images/logo.png',
+      pp: '/images/profileupload.png',
       profile: '',
       error: '',
       loading: false
@@ -8168,6 +8197,37 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -8715,6 +8775,34 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/student/event/Layout.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/student/event/Layout.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _admin_event_Event_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../../admin/event/Event.vue */ "./resources/js/components/admin/event/Event.vue");
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  components: {
+    Event: _admin_event_Event_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/teacher/BottomNavbar.vue?vue&type=script&lang=js&":
 /*!***************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/teacher/BottomNavbar.vue?vue&type=script&lang=js& ***!
@@ -9010,7 +9098,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _student_Loading_vue__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./../student/Loading.vue */ "./resources/js/components/student/Loading.vue");
 /* harmony import */ var _student_History_vue__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./../student/History.vue */ "./resources/js/components/student/History.vue");
 /* harmony import */ var _student_Profile_vue__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./../student/Profile.vue */ "./resources/js/components/student/Profile.vue");
-/* harmony import */ var _admin_event_Event_vue__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./../admin/event/Event.vue */ "./resources/js/components/admin/event/Event.vue");
+/* harmony import */ var _student_event_Layout_vue__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./../student/event/Layout.vue */ "./resources/js/components/student/event/Layout.vue");
 /* harmony import */ var _teacher_Index_vue__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./../teacher/_Index.vue */ "./resources/js/components/teacher/_Index.vue");
 /* harmony import */ var _teacher_Loading_vue__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./../teacher/Loading.vue */ "./resources/js/components/teacher/Loading.vue");
 
@@ -9107,10 +9195,10 @@ var routes = [{
   },
   children: [{
     path: '/student',
-    component: _admin_event_Event_vue__WEBPACK_IMPORTED_MODULE_21__["default"]
+    component: _student_event_Layout_vue__WEBPACK_IMPORTED_MODULE_21__["default"]
   }, {
     path: '/student/my_attendance',
-    component: _admin_event_Event_vue__WEBPACK_IMPORTED_MODULE_21__["default"]
+    component: _student_event_Layout_vue__WEBPACK_IMPORTED_MODULE_21__["default"]
   }, {
     path: '/student/history',
     component: _student_History_vue__WEBPACK_IMPORTED_MODULE_19__["default"]
@@ -9119,7 +9207,7 @@ var routes = [{
     component: _student_Loading_vue__WEBPACK_IMPORTED_MODULE_18__["default"]
   }, {
     path: '/student/events',
-    component: _admin_event_Event_vue__WEBPACK_IMPORTED_MODULE_21__["default"]
+    component: _student_event_Layout_vue__WEBPACK_IMPORTED_MODULE_21__["default"]
   }, {
     path: '/student/logout',
     component: _admin_Logout_vue__WEBPACK_IMPORTED_MODULE_16__["default"]
@@ -9144,7 +9232,7 @@ var routes = [{
   },
   children: [{
     path: '/teacher',
-    component: _admin_event_Event_vue__WEBPACK_IMPORTED_MODULE_21__["default"]
+    component: _student_event_Layout_vue__WEBPACK_IMPORTED_MODULE_21__["default"]
   }, {
     path: '/teacher/logout',
     component: _admin_Logout_vue__WEBPACK_IMPORTED_MODULE_16__["default"]
@@ -35442,6 +35530,45 @@ component.options.__file = "resources/js/components/student/_Index.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/student/event/Layout.vue":
+/*!**********************************************************!*\
+  !*** ./resources/js/components/student/event/Layout.vue ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Layout_vue_vue_type_template_id_3668b6fe___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Layout.vue?vue&type=template&id=3668b6fe& */ "./resources/js/components/student/event/Layout.vue?vue&type=template&id=3668b6fe&");
+/* harmony import */ var _Layout_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Layout.vue?vue&type=script&lang=js& */ "./resources/js/components/student/event/Layout.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Layout_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Layout_vue_vue_type_template_id_3668b6fe___WEBPACK_IMPORTED_MODULE_0__.render,
+  _Layout_vue_vue_type_template_id_3668b6fe___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/student/event/Layout.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/teacher/BottomNavbar.vue":
 /*!**********************************************************!*\
   !*** ./resources/js/components/teacher/BottomNavbar.vue ***!
@@ -36100,6 +36227,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./_Index.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/student/_Index.vue?vue&type=script&lang=js&");
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/student/event/Layout.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/components/student/event/Layout.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Layout_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Layout.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/student/event/Layout.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Layout_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -36972,6 +37115,23 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/student/event/Layout.vue?vue&type=template&id=3668b6fe&":
+/*!*****************************************************************************************!*\
+  !*** ./resources/js/components/student/event/Layout.vue?vue&type=template&id=3668b6fe& ***!
+  \*****************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Layout_vue_vue_type_template_id_3668b6fe___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Layout_vue_vue_type_template_id_3668b6fe___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Layout_vue_vue_type_template_id_3668b6fe___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Layout.vue?vue&type=template&id=3668b6fe& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/student/event/Layout.vue?vue&type=template&id=3668b6fe&");
+
+
+/***/ }),
+
 /***/ "./resources/js/components/teacher/BottomNavbar.vue?vue&type=template&id=e771cfda&":
 /*!*****************************************************************************************!*\
   !*** ./resources/js/components/teacher/BottomNavbar.vue?vue&type=template&id=e771cfda& ***!
@@ -37673,7 +37833,7 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("CurvedBottomNavigation", {
-    staticStyle: { "z-index": "1 !important" },
+    staticStyle: { "z-index": "99 !important" },
     attrs: {
       "foreground-color": "#F7F7F8",
       "badge-color": "#FBC02D",
@@ -37770,7 +37930,10 @@ var render = function () {
       _c(
         "vs-sidebar",
         {
-          staticStyle: { "z-index": "1 !important" },
+          staticStyle: {
+            "z-index": "100 !important",
+            position: "fixed !important",
+          },
           attrs: {
             color: "rgb(64, 191, 128)",
             absolute: "",
@@ -37998,7 +38161,7 @@ var render = function () {
           _c(
             "vs-navbar",
             {
-              staticStyle: { "z-index": "1 !important" },
+              staticStyle: { "z-index": "99 !important" },
               attrs: {
                 color: "rgb(64, 191, 128)",
                 fixed: "",
@@ -38113,564 +38276,552 @@ var render = function () {
       _vm._l(_vm.event, function (i) {
         return _c(
           "div",
-          { staticClass: "mb-3" },
+          { staticClass: "col-md-12 col-12" },
           [
-            _c("vs-card", {
-              scopedSlots: _vm._u(
-                [
-                  {
-                    key: "title",
-                    fn: function () {
-                      return [
-                        _c("div", { staticClass: "row" }, [
-                          _c("div", { staticClass: "col-md-3 col-4" }, [
-                            _c("b", [_vm._v("What ?")]),
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "col-md-9 col-8" }, [
-                            _c("p", { staticClass: "col-md-12" }, [
-                              _vm._v(_vm._s(i.what)),
-                            ]),
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "col-md-3 col-4" }, [
-                            _c("b", [_vm._v("When ?")]),
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "col-md-9 col-8" }, [
-                            _c("p", { staticClass: "col-md-12" }, [
-                              _vm._v(_vm._s(i.when)),
-                            ]),
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "col-md-3 col-4" }, [
-                            _c("b", [_vm._v("Where ?")]),
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "col-md-9 col-8" }, [
-                            _c("p", { staticClass: "col-md-12" }, [
-                              _vm._v(_vm._s(i.where)),
-                            ]),
-                          ]),
-                        ]),
-                      ]
+            _c(
+              "vs-sidebar-group",
+              {
+                scopedSlots: _vm._u(
+                  [
+                    {
+                      key: "header",
+                      fn: function () {
+                        return [
+                          _c(
+                            "vs-sidebar-item",
+                            {
+                              attrs: { arrow: "" },
+                              scopedSlots: _vm._u(
+                                [
+                                  {
+                                    key: "icon",
+                                    fn: function () {
+                                      return [
+                                        _c("i", { staticClass: "bx bx-group" }),
+                                      ]
+                                    },
+                                    proxy: true,
+                                  },
+                                ],
+                                null,
+                                true
+                              ),
+                            },
+                            [
+                              _vm._v(
+                                "\n              " +
+                                  _vm._s(i.what) +
+                                  "\n            "
+                              ),
+                            ]
+                          ),
+                        ]
+                      },
+                      proxy: true,
                     },
-                    proxy: true,
-                  },
-                  {
-                    key: "img",
-                    fn: function () {
-                      return [
-                        _c("img", { attrs: { src: "/foto5.png", alt: "" } }),
-                      ]
-                    },
-                    proxy: true,
-                  },
-                  {
-                    key: "text",
-                    fn: function () {
-                      return [
-                        _c("div", { staticClass: "row" }, [
-                          _vm.usertype !== "student"
-                            ? _c(
-                                "div",
-                                { staticClass: "col-md-12 col-12" },
-                                [
-                                  _c(
-                                    "vs-button",
-                                    {
-                                      staticClass: "btn-chat",
-                                      attrs: {
-                                        block: "",
-                                        size: "small",
-                                        color: "blue",
-                                      },
-                                      on: {
-                                        click: function ($event) {
-                                          return _vm.getQR(i.qr)
-                                        },
+                  ],
+                  null,
+                  true
+                ),
+              },
+              [
+                _vm._v(" "),
+                _c("div", { attrs: { id: "Instagram" } }, [
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-md-3 col-4" }, [
+                      _c("b", [_vm._v("What ?")]),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-md-9 col-8" }, [
+                      _c("p", { staticClass: "col-md-12" }, [
+                        _vm._v(_vm._s(i.what)),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-md-3 col-4" }, [
+                      _c("b", [_vm._v("When ?")]),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-md-9 col-8" }, [
+                      _c("p", { staticClass: "col-md-12" }, [
+                        _vm._v(_vm._s(i.when)),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-md-3 col-4" }, [
+                      _c("b", [_vm._v("Where ?")]),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-md-9 col-8" }, [
+                      _c("p", { staticClass: "col-md-12" }, [
+                        _vm._v(_vm._s(i.where)),
+                      ]),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "row container" }, [
+                    _vm.usertype !== "student"
+                      ? _c(
+                          "div",
+                          { staticClass: "col-md-12 col-12" },
+                          [
+                            _c(
+                              "vs-button",
+                              {
+                                staticClass: "btn-chat",
+                                attrs: {
+                                  block: "",
+                                  size: "small",
+                                  color: "blue",
+                                },
+                                on: {
+                                  click: function ($event) {
+                                    return _vm.getQR(i.qr)
+                                  },
+                                },
+                              },
+                              [
+                                _c("span", { staticClass: "span" }, [
+                                  _vm._v("\n\t\t  QRCODE\n\t"),
+                                ]),
+                              ]
+                            ),
+                          ],
+                          1
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.usertype !== "student"
+                      ? _c(
+                          "div",
+                          { staticClass: "col-md-12 col-12" },
+                          [
+                            _vm.usertype === "admin"
+                              ? _c(
+                                  "vs-button",
+                                  {
+                                    staticClass: "btn-chat",
+                                    attrs: {
+                                      block: "",
+                                      size: "small",
+                                      color: "warn",
+                                    },
+                                    on: {
+                                      click: function ($event) {
+                                        _vm.gotoAttendance(
+                                          _vm.$router.push({
+                                            path:
+                                              "/administrator/check_attendance?" +
+                                              i.id,
+                                          })
+                                        )
                                       },
                                     },
-                                    [
-                                      _c("span", { staticClass: "span" }, [
-                                        _vm._v(
-                                          "\n\t\t\t\t\t          \tQRCODE\n\t\t\t\t\t        "
-                                        ),
-                                      ]),
-                                    ]
-                                  ),
-                                ],
-                                1
-                              )
-                            : _vm._e(),
-                          _vm._v(" "),
-                          _vm.usertype !== "student"
-                            ? _c(
-                                "div",
-                                { staticClass: "col-md-12 col-12" },
-                                [
-                                  _vm.usertype === "admin"
-                                    ? _c(
-                                        "vs-button",
-                                        {
-                                          staticClass: "btn-chat",
-                                          attrs: {
-                                            block: "",
-                                            size: "small",
-                                            color: "warn",
-                                          },
-                                          on: {
-                                            click: function ($event) {
-                                              _vm.gotoAttendance(
-                                                _vm.$router.push({
-                                                  path:
-                                                    "/administrator/check_attendance?" +
-                                                    i.id,
-                                                })
-                                              )
-                                            },
-                                          },
-                                        },
-                                        [
-                                          _c("span", { staticClass: "span" }, [
-                                            _vm._v(
-                                              "\n\t\t\t\t\t          \tSHOW ATTENDANCE\n\t\t\t\t\t        "
-                                            ),
-                                          ]),
-                                        ]
-                                      )
-                                    : _vm._e(),
-                                  _vm._v(" "),
-                                  _vm.usertype === "teacher"
-                                    ? _c(
-                                        "vs-button",
-                                        {
-                                          staticClass: "btn-chat",
-                                          attrs: {
-                                            block: "",
-                                            size: "small",
-                                            color: "warn",
-                                          },
-                                          on: {
-                                            click: function ($event) {
-                                              _vm.gotoAttendance(
-                                                _vm.$router.push({
-                                                  path:
-                                                    "/teacher/check_attendance?" +
-                                                    i.id,
-                                                })
-                                              )
-                                            },
-                                          },
-                                        },
-                                        [
-                                          _c("span", { staticClass: "span" }, [
-                                            _vm._v(
-                                              "\n\t\t\t\t\t          \tSHOW ATTENDANCE\n\t\t\t\t\t        "
-                                            ),
-                                          ]),
-                                        ]
-                                      )
-                                    : _vm._e(),
-                                ],
-                                1
-                              )
-                            : _vm._e(),
-                          _vm._v(" "),
-                          _vm.usertype === "student"
-                            ? _c(
-                                "div",
-                                { staticClass: "col-md-12 col-12" },
-                                [
-                                  _c("vs-button", { staticClass: "d-none" }),
-                                  _vm._v(" "),
-                                  _c(
-                                    "vs-button",
-                                    {
-                                      staticClass: "btn-chat",
-                                      attrs: {
-                                        size: "small",
-                                        block: "",
-                                        color:
-                                          i.status === null
-                                            ? "primary"
-                                            : i.status === "MS"
-                                            ? "success"
-                                            : i.status === "co1"
-                                            ? "warn"
-                                            : i.status === "ME"
-                                            ? "success"
-                                            : i.status === "co2"
-                                            ? "warn"
-                                            : i.status === "AS"
-                                            ? "success"
-                                            : i.status === "co3"
-                                            ? "warn"
-                                            : i.status === "AE"
-                                            ? "success"
-                                            : "danger",
-                                      },
-                                      on: {
-                                        click: function ($event) {
-                                          return _vm.EventTimeIn(i.status, i.id)
-                                        },
+                                  },
+                                  [
+                                    _c("span", { staticClass: "span" }, [
+                                      _vm._v("\n\t\t  SHOW ATTENDANCE\n\t"),
+                                    ]),
+                                  ]
+                                )
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _vm.usertype === "teacher"
+                              ? _c(
+                                  "vs-button",
+                                  {
+                                    staticClass: "btn-chat",
+                                    attrs: {
+                                      block: "",
+                                      size: "small",
+                                      color: "warn",
+                                    },
+                                    on: {
+                                      click: function ($event) {
+                                        _vm.gotoAttendance(
+                                          _vm.$router.push({
+                                            path:
+                                              "/teacher/check_attendance?" +
+                                              i.id,
+                                          })
+                                        )
                                       },
                                     },
-                                    [
-                                      _c("span", { staticClass: "span" }, [
-                                        _vm._v(
-                                          "\n\t\t\t\t\t          \t" +
-                                            _vm._s(
-                                              i.status === null
-                                                ? "The Event is not already starting!"
-                                                : i.status === "MS"
-                                                ? "Morning In"
-                                                : i.status === "co1"
-                                                ? "Cut Off"
-                                                : i.status === "ME"
-                                                ? "Morning Out"
-                                                : i.status === "co2"
-                                                ? "Cut Off"
-                                                : i.status === "AS"
-                                                ? "Afternoon In"
-                                                : i.status === "co3"
-                                                ? "Cut Off"
-                                                : i.status === "AE"
-                                                ? "Afternoon Out"
-                                                : "Event Ended!"
-                                            ) +
-                                            "\n\t\t\t\t\t        "
-                                        ),
-                                      ]),
-                                    ]
+                                  },
+                                  [
+                                    _c("span", { staticClass: "span" }, [
+                                      _vm._v("\n\t\t  SHOW ATTENDANCE\n\t"),
+                                    ]),
+                                  ]
+                                )
+                              : _vm._e(),
+                          ],
+                          1
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.usertype === "student"
+                      ? _c(
+                          "div",
+                          { staticClass: "col-md-12 col-12" },
+                          [
+                            _c("vs-button", { staticClass: "d-none" }),
+                            _vm._v(" "),
+                            _c(
+                              "vs-button",
+                              {
+                                staticClass: "btn-chat",
+                                attrs: {
+                                  size: "small",
+                                  block: "",
+                                  color:
+                                    i.status === null
+                                      ? "primary"
+                                      : i.status === "MS"
+                                      ? "success"
+                                      : i.status === "co1"
+                                      ? "warn"
+                                      : i.status === "ME"
+                                      ? "success"
+                                      : i.status === "co2"
+                                      ? "warn"
+                                      : i.status === "AS"
+                                      ? "success"
+                                      : i.status === "co3"
+                                      ? "warn"
+                                      : i.status === "AE"
+                                      ? "success"
+                                      : "danger",
+                                },
+                                on: {
+                                  click: function ($event) {
+                                    return _vm.EventTimeIn(i.status, i.id)
+                                  },
+                                },
+                              },
+                              [
+                                _c("span", { staticClass: "span" }, [
+                                  _vm._v(
+                                    "\n\t\t  " +
+                                      _vm._s(
+                                        i.status === null
+                                          ? "The Event is not already starting!"
+                                          : i.status === "MS"
+                                          ? "Morning In"
+                                          : i.status === "co1"
+                                          ? "Cut Off"
+                                          : i.status === "ME"
+                                          ? "Morning Out"
+                                          : i.status === "co2"
+                                          ? "Cut Off"
+                                          : i.status === "AS"
+                                          ? "Afternoon In"
+                                          : i.status === "co3"
+                                          ? "Cut Off"
+                                          : i.status === "AE"
+                                          ? "Afternoon Out"
+                                          : "Event Ended!"
+                                      ) +
+                                      "\n\t"
                                   ),
-                                ],
-                                1
-                              )
-                            : _vm._e(),
-                          _vm._v(" "),
-                          _vm.usertype === "admin"
-                            ? _c(
-                                "div",
-                                { staticClass: "col-md-6 col-6" },
-                                [
-                                  _c(
-                                    "vs-button",
-                                    {
-                                      staticClass: "btn-chat",
-                                      attrs: {
-                                        disabled:
-                                          i.status === null ? false : true,
-                                        size: "small",
-                                        block: "",
-                                        color: "success",
-                                      },
-                                      on: {
-                                        click: function ($event) {
-                                          return _vm.setTime("MS", i.id)
-                                        },
-                                      },
-                                    },
-                                    [
-                                      _c("span", { staticClass: "span" }, [
-                                        _vm._v(
-                                          "\n\t\t\t\t\t          \tMorning Start\n\t\t\t\t\t        "
-                                        ),
-                                      ]),
-                                    ]
-                                  ),
-                                ],
-                                1
-                              )
-                            : _vm._e(),
-                          _vm._v(" "),
-                          _vm.usertype === "admin"
-                            ? _c(
-                                "div",
-                                { staticClass: "col-md-6 col-6" },
-                                [
-                                  _c(
-                                    "vs-button",
-                                    {
-                                      staticClass: "btn-chat",
-                                      attrs: {
-                                        disabled:
-                                          i.status === "MS" ? false : true,
-                                        size: "small",
-                                        block: "",
-                                        color: "warn",
-                                      },
-                                      on: {
-                                        click: function ($event) {
-                                          return _vm.setTime("co1", i.id)
-                                        },
-                                      },
-                                    },
-                                    [
-                                      _c("span", { staticClass: "span" }, [
-                                        _vm._v(
-                                          "\n\t\t\t\t\t          \tCut Off\n\t\t\t\t\t        "
-                                        ),
-                                      ]),
-                                    ]
-                                  ),
-                                ],
-                                1
-                              )
-                            : _vm._e(),
-                          _vm._v(" "),
-                          _vm.usertype === "admin"
-                            ? _c(
-                                "div",
-                                { staticClass: "col-md-6 col-6" },
-                                [
-                                  _c(
-                                    "vs-button",
-                                    {
-                                      staticClass: "btn-chat",
-                                      attrs: {
-                                        disabled:
-                                          i.status === "co1" ? false : true,
-                                        size: "small",
-                                        block: "",
-                                        color: "primary",
-                                      },
-                                      on: {
-                                        click: function ($event) {
-                                          return _vm.setTime("ME", i.id)
-                                        },
-                                      },
-                                    },
-                                    [
-                                      _c("span", { staticClass: "span" }, [
-                                        _vm._v(
-                                          "\n\t\t\t\t\t          \tMorning End\n\t\t\t\t\t        "
-                                        ),
-                                      ]),
-                                    ]
-                                  ),
-                                ],
-                                1
-                              )
-                            : _vm._e(),
-                          _vm._v(" "),
-                          _vm.usertype === "admin"
-                            ? _c(
-                                "div",
-                                { staticClass: "col-md-6 col-6" },
-                                [
-                                  _c(
-                                    "vs-button",
-                                    {
-                                      staticClass: "btn-chat",
-                                      attrs: {
-                                        disabled:
-                                          i.status === "ME" ? false : true,
-                                        size: "small",
-                                        block: "",
-                                        color: "warn",
-                                      },
-                                      on: {
-                                        click: function ($event) {
-                                          return _vm.setTime("co2", i.id)
-                                        },
-                                      },
-                                    },
-                                    [
-                                      _c("span", { staticClass: "span" }, [
-                                        _vm._v(
-                                          "\n\t\t\t\t\t          \tCut Off\n\t\t\t\t\t        "
-                                        ),
-                                      ]),
-                                    ]
-                                  ),
-                                ],
-                                1
-                              )
-                            : _vm._e(),
-                          _vm._v(" "),
-                          _vm.usertype === "admin"
-                            ? _c(
-                                "div",
-                                { staticClass: "col-md-6 col-6" },
-                                [
-                                  _c(
-                                    "vs-button",
-                                    {
-                                      staticClass: "btn-chat",
-                                      attrs: {
-                                        disabled:
-                                          i.status === "co2" ? false : true,
-                                        size: "small",
-                                        block: "",
-                                        color: "success",
-                                      },
-                                      on: {
-                                        click: function ($event) {
-                                          return _vm.setTime("AS", i.id)
-                                        },
-                                      },
-                                    },
-                                    [
-                                      _c("span", { staticClass: "span" }, [
-                                        _vm._v(
-                                          "\n\t\t\t\t\t          \tAfternoon Start\n\t\t\t\t\t        "
-                                        ),
-                                      ]),
-                                    ]
-                                  ),
-                                ],
-                                1
-                              )
-                            : _vm._e(),
-                          _vm._v(" "),
-                          _vm.usertype === "admin"
-                            ? _c(
-                                "div",
-                                { staticClass: "col-md-6 col-6" },
-                                [
-                                  _c(
-                                    "vs-button",
-                                    {
-                                      staticClass: "btn-chat",
-                                      attrs: {
-                                        disabled:
-                                          i.status === "AS" ? false : true,
-                                        size: "small",
-                                        block: "",
-                                        color: "warn",
-                                      },
-                                      on: {
-                                        click: function ($event) {
-                                          return _vm.setTime("co3", i.id)
-                                        },
-                                      },
-                                    },
-                                    [
-                                      _c("span", { staticClass: "span" }, [
-                                        _vm._v(
-                                          "\n\t\t\t\t\t          \tCut Off\n\t\t\t\t\t        "
-                                        ),
-                                      ]),
-                                    ]
-                                  ),
-                                ],
-                                1
-                              )
-                            : _vm._e(),
-                          _vm._v(" "),
-                          _vm.usertype === "admin"
-                            ? _c(
-                                "div",
-                                { staticClass: "col-md-6 col-6" },
-                                [
-                                  _c(
-                                    "vs-button",
-                                    {
-                                      staticClass: "btn-chat",
-                                      attrs: {
-                                        disabled:
-                                          i.status === "co3" ? false : true,
-                                        size: "small",
-                                        block: "",
-                                        color: "warning",
-                                      },
-                                      on: {
-                                        click: function ($event) {
-                                          return _vm.setTime("AE", i.id)
-                                        },
-                                      },
-                                    },
-                                    [
-                                      _c("span", { staticClass: "span" }, [
-                                        _vm._v(
-                                          "\n\t\t\t\t\t          \tAfternoon End\n\t\t\t\t\t        "
-                                        ),
-                                      ]),
-                                    ]
-                                  ),
-                                ],
-                                1
-                              )
-                            : _vm._e(),
-                          _vm._v(" "),
-                          _vm.usertype === "admin"
-                            ? _c(
-                                "div",
-                                { staticClass: "col-md-6 col-6" },
-                                [
-                                  _c(
-                                    "vs-button",
-                                    {
-                                      staticClass: "btn-chat",
-                                      attrs: {
-                                        disabled:
-                                          i.status === "AE" ? false : true,
-                                        size: "small",
-                                        block: "",
-                                        color: "warn",
-                                      },
-                                      on: {
-                                        click: function ($event) {
-                                          return _vm.setTime("Finish", i.id)
-                                        },
-                                      },
-                                    },
-                                    [
-                                      _c("span", { staticClass: "span" }, [
-                                        _vm._v(
-                                          "\n\t\t\t\t\t          \tCut Off\n\t\t\t\t\t        "
-                                        ),
-                                      ]),
-                                    ]
-                                  ),
-                                ],
-                                1
-                              )
-                            : _vm._e(),
-                          _vm._v(" "),
-                          _vm.usertype === "admin"
-                            ? _c(
-                                "div",
-                                { staticClass: "col-md-12 col-12" },
-                                [
-                                  _c(
-                                    "vs-button",
-                                    {
-                                      staticClass: "btn-chat",
-                                      attrs: {
-                                        block: "",
-                                        size: "small",
-                                        color: "danger",
-                                      },
-                                      on: {
-                                        click: function ($event) {
-                                          return _vm.deleteEvent(i.id)
-                                        },
-                                      },
-                                    },
-                                    [
-                                      _c("span", { staticClass: "span" }, [
-                                        _vm._v(
-                                          "\n\t\t\t\t\t          \tDelete\n\t\t\t\t\t        "
-                                        ),
-                                      ]),
-                                    ]
-                                  ),
-                                ],
-                                1
-                              )
-                            : _vm._e(),
-                        ]),
-                      ]
-                    },
-                    proxy: true,
-                  },
-                ],
-                null,
-                true
-              ),
-            }),
+                                ]),
+                              ]
+                            ),
+                          ],
+                          1
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.usertype === "admin"
+                      ? _c(
+                          "div",
+                          { staticClass: "col-md-6 col-6" },
+                          [
+                            _c(
+                              "vs-button",
+                              {
+                                staticClass: "btn-chat",
+                                attrs: {
+                                  disabled: i.status === null ? false : true,
+                                  size: "small",
+                                  block: "",
+                                  color: "success",
+                                },
+                                on: {
+                                  click: function ($event) {
+                                    return _vm.setTime("MS", i.id)
+                                  },
+                                },
+                              },
+                              [
+                                _c("span", { staticClass: "span" }, [
+                                  _vm._v("\n\t\t  Morning Start\n\t"),
+                                ]),
+                              ]
+                            ),
+                          ],
+                          1
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.usertype === "admin"
+                      ? _c(
+                          "div",
+                          { staticClass: "col-md-6 col-6" },
+                          [
+                            _c(
+                              "vs-button",
+                              {
+                                staticClass: "btn-chat",
+                                attrs: {
+                                  disabled: i.status === "MS" ? false : true,
+                                  size: "small",
+                                  block: "",
+                                  color: "warn",
+                                },
+                                on: {
+                                  click: function ($event) {
+                                    return _vm.setTime("co1", i.id)
+                                  },
+                                },
+                              },
+                              [
+                                _c("span", { staticClass: "span" }, [
+                                  _vm._v("\n\t\t  Cut Off\n\t"),
+                                ]),
+                              ]
+                            ),
+                          ],
+                          1
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.usertype === "admin"
+                      ? _c(
+                          "div",
+                          { staticClass: "col-md-6 col-6" },
+                          [
+                            _c(
+                              "vs-button",
+                              {
+                                staticClass: "btn-chat",
+                                attrs: {
+                                  disabled: i.status === "co1" ? false : true,
+                                  size: "small",
+                                  block: "",
+                                  color: "primary",
+                                },
+                                on: {
+                                  click: function ($event) {
+                                    return _vm.setTime("ME", i.id)
+                                  },
+                                },
+                              },
+                              [
+                                _c("span", { staticClass: "span" }, [
+                                  _vm._v("\n\t\t  Morning End\n\t"),
+                                ]),
+                              ]
+                            ),
+                          ],
+                          1
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.usertype === "admin"
+                      ? _c(
+                          "div",
+                          { staticClass: "col-md-6 col-6" },
+                          [
+                            _c(
+                              "vs-button",
+                              {
+                                staticClass: "btn-chat",
+                                attrs: {
+                                  disabled: i.status === "ME" ? false : true,
+                                  size: "small",
+                                  block: "",
+                                  color: "warn",
+                                },
+                                on: {
+                                  click: function ($event) {
+                                    return _vm.setTime("co2", i.id)
+                                  },
+                                },
+                              },
+                              [
+                                _c("span", { staticClass: "span" }, [
+                                  _vm._v("\n\t\t  Cut Off\n\t"),
+                                ]),
+                              ]
+                            ),
+                          ],
+                          1
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.usertype === "admin"
+                      ? _c(
+                          "div",
+                          { staticClass: "col-md-6 col-6" },
+                          [
+                            _c(
+                              "vs-button",
+                              {
+                                staticClass: "btn-chat",
+                                attrs: {
+                                  disabled: i.status === "co2" ? false : true,
+                                  size: "small",
+                                  block: "",
+                                  color: "success",
+                                },
+                                on: {
+                                  click: function ($event) {
+                                    return _vm.setTime("AS", i.id)
+                                  },
+                                },
+                              },
+                              [
+                                _c("span", { staticClass: "span" }, [
+                                  _vm._v("\n\t\t  Afternoon Start\n\t"),
+                                ]),
+                              ]
+                            ),
+                          ],
+                          1
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.usertype === "admin"
+                      ? _c(
+                          "div",
+                          { staticClass: "col-md-6 col-6" },
+                          [
+                            _c(
+                              "vs-button",
+                              {
+                                staticClass: "btn-chat",
+                                attrs: {
+                                  disabled: i.status === "AS" ? false : true,
+                                  size: "small",
+                                  block: "",
+                                  color: "warn",
+                                },
+                                on: {
+                                  click: function ($event) {
+                                    return _vm.setTime("co3", i.id)
+                                  },
+                                },
+                              },
+                              [
+                                _c("span", { staticClass: "span" }, [
+                                  _vm._v("\n\t\t  Cut Off\n\t"),
+                                ]),
+                              ]
+                            ),
+                          ],
+                          1
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.usertype === "admin"
+                      ? _c(
+                          "div",
+                          { staticClass: "col-md-6 col-6" },
+                          [
+                            _c(
+                              "vs-button",
+                              {
+                                staticClass: "btn-chat",
+                                attrs: {
+                                  disabled: i.status === "co3" ? false : true,
+                                  size: "small",
+                                  block: "",
+                                  color: "warning",
+                                },
+                                on: {
+                                  click: function ($event) {
+                                    return _vm.setTime("AE", i.id)
+                                  },
+                                },
+                              },
+                              [
+                                _c("span", { staticClass: "span" }, [
+                                  _vm._v("\n\t\t  Afternoon End\n\t"),
+                                ]),
+                              ]
+                            ),
+                          ],
+                          1
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.usertype === "admin"
+                      ? _c(
+                          "div",
+                          { staticClass: "col-md-6 col-6" },
+                          [
+                            _c(
+                              "vs-button",
+                              {
+                                staticClass: "btn-chat",
+                                attrs: {
+                                  disabled: i.status === "AE" ? false : true,
+                                  size: "small",
+                                  block: "",
+                                  color: "warn",
+                                },
+                                on: {
+                                  click: function ($event) {
+                                    return _vm.setTime("Finish", i.id)
+                                  },
+                                },
+                              },
+                              [
+                                _c("span", { staticClass: "span" }, [
+                                  _vm._v("\n\t\t  Cut Off\n\t"),
+                                ]),
+                              ]
+                            ),
+                          ],
+                          1
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.usertype === "admin"
+                      ? _c(
+                          "div",
+                          { staticClass: "col-md-12 col-12" },
+                          [
+                            _c(
+                              "vs-button",
+                              {
+                                staticClass: "btn-chat",
+                                attrs: {
+                                  block: "",
+                                  size: "small",
+                                  color: "danger",
+                                },
+                                on: {
+                                  click: function ($event) {
+                                    return _vm.deleteEvent(i.id)
+                                  },
+                                },
+                              },
+                              [
+                                _c("span", { staticClass: "span" }, [
+                                  _vm._v("\n\t\t  Delete\n\t"),
+                                ]),
+                              ]
+                            ),
+                          ],
+                          1
+                        )
+                      : _vm._e(),
+                  ]),
+                ]),
+              ]
+            ),
           ],
           1
         )
@@ -38753,7 +38904,7 @@ var render = function () {
               },
             ],
             staticClass: "form-control mb-3",
-            attrs: { placeholder: "When" },
+            attrs: { placeholder: "What" },
             domProps: { value: _vm.what },
             on: {
               input: function ($event) {
@@ -38775,7 +38926,7 @@ var render = function () {
               },
             ],
             staticClass: "form-control mb-3",
-            attrs: { placeholder: "What" },
+            attrs: { placeholder: "When" },
             domProps: { value: _vm.when },
             on: {
               input: function ($event) {
@@ -38812,6 +38963,7 @@ var render = function () {
           _c(
             "vs-button",
             {
+              staticStyle: { "z-index": "-1 !important" },
               attrs: {
                 block: "",
                 color: "rgb(64, 191, 128)",
@@ -38826,7 +38978,7 @@ var render = function () {
       ),
     ]),
     _vm._v(" "),
-    _c("div", { staticClass: "col-md-4 offset-md-2" }, [_c("Event")], 1),
+    _c("div", { staticClass: "col-md-6" }, [_c("Event")], 1),
   ])
 }
 var staticRenderFns = []
@@ -40754,6 +40906,7 @@ var render = function () {
       _c(
         "vs-button",
         {
+          staticStyle: { "z-index": "1 !important" },
           attrs: { color: "rgb(64, 191, 128)" },
           on: {
             click: function ($event) {
@@ -40841,7 +40994,7 @@ var render = function () {
                     "vs-avatar",
                     {
                       staticClass: "mb-3",
-                      attrs: { history: "", success: "", size: "100" },
+                      attrs: { history: "", size: "100" },
                     },
                     [
                       _c(
@@ -40917,7 +41070,7 @@ var render = function () {
                 "vs-select",
                 {
                   staticClass: "mb-3",
-                  attrs: { "label-placeholder": "Grade", block: "", block: "" },
+                  attrs: { "label-placeholder": "Grade", block: "" },
                   scopedSlots: _vm._u(
                     [
                       _vm.error.grade !== undefined
@@ -41003,45 +41156,123 @@ var render = function () {
                 },
               }),
               _vm._v(" "),
-              _c("vs-input", {
-                staticClass: "mb-3",
-                attrs: { block: "", placeholder: "Section" },
-                scopedSlots: _vm._u(
-                  [
-                    {
-                      key: "icon",
-                      fn: function () {
-                        return [_vm._v("\n              @\n            ")]
-                      },
-                      proxy: true,
+              _c(
+                "vs-select",
+                {
+                  staticClass: "mb-3",
+                  attrs: { "label-placeholder": "Section", block: "" },
+                  scopedSlots: _vm._u(
+                    [
+                      _vm.error.section !== undefined
+                        ? {
+                            key: "message-danger",
+                            fn: function () {
+                              return [
+                                _vm._v(
+                                  "\n\t\t          " +
+                                    _vm._s(_vm.error.section[0]) +
+                                    "\n\t\t      "
+                                ),
+                              ]
+                            },
+                            proxy: true,
+                          }
+                        : null,
+                    ],
+                    null,
+                    true
+                  ),
+                  model: {
+                    value: _vm.section,
+                    callback: function ($$v) {
+                      _vm.section = $$v
                     },
-                    _vm.error.section !== undefined
-                      ? {
-                          key: "message-danger",
-                          fn: function () {
-                            return [
-                              _vm._v(
-                                "\n\t\t          " +
-                                  _vm._s(_vm.error.section[0]) +
-                                  "\n\t\t      "
-                              ),
-                            ]
-                          },
-                          proxy: true,
-                        }
-                      : null,
-                  ],
-                  null,
-                  true
-                ),
-                model: {
-                  value: _vm.section,
-                  callback: function ($$v) {
-                    _vm.section = $$v
+                    expression: "section",
                   },
-                  expression: "section",
                 },
-              }),
+                [
+                  _c(
+                    "vs-option",
+                    { attrs: { label: "Section A", value: "Section A" } },
+                    [
+                      _vm._v(
+                        "\n\t\t\t\t\t\t\t\t\t          Section A\n\t\t\t\t\t\t\t\t\t        "
+                      ),
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "vs-option",
+                    { attrs: { label: "Section B", value: "Section B" } },
+                    [
+                      _vm._v(
+                        "\n\t\t\t\t\t\t\t\t\t          Section B\n\t\t\t\t\t\t\t\t\t        "
+                      ),
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "vs-option",
+                    { attrs: { label: "Section C", value: "Section C" } },
+                    [
+                      _vm._v(
+                        "\n\t\t\t\t\t\t\t\t\t          Section C\n\t\t\t\t\t\t\t\t\t        "
+                      ),
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "vs-option",
+                    { attrs: { label: "Section D", value: "Section D" } },
+                    [
+                      _vm._v(
+                        "\n\t\t\t\t\t\t\t\t\t          Section D\n\t\t\t\t\t\t\t\t\t        "
+                      ),
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "vs-option",
+                    { attrs: { label: "Section E", value: "Section E" } },
+                    [
+                      _vm._v(
+                        "\n\t\t\t\t\t\t\t\t\t          Section E\n\t\t\t\t\t\t\t\t\t        "
+                      ),
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "vs-option",
+                    { attrs: { label: "Section F", value: "Section F" } },
+                    [
+                      _vm._v(
+                        "\n\t\t\t\t\t\t\t\t\t          Section F\n\t\t\t\t\t\t\t\t\t        "
+                      ),
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "vs-option",
+                    { attrs: { label: "Section G", value: "Section G" } },
+                    [
+                      _vm._v(
+                        "\n\t\t\t\t\t\t\t\t\t          Section G\n\t\t\t\t\t\t\t\t\t        "
+                      ),
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "vs-option",
+                    { attrs: { label: "Section H", value: "Section H" } },
+                    [
+                      _vm._v(
+                        "\n\t\t\t\t\t\t\t\t\t          Section H\n\t\t\t\t\t\t\t\t\t        "
+                      ),
+                    ]
+                  ),
+                ],
+                1
+              ),
               _vm._v(" "),
               _c("vs-input", {
                 staticClass: "mb-3",
@@ -42695,36 +42926,123 @@ var render = function () {
           "div",
           { staticClass: "col-md-6 col-12" },
           [
-            _c("vs-input", {
-              staticClass: "mb-3",
-              attrs: { type: "text", block: "", placeholder: "Section" },
-              scopedSlots: _vm._u(
-                [
-                  _vm.error2.section !== undefined
-                    ? {
-                        key: "message-danger",
-                        fn: function () {
-                          return [
-                            _vm._v(
-                              "\n\t\t\t\t\t\t\t\t          Required\n\t\t\t\t\t\t\t\t      "
-                            ),
-                          ]
-                        },
-                        proxy: true,
-                      }
-                    : null,
-                ],
-                null,
-                true
-              ),
-              model: {
-                value: _vm.section,
-                callback: function ($$v) {
-                  _vm.section = $$v
+            _c(
+              "vs-select",
+              {
+                staticClass: "mb-3",
+                attrs: { "label-placeholder": "Section", block: "" },
+                scopedSlots: _vm._u(
+                  [
+                    _vm.error2.section !== undefined
+                      ? {
+                          key: "message-danger",
+                          fn: function () {
+                            return [
+                              _vm._v(
+                                "\n\t\t\t\t\t\t\t\t\t          " +
+                                  _vm._s(_vm.error2.section[0]) +
+                                  "\n\t\t\t\t\t\t\t\t\t      "
+                              ),
+                            ]
+                          },
+                          proxy: true,
+                        }
+                      : null,
+                  ],
+                  null,
+                  true
+                ),
+                model: {
+                  value: _vm.section,
+                  callback: function ($$v) {
+                    _vm.section = $$v
+                  },
+                  expression: "section",
                 },
-                expression: "section",
               },
-            }),
+              [
+                _c(
+                  "vs-option",
+                  { attrs: { label: "Section A", value: "Section A" } },
+                  [
+                    _vm._v(
+                      "\n\t\t\t\t\t\t\t\t\t          Section A\n\t\t\t\t\t\t\t\t\t        "
+                    ),
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "vs-option",
+                  { attrs: { label: "Section B", value: "Section B" } },
+                  [
+                    _vm._v(
+                      "\n\t\t\t\t\t\t\t\t\t          Section B\n\t\t\t\t\t\t\t\t\t        "
+                    ),
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "vs-option",
+                  { attrs: { label: "Section C", value: "Section C" } },
+                  [
+                    _vm._v(
+                      "\n\t\t\t\t\t\t\t\t\t          Section C\n\t\t\t\t\t\t\t\t\t        "
+                    ),
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "vs-option",
+                  { attrs: { label: "Section D", value: "Section D" } },
+                  [
+                    _vm._v(
+                      "\n\t\t\t\t\t\t\t\t\t          Section D\n\t\t\t\t\t\t\t\t\t        "
+                    ),
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "vs-option",
+                  { attrs: { label: "Section E", value: "Section E" } },
+                  [
+                    _vm._v(
+                      "\n\t\t\t\t\t\t\t\t\t          Section E\n\t\t\t\t\t\t\t\t\t        "
+                    ),
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "vs-option",
+                  { attrs: { label: "Section F", value: "Section F" } },
+                  [
+                    _vm._v(
+                      "\n\t\t\t\t\t\t\t\t\t          Section F\n\t\t\t\t\t\t\t\t\t        "
+                    ),
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "vs-option",
+                  { attrs: { label: "Section G", value: "Section G" } },
+                  [
+                    _vm._v(
+                      "\n\t\t\t\t\t\t\t\t\t          Section G\n\t\t\t\t\t\t\t\t\t        "
+                    ),
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "vs-option",
+                  { attrs: { label: "Section H", value: "Section H" } },
+                  [
+                    _vm._v(
+                      "\n\t\t\t\t\t\t\t\t\t          Section H\n\t\t\t\t\t\t\t\t\t        "
+                    ),
+                  ]
+                ),
+              ],
+              1
+            ),
           ],
           1
         ),
@@ -43479,6 +43797,31 @@ var render = function () {
     ],
     1
   )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/student/event/Layout.vue?vue&type=template&id=3668b6fe&":
+/*!********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/student/event/Layout.vue?vue&type=template&id=3668b6fe& ***!
+  \********************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "col-md-6 offset-md-3" }, [_c("Event")], 1)
 }
 var staticRenderFns = []
 render._withStripped = true

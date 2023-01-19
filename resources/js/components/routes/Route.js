@@ -22,7 +22,7 @@ import Student from './../student/_Index.vue'
 import Loading4 from './../student/Loading.vue'
 import StudentHistory from './../student/History.vue'
 import Profile from './../student/Profile.vue'
-import EventPost from './../admin/event/Event.vue'
+import EventPost from './../student/event/Layout.vue'
 
 
 import Teacher2 from './../teacher/_Index.vue'

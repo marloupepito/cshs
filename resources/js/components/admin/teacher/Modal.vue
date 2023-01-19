@@ -1,6 +1,6 @@
 <template>
 	<div>
-		 <vs-button color="rgb(64, 191, 128)" @click="active=!active">
+		 <vs-button  style="z-index:1 !important"  color="rgb(64, 191, 128)" @click="active=!active">
                 Create Teacher
               </vs-button>
 
@@ -16,7 +16,7 @@
 
        		 <input hidden id="uploadpp" @change="uploadPP2" ref="uploadpp" type="file"   accept="image/png, image/gif, image/jpeg"/>
               <center>
-              	<vs-avatar history success size="100" class="mb-3">
+              	<vs-avatar history  size="100" class="mb-3">
 		        <a href="#" @click="uploadPP()"  ref="myBtn"><img :src="pp" alt=""></a>
 		       		
 		      </vs-avatar>
@@ -41,7 +41,7 @@
 		        label-placeholder="Grade"
 		        v-model="grade"
 		        block
-		        block class="mb-3"
+		         class="mb-3"
 		      >
 		        <vs-option label="Grade 11" value="Grade 11">
 		          Grade 11
@@ -63,14 +63,41 @@
 			      </template>
           </vs-input>
 
-          <vs-input v-model="section" block class="mb-3"  placeholder="Section">
-            <template #icon>
-              @
-            </template>
-            <template v-if="error.section !== undefined" #message-danger>
+      
+		  <vs-select
+		        label-placeholder="Section"
+		        v-model="section"
+		        block
+		         class="mb-3"
+		      >
+			  <vs-option label="Section A" value="Section A">
+									          Section A
+									        </vs-option>
+									        <vs-option label="Section B" value="Section B">
+									          Section B
+									        </vs-option>
+									         <vs-option label="Section C" value="Section C">
+									          Section C
+									        </vs-option>
+									         <vs-option label="Section D" value="Section D">
+									          Section D
+									        </vs-option>
+									         <vs-option label="Section E" value="Section E">
+									          Section E
+									        </vs-option>
+											<vs-option label="Section F" value="Section F">
+									          Section F
+									        </vs-option>
+											<vs-option label="Section G" value="Section G">
+									          Section G
+									        </vs-option>
+											<vs-option label="Section H" value="Section H">
+									          Section H
+									        </vs-option>
+		        <template v-if="error.section !== undefined" #message-danger>
 		          {{error.section[0]}}
 		      </template>
-          </vs-input>
+		      </vs-select>
 
            <vs-input type="number" v-model="contact" block class="mb-3"  placeholder="Contact">
             <template #icon>
@@ -125,7 +152,7 @@ import axios from 'axios'
          contact:'',
           idnumber:'',
         password: '',
-        pp:'/images/logo.png',
+        pp:'/images/profileupload.png',
 	 	profile:'',
 	 	error:'',
 	 	loading:false
