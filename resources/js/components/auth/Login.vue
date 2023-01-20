@@ -6,12 +6,12 @@
           	<div class="getStarted col-md-8 col-12">
 	               <center>
 	               		<img src="/images/logo2.png" width="70%"/>
-	               		<b><p>Welcome to Cal.S, an application to your attendance in every events of CSHS-SA</p></b>
+	               		<b><p>Welcome to Cal.S, an application to your attendance in every event of CSHS-SA</p></b>
 	               </center>
 	           </div>
 	           <div class="col-md-4 col-12">
 	            		 <h4 class="not-margin mt-5">
-			                    Welcome to <b>Attendance Monitoring</b>
+			                   <b>Attendance Monitoring</b>
 			                  </h4>
 			                <form  @submit="loginUser">
 
@@ -40,11 +40,16 @@
 				                </div>
 			                </div>
 			     			
-				                <div class="flex">
-				                    <vs-checkbox v-model="checkbox1">Remember me</vs-checkbox>
-				                  </div>
 			                <div class="mt-3"
 			                >
+							<div class="form-check mb-3">
+								<input class="form-check-input" v-model="checkbox1" type="checkbox" value="" id="flexCheckCheckedDisabled" checked>
+								<label style="float: left;" class="form-check-label" for="flexCheckCheckedDisabled">
+									Remember me
+								</label>
+								</div>
+
+
 			                  <div class="footer-dialog">
 			                    <vs-button block color="rgb(64, 191, 128)" @click="loginUser">
 			                      Sign In

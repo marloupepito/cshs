@@ -1,8 +1,9 @@
 <template>
 	<div >
 		<div class="container mb-4 d-flex p-0 justify-content-center" style="width:100%;height:90vh !important"> 
-			<div class="card p-4"> <div class=" image d-flex flex-column justify-content-center align-items-center"> 
-				<button class="btn btn-success"> <img :src="'/profile/'+data.profile" height="100" width="100" /></button> <span class="name mt-3">{{data.name}}</span> <span class="idd">{{data.grade}} {{data.section}}</span> 
+			<div class="card p-4"> <div class="d-flex flex-column justify-content-center align-items-center"> 
+                <img :src="'/profile/'+data.profile" height="200" class="mt-3" width="90%" />
+				 <span class="name mt-3">{{data.name}}</span> <span class="idd">{{data.grade}} {{data.section}}</span> 
 				<div class="d-flex flex-row justify-content-center align-items-center gap-2">
 				 <span class="idd1">{{data.strand}}</span> 
 				</div> 

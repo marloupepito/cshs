@@ -15,21 +15,20 @@
 						
 				          <div class="footer-dialog mb-5">
 				            <vs-button @click="gotoLogin" class="p-3" block color="rgb(64, 191, 128)">
-				             <h2><b> Login</b></h2>
+				             <h2 class="mt-2"><b> Login</b></h2>
 				            </vs-button>
 				          </div>
 
 
 				          <div class="footer-dialog">
 				            <vs-button @click="gotoRegister" class="p-3" block color="rgb(64, 191, 128)">
-				            	 <h2><b>Register</b></h2>
+				            	 <h2 class="mt-2"><b>Register</b></h2>
 				            </vs-button>
 				          </div>
 	           </div>
           </div>
 
 
-        </div>
 	</div>
 </template>
 

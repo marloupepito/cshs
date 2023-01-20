@@ -5376,7 +5376,7 @@ __webpack_require__.r(__webpack_exports__);
       options: [{
         id: 1,
         icon: "text-white fas fa-list",
-        title: "Event",
+        title: "News Feed",
         path: "/administrator"
       }, {
         id: 2,
@@ -7203,6 +7203,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -7219,7 +7222,8 @@ __webpack_require__.r(__webpack_exports__);
       pp: '/images/profileupload.png',
       profile: '',
       error: '',
-      loading: false
+      loading: false,
+      hasVisiblePassword: false
     };
   },
   methods: {
@@ -7754,6 +7758,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -7981,7 +7990,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-//
 //
 //
 //
@@ -8689,6 +8697,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
 //
 //
 //
@@ -37839,7 +37848,7 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("CurvedBottomNavigation", {
-    staticStyle: { "z-index": "99 !important" },
+    staticStyle: { "z-index": "100 !important" },
     attrs: {
       "foreground-color": "#F7F7F8",
       "badge-color": "#FBC02D",
@@ -41040,16 +41049,9 @@ var render = function () {
               _vm._v(" "),
               _c("vs-input", {
                 staticClass: "mb-3",
-                attrs: { block: "", placeholder: "Fullname" },
+                attrs: { block: "", placeholder: "full name" },
                 scopedSlots: _vm._u(
                   [
-                    {
-                      key: "icon",
-                      fn: function () {
-                        return [_vm._v("\n              @\n            ")]
-                      },
-                      proxy: true,
-                    },
                     _vm.error.fullname !== undefined
                       ? {
                           key: "message-danger",
@@ -41130,16 +41132,9 @@ var render = function () {
               _vm._v(" "),
               _c("vs-input", {
                 staticClass: "mb-3",
-                attrs: { type: "number", block: "", placeholder: "ID Number" },
+                attrs: { type: "text", block: "", placeholder: "id number" },
                 scopedSlots: _vm._u(
                   [
-                    {
-                      key: "icon",
-                      fn: function () {
-                        return [_vm._v("\n              @\n            ")]
-                      },
-                      proxy: true,
-                    },
                     _vm.error.idnumber !== undefined
                       ? {
                           key: "message-danger",
@@ -41172,7 +41167,7 @@ var render = function () {
                 "vs-select",
                 {
                   staticClass: "mb-3",
-                  attrs: { "label-placeholder": "Section", block: "" },
+                  attrs: { "label-placeholder": "Section Advisory", block: "" },
                   scopedSlots: _vm._u(
                     [
                       _vm.error.section !== undefined
@@ -41288,16 +41283,13 @@ var render = function () {
               _vm._v(" "),
               _c("vs-input", {
                 staticClass: "mb-3",
-                attrs: { type: "number", block: "", placeholder: "Contact" },
+                attrs: {
+                  type: "number",
+                  block: "",
+                  placeholder: "contact no.",
+                },
                 scopedSlots: _vm._u(
                   [
-                    {
-                      key: "icon",
-                      fn: function () {
-                        return [_vm._v("\n              @\n            ")]
-                      },
-                      proxy: true,
-                    },
                     _vm.error.contact !== undefined
                       ? {
                           key: "message-danger",
@@ -41367,14 +41359,27 @@ var render = function () {
               }),
               _vm._v(" "),
               _c("vs-input", {
-                staticClass: "mb-3",
-                attrs: { type: "password", block: "", placeholder: "Password" },
+                attrs: {
+                  type: "password",
+                  placeholder: "Password",
+                  visiblePassword: _vm.hasVisiblePassword,
+                  "icon-after": "",
+                },
+                on: {
+                  "click-icon": function ($event) {
+                    _vm.hasVisiblePassword = !_vm.hasVisiblePassword
+                  },
+                },
                 scopedSlots: _vm._u(
                   [
                     {
                       key: "icon",
                       fn: function () {
-                        return [_c("i", { staticClass: "bx bxs-lock" })]
+                        return [
+                          !_vm.hasVisiblePassword
+                            ? _c("i", { staticClass: "bx bx-show-alt" })
+                            : _c("i", { staticClass: "bx bx-hide" }),
+                        ]
                       },
                       proxy: true,
                     },
@@ -41384,9 +41389,9 @@ var render = function () {
                           fn: function () {
                             return [
                               _vm._v(
-                                "\n\t\t          " +
+                                "\n\t\t\t\t\t\t\t\t          " +
                                   _vm._s(_vm.error.password[0]) +
-                                  "\n\t\t      "
+                                  "\n\t\t\t\t\t\t\t\t      "
                               ),
                             ]
                           },
@@ -42213,6 +42218,9 @@ var render = function () {
         },
       }),
       _c("br"),
+      _c("br"),
+      _c("br"),
+      _c("br"),
     ],
     1
   )
@@ -42277,7 +42285,7 @@ var render = function () {
             _c("b", [
               _c("p", [
                 _vm._v(
-                  "Welcome to Cal.S, an application to your attendance in every events of CSHS-SA"
+                  "Welcome to Cal.S, an application to your attendance in every event of CSHS-SA"
                 ),
               ]),
             ]),
@@ -42360,28 +42368,63 @@ var render = function () {
             ),
           ]),
           _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "flex" },
-            [
-              _c(
-                "vs-checkbox",
-                {
-                  model: {
+          _c("div", { staticClass: "mt-3" }, [
+            _c("div", { staticClass: "form-check mb-3" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
                     value: _vm.checkbox1,
-                    callback: function ($$v) {
-                      _vm.checkbox1 = $$v
-                    },
                     expression: "checkbox1",
                   },
+                ],
+                staticClass: "form-check-input",
+                attrs: {
+                  type: "checkbox",
+                  value: "",
+                  id: "flexCheckCheckedDisabled",
+                  checked: "",
                 },
-                [_vm._v("Remember me")]
+                domProps: {
+                  checked: Array.isArray(_vm.checkbox1)
+                    ? _vm._i(_vm.checkbox1, "") > -1
+                    : _vm.checkbox1,
+                },
+                on: {
+                  change: function ($event) {
+                    var $$a = _vm.checkbox1,
+                      $$el = $event.target,
+                      $$c = $$el.checked ? true : false
+                    if (Array.isArray($$a)) {
+                      var $$v = "",
+                        $$i = _vm._i($$a, $$v)
+                      if ($$el.checked) {
+                        $$i < 0 && (_vm.checkbox1 = $$a.concat([$$v]))
+                      } else {
+                        $$i > -1 &&
+                          (_vm.checkbox1 = $$a
+                            .slice(0, $$i)
+                            .concat($$a.slice($$i + 1)))
+                      }
+                    } else {
+                      _vm.checkbox1 = $$c
+                    }
+                  },
+                },
+              }),
+              _vm._v(" "),
+              _c(
+                "label",
+                {
+                  staticClass: "form-check-label",
+                  staticStyle: { float: "left" },
+                  attrs: { for: "flexCheckCheckedDisabled" },
+                },
+                [_vm._v("\n\t\t\t\t\t\t\t\t\tRemember me\n\t\t\t\t\t\t\t\t")]
               ),
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "mt-3" }, [
+            ]),
+            _vm._v(" "),
             _c(
               "div",
               { staticClass: "footer-dialog" },
@@ -42429,7 +42472,6 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("h4", { staticClass: "not-margin mt-5" }, [
-      _vm._v("\n\t\t\t                    Welcome to "),
       _c("b", [_vm._v("Attendance Monitoring")]),
     ])
   },
@@ -42520,7 +42562,7 @@ var render = function () {
                 attrs: { block: "", color: "rgb(64, 191, 128)" },
                 on: { click: _vm.gotoLogin },
               },
-              [_c("h2", [_c("b", [_vm._v(" Login")])])]
+              [_c("h2", { staticClass: "mt-2" }, [_c("b", [_vm._v(" Login")])])]
             ),
           ],
           1
@@ -42537,7 +42579,11 @@ var render = function () {
                 attrs: { block: "", color: "rgb(64, 191, 128)" },
                 on: { click: _vm.gotoRegister },
               },
-              [_c("h2", [_c("b", [_vm._v("Register")])])]
+              [
+                _c("h2", { staticClass: "mt-2" }, [
+                  _c("b", [_vm._v("Register")]),
+                ]),
+              ]
             ),
           ],
           1
@@ -43125,7 +43171,7 @@ var render = function () {
         _vm._v(" "),
         _c(
           "div",
-          { staticClass: "col-md-12 col-12 mt-5 mb-3" },
+          { staticClass: "col-md-12 col-12 mt-5" },
           [
             _c(
               "vs-button",
@@ -43137,7 +43183,7 @@ var render = function () {
                 },
                 on: { click: _vm.registerNext },
               },
-              [_c("h2", [_c("b", [_vm._v("NEXT")])])]
+              [_c("b", [_vm._v("NEXT")])]
             ),
           ],
           1
@@ -43366,7 +43412,7 @@ var render = function () {
                   },
                   on: { click: _vm.submit },
                 },
-                [_c("h2", [_c("b", [_vm._v("CONFIRM")])])]
+                [_c("b", [_vm._v("CONFIRM")])]
               ),
             ],
             1
@@ -43474,7 +43520,7 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("CurvedBottomNavigation", {
-    staticStyle: { "z-index": "1 !important" },
+    staticStyle: { "z-index": "100 !important" },
     attrs: {
       "foreground-color": "#F7F7F8",
       "badge-color": "#FBC02D",
@@ -43733,18 +43779,17 @@ var render = function () {
             "div",
             {
               staticClass:
-                "image d-flex flex-column justify-content-center align-items-center",
+                "d-flex flex-column justify-content-center align-items-center",
             },
             [
-              _c("button", { staticClass: "btn btn-success" }, [
-                _c("img", {
-                  attrs: {
-                    src: "/profile/" + _vm.data.profile,
-                    height: "100",
-                    width: "100",
-                  },
-                }),
-              ]),
+              _c("img", {
+                staticClass: "mt-3",
+                attrs: {
+                  src: "/profile/" + _vm.data.profile,
+                  height: "200",
+                  width: "90%",
+                },
+              }),
               _vm._v(" "),
               _c("span", { staticClass: "name mt-3" }, [
                 _vm._v(_vm._s(_vm.data.name)),
@@ -43880,7 +43925,7 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("CurvedBottomNavigation", {
-    staticStyle: { "z-index": "1 !important" },
+    staticStyle: { "z-index": "100 !important" },
     attrs: {
       "foreground-color": "#F7F7F8",
       "badge-color": "#FBC02D",

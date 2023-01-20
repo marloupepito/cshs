@@ -148,9 +148,9 @@
 							          Female
 							        </vs-radio>
 				                </div>
-				                <div  class="col-md-12 col-12 mt-5 mb-3">
+				                <div  class="col-md-12 col-12 mt-5">
 				                	 <vs-button :loading="loading" @click="registerNext" block color="rgb(64, 191, 128)">
-						            	 <h2><b>NEXT</b></h2>
+						            	 <b>NEXT</b>
 						            </vs-button>
 				                </div>
 			                </div>

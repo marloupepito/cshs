@@ -1,7 +1,7 @@
 <template>
   
  <CurvedBottomNavigation
- style="z-index:99 !important"
+ style="z-index:100 !important"
  foreground-color='#F7F7F8'
   badge-color='#FBC02D'
   background-color='rgb(64, 191, 128)'
@@ -18,7 +18,7 @@
         {
           id: 1,
           icon: "text-white fas fa-list",
-          title: "Event",
+          title: "News Feed",
           path:"/administrator"
         },
         { 

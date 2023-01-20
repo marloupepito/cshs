@@ -1,7 +1,7 @@
 <template>
   
   <CurvedBottomNavigation
-  style="z-index:1 !important"
+  style="z-index:100 !important"
  foreground-color='#F7F7F8'
   badge-color='#FBC02D'
   background-color='rgb(64, 191, 128)'

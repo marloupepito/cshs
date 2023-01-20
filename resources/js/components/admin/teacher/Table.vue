@@ -110,7 +110,7 @@
         <template #footer>
           <vs-pagination v-model="page" :length="$vs.getLength($vs.getSearch(users, search), max)" />
         </template>
-      </vs-table><br />
+      </vs-table><br /><br /><br /><br />
 
       
     </div>

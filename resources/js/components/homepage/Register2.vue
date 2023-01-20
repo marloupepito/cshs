@@ -55,7 +55,7 @@
 				               
 				                <div  class="col-md-12 col-12 mt-5">
 				                	 <vs-button :loading="loading" @click="submit" block color="rgb(64, 191, 128)">
-						            	 <h2><b>CONFIRM</b></h2>
+						            	<b>CONFIRM</b>
 						         	   </vs-button>
 				                </div>
 			                </div>

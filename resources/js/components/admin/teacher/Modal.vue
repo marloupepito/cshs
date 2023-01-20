@@ -26,10 +26,8 @@
 		         {{error.profile[0]}}
 		      </div>
 
-          <vs-input v-model="fullname" block class="mb-3"  placeholder="Fullname">
-            <template #icon>
-              @
-            </template>
+          <vs-input v-model="fullname" block class="mb-3"  placeholder="full name">
+            
               <template v-if="error.fullname !== undefined" #message-danger>
 		          {{error.fullname[0]}}
 		      </template>
@@ -54,10 +52,8 @@
 		      </template>
 		      </vs-select>
 
-		       <vs-input type="number" v-model="idnumber" block class="mb-3"  placeholder="ID Number">
-            <template #icon>
-              @
-            </template>
+		       <vs-input type="text" v-model="idnumber" block class="mb-3"  placeholder="id number">
+           
 	            <template v-if="error.idnumber !== undefined" #message-danger>
 			          {{error.idnumber[0]}}
 			      </template>
@@ -65,7 +61,7 @@
 
       
 		  <vs-select
-		        label-placeholder="Section"
+		        label-placeholder="Section Advisory"
 		        v-model="section"
 		        block
 		         class="mb-3"
@@ -99,10 +95,8 @@
 		      </template>
 		      </vs-select>
 
-           <vs-input type="number" v-model="contact" block class="mb-3"  placeholder="Contact">
-            <template #icon>
-              @
-            </template>
+           <vs-input type="number" v-model="contact" block class="mb-3"  placeholder="contact no.">
+           
             <template v-if="error.contact !== undefined" #message-danger>
 		          {{error.contact[0]}}
 		      </template>
@@ -117,14 +111,23 @@
 		      </template>
           </vs-input>
 
-          <vs-input type="password" block class="mb-3" v-model="password" placeholder="Password">
-            <template #icon>
-              <i class='bx bxs-lock'></i>
-            </template>
-            <template v-if="error.password !== undefined" #message-danger>
-		          {{error.password[0]}}
-		      </template>
-          </vs-input>
+		  <vs-input
+									type="password"
+									v-model="password"
+									placeholder="Password"
+									:visiblePassword="hasVisiblePassword"
+									icon-after
+									@click-icon="hasVisiblePassword = !hasVisiblePassword">
+									<template #icon>
+									<i v-if="!hasVisiblePassword" class='bx bx-show-alt'></i>
+									<i v-else class='bx bx-hide'></i>
+									</template>
+									<template v-if="error.password !== undefined" #message-danger>
+								          {{error.password[0]}}
+								      </template>
+									  </vs-input>
+
+        
 
          
         </div>
@@ -155,7 +158,8 @@ import axios from 'axios'
         pp:'/images/profileupload.png',
 	 	profile:'',
 	 	error:'',
-	 	loading:false
+	 	loading:false,
+		 hasVisiblePassword: false
       }),
      
       methods:{
