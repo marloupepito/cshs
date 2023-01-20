@@ -7204,6 +7204,54 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -7221,7 +7269,8 @@ __webpack_require__.r(__webpack_exports__);
       profile: '',
       error: '',
       loading: false,
-      hasVisiblePassword: false
+      hasVisiblePassword: false,
+      strand: ""
     };
   },
   methods: {
@@ -41015,7 +41064,7 @@ var render = function () {
               _vm._v(" "),
               _c("vs-input", {
                 staticClass: "mb-3",
-                attrs: { block: "", placeholder: "full name" },
+                attrs: { block: "", placeholder: "Fullname" },
                 scopedSlots: _vm._u(
                   [
                     _vm.error.fullname !== undefined
@@ -41046,59 +41095,9 @@ var render = function () {
                 },
               }),
               _vm._v(" "),
-              _c(
-                "vs-select",
-                {
-                  staticClass: "mb-3",
-                  attrs: { "label-placeholder": "Grade", block: "" },
-                  scopedSlots: _vm._u(
-                    [
-                      _vm.error.grade !== undefined
-                        ? {
-                            key: "message-danger",
-                            fn: function () {
-                              return [
-                                _vm._v(
-                                  "\n\t\t          " +
-                                    _vm._s(_vm.error.grade[0]) +
-                                    "\n\t\t      "
-                                ),
-                              ]
-                            },
-                            proxy: true,
-                          }
-                        : null,
-                    ],
-                    null,
-                    true
-                  ),
-                  model: {
-                    value: _vm.grade,
-                    callback: function ($$v) {
-                      _vm.grade = $$v
-                    },
-                    expression: "grade",
-                  },
-                },
-                [
-                  _c(
-                    "vs-option",
-                    { attrs: { label: "Grade 11", value: "Grade 11" } },
-                    [_vm._v("\n\t\t          Grade 11\n\t\t        ")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "vs-option",
-                    { attrs: { label: "Grade 12", value: "12" } },
-                    [_vm._v("\n\t\t          Grade 12\n\t\t        ")]
-                  ),
-                ],
-                1
-              ),
-              _vm._v(" "),
               _c("vs-input", {
                 staticClass: "mb-3",
-                attrs: { type: "text", block: "", placeholder: "id number" },
+                attrs: { type: "text", block: "", placeholder: "ID Number" },
                 scopedSlots: _vm._u(
                   [
                     _vm.error.idnumber !== undefined
@@ -41129,130 +41128,12 @@ var render = function () {
                 },
               }),
               _vm._v(" "),
-              _c(
-                "vs-select",
-                {
-                  staticClass: "mb-3",
-                  attrs: { "label-placeholder": "Section Advisory", block: "" },
-                  scopedSlots: _vm._u(
-                    [
-                      _vm.error.section !== undefined
-                        ? {
-                            key: "message-danger",
-                            fn: function () {
-                              return [
-                                _vm._v(
-                                  "\n\t\t          " +
-                                    _vm._s(_vm.error.section[0]) +
-                                    "\n\t\t      "
-                                ),
-                              ]
-                            },
-                            proxy: true,
-                          }
-                        : null,
-                    ],
-                    null,
-                    true
-                  ),
-                  model: {
-                    value: _vm.section,
-                    callback: function ($$v) {
-                      _vm.section = $$v
-                    },
-                    expression: "section",
-                  },
-                },
-                [
-                  _c(
-                    "vs-option",
-                    { attrs: { label: "Section A", value: "Section A" } },
-                    [
-                      _vm._v(
-                        "\n\t\t\t\t\t\t\t\t\t          Section A\n\t\t\t\t\t\t\t\t\t        "
-                      ),
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "vs-option",
-                    { attrs: { label: "Section B", value: "Section B" } },
-                    [
-                      _vm._v(
-                        "\n\t\t\t\t\t\t\t\t\t          Section B\n\t\t\t\t\t\t\t\t\t        "
-                      ),
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "vs-option",
-                    { attrs: { label: "Section C", value: "Section C" } },
-                    [
-                      _vm._v(
-                        "\n\t\t\t\t\t\t\t\t\t          Section C\n\t\t\t\t\t\t\t\t\t        "
-                      ),
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "vs-option",
-                    { attrs: { label: "Section D", value: "Section D" } },
-                    [
-                      _vm._v(
-                        "\n\t\t\t\t\t\t\t\t\t          Section D\n\t\t\t\t\t\t\t\t\t        "
-                      ),
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "vs-option",
-                    { attrs: { label: "Section E", value: "Section E" } },
-                    [
-                      _vm._v(
-                        "\n\t\t\t\t\t\t\t\t\t          Section E\n\t\t\t\t\t\t\t\t\t        "
-                      ),
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "vs-option",
-                    { attrs: { label: "Section F", value: "Section F" } },
-                    [
-                      _vm._v(
-                        "\n\t\t\t\t\t\t\t\t\t          Section F\n\t\t\t\t\t\t\t\t\t        "
-                      ),
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "vs-option",
-                    { attrs: { label: "Section G", value: "Section G" } },
-                    [
-                      _vm._v(
-                        "\n\t\t\t\t\t\t\t\t\t          Section G\n\t\t\t\t\t\t\t\t\t        "
-                      ),
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "vs-option",
-                    { attrs: { label: "Section H", value: "Section H" } },
-                    [
-                      _vm._v(
-                        "\n\t\t\t\t\t\t\t\t\t          Section H\n\t\t\t\t\t\t\t\t\t        "
-                      ),
-                    ]
-                  ),
-                ],
-                1
-              ),
-              _vm._v(" "),
               _c("vs-input", {
                 staticClass: "mb-3",
                 attrs: {
                   type: "number",
                   block: "",
-                  placeholder: "contact no.",
+                  placeholder: "Contact No.",
                 },
                 scopedSlots: _vm._u(
                   [
@@ -41283,6 +41164,293 @@ var render = function () {
                   expression: "contact",
                 },
               }),
+              _vm._v(" "),
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-md-12" }, [
+                  _vm._v("\n\t\t\t\tAdvisory\n\t\t\t"),
+                ]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "col-md-12 col-12" },
+                  [
+                    _c(
+                      "vs-select",
+                      {
+                        staticClass: "mb-3",
+                        attrs: { "label-placeholder": "Strand", block: "" },
+                        model: {
+                          value: _vm.strand,
+                          callback: function ($$v) {
+                            _vm.strand = $$v
+                          },
+                          expression: "strand",
+                        },
+                      },
+                      [
+                        _c(
+                          "vs-option",
+                          { attrs: { label: "TVL", value: "TVL" } },
+                          [
+                            _vm._v(
+                              "\n\t\t\t\t\t\t\t\t\t          TVL\n\t\t\t\t\t\t\t\t\t        "
+                            ),
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "vs-option",
+                          {
+                            attrs: {
+                              label: "TVL-Cookery",
+                              value: "TVL-Cookery",
+                            },
+                          },
+                          [
+                            _vm._v(
+                              "\n\t\t\t\t\t\t\t\t\t          TVL-Cookery\n\t\t\t\t\t\t\t\t\t        "
+                            ),
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "vs-option",
+                          { attrs: { label: "TVL-SMAW", value: "TVL-SMAW" } },
+                          [
+                            _vm._v(
+                              "\n\t\t\t\t\t\t\t\t\t          TVL-SMAW\n\t\t\t\t\t\t\t\t\t        "
+                            ),
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "vs-option",
+                          { attrs: { label: "ABM", value: "ABM" } },
+                          [
+                            _vm._v(
+                              "\n\t\t\t\t\t\t\t\t\t          ABM\n\t\t\t\t\t\t\t\t\t        "
+                            ),
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "vs-option",
+                          { attrs: { label: "HUMSS", value: "HUMSS" } },
+                          [
+                            _vm._v(
+                              "\n\t\t\t\t\t\t\t\t\t          HUMSS\n\t\t\t\t\t\t\t\t\t        "
+                            ),
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "vs-option",
+                          { attrs: { label: "STEM", value: "STEM" } },
+                          [
+                            _vm._v(
+                              "\n\t\t\t\t\t\t\t\t\t          STEM\n\t\t\t\t\t\t\t\t\t        "
+                            ),
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "vs-option",
+                          { attrs: { label: "GAS", value: "GAS" } },
+                          [
+                            _vm._v(
+                              "\n\t\t\t\t\t\t\t\t\t          GAS\n\t\t\t\t\t\t\t\t\t        "
+                            ),
+                          ]
+                        ),
+                      ],
+                      1
+                    ),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "col-md-6 col-6" },
+                  [
+                    _c(
+                      "vs-select",
+                      {
+                        staticClass: "mb-3",
+                        attrs: { "label-placeholder": "Grade", block: "" },
+                        scopedSlots: _vm._u(
+                          [
+                            _vm.error.grade !== undefined
+                              ? {
+                                  key: "message-danger",
+                                  fn: function () {
+                                    return [
+                                      _vm._v(
+                                        "\n\t\t          " +
+                                          _vm._s(_vm.error.grade[0]) +
+                                          "\n\t\t      "
+                                      ),
+                                    ]
+                                  },
+                                  proxy: true,
+                                }
+                              : null,
+                          ],
+                          null,
+                          true
+                        ),
+                        model: {
+                          value: _vm.grade,
+                          callback: function ($$v) {
+                            _vm.grade = $$v
+                          },
+                          expression: "grade",
+                        },
+                      },
+                      [
+                        _c(
+                          "vs-option",
+                          { attrs: { label: "Grade 11", value: "Grade 11" } },
+                          [_vm._v("\n\t\t          Grade 11\n\t\t        ")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "vs-option",
+                          { attrs: { label: "Grade 12", value: "12" } },
+                          [_vm._v("\n\t\t          Grade 12\n\t\t        ")]
+                        ),
+                      ],
+                      1
+                    ),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "col-md-6 col-6" },
+                  [
+                    _c(
+                      "vs-select",
+                      {
+                        staticClass: "mb-3",
+                        attrs: { "label-placeholder": "Section", block: "" },
+                        scopedSlots: _vm._u(
+                          [
+                            _vm.error.section !== undefined
+                              ? {
+                                  key: "message-danger",
+                                  fn: function () {
+                                    return [
+                                      _vm._v(
+                                        "\n\t\t          " +
+                                          _vm._s(_vm.error.section[0]) +
+                                          "\n\t\t      "
+                                      ),
+                                    ]
+                                  },
+                                  proxy: true,
+                                }
+                              : null,
+                          ],
+                          null,
+                          true
+                        ),
+                        model: {
+                          value: _vm.section,
+                          callback: function ($$v) {
+                            _vm.section = $$v
+                          },
+                          expression: "section",
+                        },
+                      },
+                      [
+                        _c(
+                          "vs-option",
+                          { attrs: { label: "Section A", value: "Section A" } },
+                          [
+                            _vm._v(
+                              "\n\t\t\t\t\t\t\t\t\t          Section A\n\t\t\t\t\t\t\t\t\t        "
+                            ),
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "vs-option",
+                          { attrs: { label: "Section B", value: "Section B" } },
+                          [
+                            _vm._v(
+                              "\n\t\t\t\t\t\t\t\t\t          Section B\n\t\t\t\t\t\t\t\t\t        "
+                            ),
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "vs-option",
+                          { attrs: { label: "Section C", value: "Section C" } },
+                          [
+                            _vm._v(
+                              "\n\t\t\t\t\t\t\t\t\t          Section C\n\t\t\t\t\t\t\t\t\t        "
+                            ),
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "vs-option",
+                          { attrs: { label: "Section D", value: "Section D" } },
+                          [
+                            _vm._v(
+                              "\n\t\t\t\t\t\t\t\t\t          Section D\n\t\t\t\t\t\t\t\t\t        "
+                            ),
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "vs-option",
+                          { attrs: { label: "Section E", value: "Section E" } },
+                          [
+                            _vm._v(
+                              "\n\t\t\t\t\t\t\t\t\t          Section E\n\t\t\t\t\t\t\t\t\t        "
+                            ),
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "vs-option",
+                          { attrs: { label: "Section F", value: "Section F" } },
+                          [
+                            _vm._v(
+                              "\n\t\t\t\t\t\t\t\t\t          Section F\n\t\t\t\t\t\t\t\t\t        "
+                            ),
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "vs-option",
+                          { attrs: { label: "Section G", value: "Section G" } },
+                          [
+                            _vm._v(
+                              "\n\t\t\t\t\t\t\t\t\t          Section G\n\t\t\t\t\t\t\t\t\t        "
+                            ),
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "vs-option",
+                          { attrs: { label: "Section H", value: "Section H" } },
+                          [
+                            _vm._v(
+                              "\n\t\t\t\t\t\t\t\t\t          Section H\n\t\t\t\t\t\t\t\t\t        "
+                            ),
+                          ]
+                        ),
+                      ],
+                      1
+                    ),
+                  ],
+                  1
+                ),
+              ]),
               _vm._v(" "),
               _c("vs-input", {
                 staticClass: "mb-3",

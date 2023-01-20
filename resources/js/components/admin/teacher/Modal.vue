@@ -26,16 +26,72 @@
 		         {{error.profile[0]}}
 		      </div>
 
-          <vs-input v-model="fullname" block class="mb-3"  placeholder="full name">
+          <vs-input v-model="fullname" block class="mb-3"  placeholder="Fullname">
             
               <template v-if="error.fullname !== undefined" #message-danger>
 		          {{error.fullname[0]}}
 		      </template>
 
+          </vs-input>
+		 	 
 
+		       <vs-input type="text" v-model="idnumber" block class="mb-3"  placeholder="ID Number">
+           
+	            <template v-if="error.idnumber !== undefined" #message-danger>
+			          {{error.idnumber[0]}}
+			      </template>
           </vs-input>
 
-         	  <vs-select
+      
+		 
+           <vs-input type="number" v-model="contact" block class="mb-3"  placeholder="Contact No.">
+           
+            <template v-if="error.contact !== undefined" #message-danger>
+		          {{error.contact[0]}}
+		      </template>
+          </vs-input>
+
+
+
+		  <div class="row">
+			<div class="col-md-12">
+				Advisory
+			</div>
+			<div class="col-md-12 col-12">
+				<vs-select
+									        label-placeholder="Strand"
+									        v-model="strand"
+									        block
+									      class="mb-3"
+									      >
+									        <vs-option label="TVL" value="TVL">
+									          TVL
+									        </vs-option>
+											<vs-option label="TVL-Cookery" value="TVL-Cookery">
+									          TVL-Cookery
+									        </vs-option>
+											<vs-option label="TVL-SMAW" value="TVL-SMAW">
+									          TVL-SMAW
+									        </vs-option>
+									        <vs-option label="ABM" value="ABM">
+									          ABM
+									        </vs-option>
+									         <vs-option label="HUMSS" value="HUMSS">
+									          HUMSS
+									        </vs-option>
+									         <vs-option label="STEM" value="STEM">
+									          STEM
+									        </vs-option>
+									         <vs-option label="GAS" value="GAS">
+									          GAS
+									        </vs-option>
+									        <!-- <template v-if="error2.strand !== undefined" #message-danger>
+									          {{error2.strand[0]}}
+									      </template> -->
+									      </vs-select>
+			</div>
+			<div class="col-md-6 col-6">
+				<vs-select
 		        label-placeholder="Grade"
 		        v-model="grade"
 		        block
@@ -51,17 +107,10 @@
 		          {{error.grade[0]}}
 		      </template>
 		      </vs-select>
-
-		       <vs-input type="text" v-model="idnumber" block class="mb-3"  placeholder="id number">
-           
-	            <template v-if="error.idnumber !== undefined" #message-danger>
-			          {{error.idnumber[0]}}
-			      </template>
-          </vs-input>
-
-      
-		  <vs-select
-		        label-placeholder="Section Advisory"
+				</div>
+				<div class="col-md-6 col-6">
+					<vs-select
+		        label-placeholder="Section"
 		        v-model="section"
 		        block
 		         class="mb-3"
@@ -95,12 +144,11 @@
 		      </template>
 		      </vs-select>
 
-           <vs-input type="number" v-model="contact" block class="mb-3"  placeholder="contact no.">
-           
-            <template v-if="error.contact !== undefined" #message-danger>
-		          {{error.contact[0]}}
-		      </template>
-          </vs-input>
+				</div>
+		  </div>
+        
+
+
 
           <vs-input  block class="mb-3" v-model="username" placeholder="Username">
             <template #icon>
@@ -159,7 +207,8 @@ import axios from 'axios'
 	 	profile:'',
 	 	error:'',
 	 	loading:false,
-		 hasVisiblePassword: false
+		 hasVisiblePassword: false,
+		 strand:""
       }),
      
       methods:{
