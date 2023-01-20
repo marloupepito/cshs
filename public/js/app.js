@@ -38969,7 +38969,7 @@ var render = function () {
           _c(
             "vs-button",
             {
-              staticStyle: { "z-index": "-1 !important" },
+              staticStyle: { "z-index": "98 !important" },
               attrs: {
                 block: "",
                 color: "rgb(64, 191, 128)",

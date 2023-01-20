@@ -6,7 +6,7 @@
 				<textarea placeholder="What" v-model="what" class="form-control mb-3"/>
 	           <textarea placeholder="When" v-model="when" class="form-control mb-3" />
 	           <textarea placeholder="Where" v-model="where" class="form-control mb-3"/>
-	           <vs-button  style="z-index:-1 !important" block color="rgb(64, 191, 128)" :loading="loading" @click="submit">
+	           <vs-button  style="z-index:98 !important" block color="rgb(64, 191, 128)" :loading="loading" @click="submit">
 	              Submit
 	            </vs-button>
 			</form>
