@@ -14,7 +14,6 @@
 		<div class="col-md-6 col-6  p-0">
 		<vs-button
 		color="danger"
-		border
 		icon
 		size="small"
 		  @click="clickOption('delete')"
@@ -35,9 +34,7 @@
         <div class="con-form">
         Fullname
           <vs-input  v-model="data2.name" block   placeholder="Fullname">
-            <template #icon>
-              @
-            </template>
+          
               <template v-if="error.fullname !== undefined" #message-danger>
 		          {{error.fullname[0]}}
 		      </template>
@@ -48,7 +45,6 @@
          	  <vs-select
 		        v-model="data2.grade"
 		        block
-		        block 
 		      >
 		        <vs-option label="Grade 11" value="Grade 11">
 		          Grade 11
@@ -61,28 +57,22 @@
 		      </template>
 		      </vs-select>
 		      ID Number
-		       <vs-input  type="number" v-model="data2.idnumber" block   placeholder="ID Number">
-            <template #icon>
-              @
-            </template>
+		       <vs-input  type="text" v-model="data2.idnumber" block   placeholder="ID Number">
+          
 	            <template v-if="error.idnumber !== undefined" #message-danger>
 			          {{error.idnumber[0]}}
 			      </template>
           </vs-input>
           Section
           <vs-input  v-model="data2.section" block   placeholder="Section">
-            <template #icon>
-              @
-            </template>
+          
             <template v-if="error.section !== undefined" #message-danger>
 		          {{error.section[0]}}
 		      </template>
           </vs-input>
           Contact #
            <vs-input type="number" v-model="data2.contact" block   placeholder="Contact">
-            <template #icon>
-              @
-            </template>
+          
             <template v-if="error.contact !== undefined" #message-danger>
 		          {{error.contact[0]}}
 		      </template>
@@ -97,14 +87,21 @@
 		      </template>
           </vs-input>
           Password
-          <vs-input type="password"  block  v-model="data2.password" placeholder="Password">
-            <template #icon>
-              <i class='bx bxs-lock'></i>
-            </template>
-            <template v-if="error.password !== undefined" #message-danger>
-		          {{error.password[0]}}
-		      </template>
-          </vs-input>
+         
+						  <vs-input
+									type="password"
+									v-model="data2.password"
+									:visiblePassword="hasVisiblePassword"
+									icon-after
+									@click-icon="hasVisiblePassword = !hasVisiblePassword">
+									<template #icon>
+									<i v-if="!hasVisiblePassword" class='bx bx-show-alt'></i>
+									<i v-else class='bx bx-hide'></i>
+									</template>
+									<template v-if="error.password !== undefined" #message-danger>
+								          {{error.password[0]}}
+								      </template>
+									  </vs-input>
 
          
         </div>
@@ -128,7 +125,8 @@ export default {
     active: false,
     error:[],
     loading:false,
-    data2:[]
+    data2:[],
+	hasVisiblePassword: false,
   }),
   mounted(){
   	

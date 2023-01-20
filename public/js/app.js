@@ -6528,8 +6528,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -6546,6 +6544,7 @@ __webpack_require__.r(__webpack_exports__);
       pp: '/images/logo.png',
       profile: '',
       error: '',
+      hasVisiblePassword: false,
       loading: false
     };
   },
@@ -6743,8 +6742,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['data'],
@@ -6755,7 +6752,8 @@ __webpack_require__.r(__webpack_exports__);
       error: [],
       loading: false,
       data2: [],
-      grade: ''
+      grade: '',
+      hasVisiblePassword: false
     };
   },
   mounted: function mounted() {
@@ -7405,9 +7403,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['data'],
@@ -7417,7 +7412,8 @@ __webpack_require__.r(__webpack_exports__);
       active: false,
       error: [],
       loading: false,
-      data2: []
+      data2: [],
+      hasVisiblePassword: false
     };
   },
   mounted: function mounted() {},
@@ -39638,13 +39634,6 @@ var render = function () {
                 attrs: { block: "", placeholder: "Fullname" },
                 scopedSlots: _vm._u(
                   [
-                    {
-                      key: "icon",
-                      fn: function () {
-                        return [_vm._v("\n              @\n            ")]
-                      },
-                      proxy: true,
-                    },
                     _vm.error.fullname !== undefined
                       ? {
                           key: "message-danger",
@@ -39677,7 +39666,7 @@ var render = function () {
                 "vs-select",
                 {
                   staticClass: "mb-3",
-                  attrs: { "label-placeholder": "Grade", block: "", block: "" },
+                  attrs: { "label-placeholder": "Grade", block: "" },
                   scopedSlots: _vm._u(
                     [
                       _vm.error.grade !== undefined
@@ -39725,16 +39714,9 @@ var render = function () {
               _vm._v(" "),
               _c("vs-input", {
                 staticClass: "mb-3",
-                attrs: { type: "number", block: "", placeholder: "ID Number" },
+                attrs: { type: "text", block: "", placeholder: "ID Number" },
                 scopedSlots: _vm._u(
                   [
-                    {
-                      key: "icon",
-                      fn: function () {
-                        return [_vm._v("\n              @\n            ")]
-                      },
-                      proxy: true,
-                    },
                     _vm.error.idnumber !== undefined
                       ? {
                           key: "message-danger",
@@ -39768,13 +39750,6 @@ var render = function () {
                 attrs: { block: "", placeholder: "Section" },
                 scopedSlots: _vm._u(
                   [
-                    {
-                      key: "icon",
-                      fn: function () {
-                        return [_vm._v("\n              @\n            ")]
-                      },
-                      proxy: true,
-                    },
                     _vm.error.section !== undefined
                       ? {
                           key: "message-danger",
@@ -39808,13 +39783,6 @@ var render = function () {
                 attrs: { type: "number", block: "", placeholder: "Contact" },
                 scopedSlots: _vm._u(
                   [
-                    {
-                      key: "icon",
-                      fn: function () {
-                        return [_vm._v("\n              @\n            ")]
-                      },
-                      proxy: true,
-                    },
                     _vm.error.contact !== undefined
                       ? {
                           key: "message-danger",
@@ -39884,14 +39852,27 @@ var render = function () {
               }),
               _vm._v(" "),
               _c("vs-input", {
-                staticClass: "mb-3",
-                attrs: { type: "password", block: "", placeholder: "Password" },
+                attrs: {
+                  type: "password",
+                  placeholder: "Password",
+                  visiblePassword: _vm.hasVisiblePassword,
+                  "icon-after": "",
+                },
+                on: {
+                  "click-icon": function ($event) {
+                    _vm.hasVisiblePassword = !_vm.hasVisiblePassword
+                  },
+                },
                 scopedSlots: _vm._u(
                   [
                     {
                       key: "icon",
                       fn: function () {
-                        return [_c("i", { staticClass: "bx bxs-lock" })]
+                        return [
+                          !_vm.hasVisiblePassword
+                            ? _c("i", { staticClass: "bx bx-show-alt" })
+                            : _c("i", { staticClass: "bx bx-hide" }),
+                        ]
                       },
                       proxy: true,
                     },
@@ -39901,9 +39882,9 @@ var render = function () {
                           fn: function () {
                             return [
                               _vm._v(
-                                "\n\t\t          " +
+                                "\n\t\t\t\t\t\t\t\t          " +
                                   _vm._s(_vm.error.password[0]) +
-                                  "\n\t\t      "
+                                  "\n\t\t\t\t\t\t\t\t      "
                               ),
                             ]
                           },
@@ -40064,13 +40045,6 @@ var render = function () {
                 attrs: { block: "", placeholder: "Fullname" },
                 scopedSlots: _vm._u(
                   [
-                    {
-                      key: "icon",
-                      fn: function () {
-                        return [_vm._v("\n              @\n            ")]
-                      },
-                      proxy: true,
-                    },
                     _vm.error.fullname !== undefined
                       ? {
                           key: "message-danger",
@@ -40102,7 +40076,7 @@ var render = function () {
               _c(
                 "vs-select",
                 {
-                  attrs: { block: "", block: "" },
+                  attrs: { block: "" },
                   scopedSlots: _vm._u(
                     [
                       _vm.error.grade !== undefined
@@ -40149,16 +40123,9 @@ var render = function () {
               ),
               _vm._v("\n\t\t      ID Number\n\t\t       "),
               _c("vs-input", {
-                attrs: { type: "number", block: "", placeholder: "ID Number" },
+                attrs: { type: "text", block: "", placeholder: "ID Number" },
                 scopedSlots: _vm._u(
                   [
-                    {
-                      key: "icon",
-                      fn: function () {
-                        return [_vm._v("\n              @\n            ")]
-                      },
-                      proxy: true,
-                    },
                     _vm.error.idnumber !== undefined
                       ? {
                           key: "message-danger",
@@ -40262,13 +40229,6 @@ var render = function () {
                 attrs: { block: "", placeholder: "Section" },
                 scopedSlots: _vm._u(
                   [
-                    {
-                      key: "icon",
-                      fn: function () {
-                        return [_vm._v("\n              @\n            ")]
-                      },
-                      proxy: true,
-                    },
                     _vm.error.section !== undefined
                       ? {
                           key: "message-danger",
@@ -40301,13 +40261,6 @@ var render = function () {
                 attrs: { type: "number", block: "", placeholder: "Contact" },
                 scopedSlots: _vm._u(
                   [
-                    {
-                      key: "icon",
-                      fn: function () {
-                        return [_vm._v("\n              @\n            ")]
-                      },
-                      proxy: true,
-                    },
                     _vm.error.contact !== undefined
                       ? {
                           key: "message-danger",
@@ -40374,15 +40327,28 @@ var render = function () {
                   expression: "data2.username",
                 },
               }),
-              _vm._v("\n          Password\n          "),
+              _vm._v("\n          Password\n         \n\t\t\t\t\t\t  "),
               _c("vs-input", {
-                attrs: { type: "password", block: "", placeholder: "Password" },
+                attrs: {
+                  type: "password",
+                  visiblePassword: _vm.hasVisiblePassword,
+                  "icon-after": "",
+                },
+                on: {
+                  "click-icon": function ($event) {
+                    _vm.hasVisiblePassword = !_vm.hasVisiblePassword
+                  },
+                },
                 scopedSlots: _vm._u(
                   [
                     {
                       key: "icon",
                       fn: function () {
-                        return [_c("i", { staticClass: "bx bxs-lock" })]
+                        return [
+                          !_vm.hasVisiblePassword
+                            ? _c("i", { staticClass: "bx bx-show-alt" })
+                            : _c("i", { staticClass: "bx bx-hide" }),
+                        ]
                       },
                       proxy: true,
                     },
@@ -40392,9 +40358,9 @@ var render = function () {
                           fn: function () {
                             return [
                               _vm._v(
-                                "\n\t\t          " +
+                                "\n\t\t\t\t\t\t\t\t          " +
                                   _vm._s(_vm.error.password[0]) +
-                                  "\n\t\t      "
+                                  "\n\t\t\t\t\t\t\t\t      "
                               ),
                             ]
                           },
@@ -41473,7 +41439,7 @@ var render = function () {
             _c(
               "vs-button",
               {
-                attrs: { color: "danger", border: "", icon: "", size: "small" },
+                attrs: { color: "danger", icon: "", size: "small" },
                 on: {
                   click: function ($event) {
                     return _vm.clickOption("delete")
@@ -41552,13 +41518,6 @@ var render = function () {
                 attrs: { block: "", placeholder: "Fullname" },
                 scopedSlots: _vm._u(
                   [
-                    {
-                      key: "icon",
-                      fn: function () {
-                        return [_vm._v("\n              @\n            ")]
-                      },
-                      proxy: true,
-                    },
                     _vm.error.fullname !== undefined
                       ? {
                           key: "message-danger",
@@ -41590,7 +41549,7 @@ var render = function () {
               _c(
                 "vs-select",
                 {
-                  attrs: { block: "", block: "" },
+                  attrs: { block: "" },
                   scopedSlots: _vm._u(
                     [
                       _vm.error.grade !== undefined
@@ -41637,16 +41596,9 @@ var render = function () {
               ),
               _vm._v("\n\t\t      ID Number\n\t\t       "),
               _c("vs-input", {
-                attrs: { type: "number", block: "", placeholder: "ID Number" },
+                attrs: { type: "text", block: "", placeholder: "ID Number" },
                 scopedSlots: _vm._u(
                   [
-                    {
-                      key: "icon",
-                      fn: function () {
-                        return [_vm._v("\n              @\n            ")]
-                      },
-                      proxy: true,
-                    },
                     _vm.error.idnumber !== undefined
                       ? {
                           key: "message-danger",
@@ -41679,13 +41631,6 @@ var render = function () {
                 attrs: { block: "", placeholder: "Section" },
                 scopedSlots: _vm._u(
                   [
-                    {
-                      key: "icon",
-                      fn: function () {
-                        return [_vm._v("\n              @\n            ")]
-                      },
-                      proxy: true,
-                    },
                     _vm.error.section !== undefined
                       ? {
                           key: "message-danger",
@@ -41718,13 +41663,6 @@ var render = function () {
                 attrs: { type: "number", block: "", placeholder: "Contact" },
                 scopedSlots: _vm._u(
                   [
-                    {
-                      key: "icon",
-                      fn: function () {
-                        return [_vm._v("\n              @\n            ")]
-                      },
-                      proxy: true,
-                    },
                     _vm.error.contact !== undefined
                       ? {
                           key: "message-danger",
@@ -41791,15 +41729,28 @@ var render = function () {
                   expression: "data2.username",
                 },
               }),
-              _vm._v("\n          Password\n          "),
+              _vm._v("\n          Password\n         \n\t\t\t\t\t\t  "),
               _c("vs-input", {
-                attrs: { type: "password", block: "", placeholder: "Password" },
+                attrs: {
+                  type: "password",
+                  visiblePassword: _vm.hasVisiblePassword,
+                  "icon-after": "",
+                },
+                on: {
+                  "click-icon": function ($event) {
+                    _vm.hasVisiblePassword = !_vm.hasVisiblePassword
+                  },
+                },
                 scopedSlots: _vm._u(
                   [
                     {
                       key: "icon",
                       fn: function () {
-                        return [_c("i", { staticClass: "bx bxs-lock" })]
+                        return [
+                          !_vm.hasVisiblePassword
+                            ? _c("i", { staticClass: "bx bx-show-alt" })
+                            : _c("i", { staticClass: "bx bx-hide" }),
+                        ]
                       },
                       proxy: true,
                     },
@@ -41809,9 +41760,9 @@ var render = function () {
                           fn: function () {
                             return [
                               _vm._v(
-                                "\n\t\t          " +
+                                "\n\t\t\t\t\t\t\t\t          " +
                                   _vm._s(_vm.error.password[0]) +
-                                  "\n\t\t      "
+                                  "\n\t\t\t\t\t\t\t\t      "
                               ),
                             ]
                           },
