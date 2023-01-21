@@ -18,7 +18,7 @@
         {
           id: 1,
           icon: "text-white fas fa-home",
-          title: "Events",
+          title: "News Feed",
           path:"/student"
         },
         { 

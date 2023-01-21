@@ -1,11 +1,6 @@
 
 <template>
     <div class="center">
-      <div class="row">
-          <div class="col-md-4 p-3">
-             <Modal />
-          </div>
-      </div>
       <vs-table
         v-model="selected"
         >
@@ -17,14 +12,14 @@
             <vs-th sort @click="users = $vs.sortData($event ,users, 'name')">
               Name
             </vs-th>
-            <vs-th sort @click="users = $vs.sortData($event ,users, 'strand')">
-              Strand
-            </vs-th>
             <vs-th sort @click="users = $vs.sortData($event ,users, 'username')">
               Username
             </vs-th>
             <vs-th sort @click="users = $vs.sortData($event ,users, 'idnumber')">
               ID Number
+            </vs-th>
+            <vs-th sort @click="users = $vs.sortData($event ,users, 'strand')">
+              Strand
             </vs-th>
             <vs-th sort @click="users = $vs.sortData($event ,users, 'contact')">
               Contact
@@ -33,7 +28,7 @@
               Grade
             </vs-th>
             <vs-th sort @click="users = $vs.sortData($event ,users, 'section')">
-              Section
+              Approve
             </vs-th>
             <vs-th sort @click="users = $vs.sortData($event ,users, 'section')">
               Option
@@ -49,11 +44,8 @@
             not-click-selected
             open-expand-only-td
           >
-            <vs-td>
-              {{ tr.name }}
-            </vs-td>
-            <vs-td>
-              {{ tr.strand }}
+            <vs-td >
+              {{ tr.name }} {{ tr.lastname }}
             </vs-td>
             <vs-td edit @click="edit = tr, editProp = 'idnumber', editActive = true">
               {{ tr.username }}
@@ -62,19 +54,22 @@
               {{ tr.idnumber }}
             </vs-td>
             <vs-td>
+            {{ tr.strand }}
+            </vs-td>
+            <vs-td>
             {{ tr.contact }}
             </vs-td>
              <vs-td>
             {{ tr.grade }}
             </vs-td>
              <vs-td>
-            {{ tr.section }}
+            <vs-button v-if="tr.access === null" @click="func('approved',tr.id)" block border flat icon>
+                   Approve
+                  </vs-button>
+                  <vs-button v-if="tr.access === 'approved'"  block success color="success" border flat icon>
+                   Approved
+                  </vs-button>
             </vs-td>
-
-             <vs-td>
-            <Option :data="tr"/>
-            </vs-td>
-
 
             <template #expand>
               <div class="con-content row">
@@ -83,8 +78,8 @@
                     <img :src="`/profile/`+tr.profile" alt="">
                   </vs-avatar>
                 </div>
-                <div class="col-md-3 col-6">    
-                {{ tr.section }}
+                <div class="col-md-3 col-6">  	
+          		  {{ tr.section }}
                 </div>
                <!--  <div class="col-md-2 col-6">
                   <vs-button @click="func('delete',tr.id)" block border danger>
@@ -111,28 +106,55 @@
                 </div>
               </div>
             </template>
+             <vs-td>
+            <Option :data="tr"/>
+            </vs-td>
           </vs-tr>
         </template>
         <template #footer>
           <vs-pagination v-model="page" :length="$vs.getLength($vs.getSearch(users, search), max)" />
         </template>
-      </vs-table><br /><br /><br /><br />
+      </vs-table>
 
       
     </div>
   </template>
 <script>
 
-  import Option from './Option.vue'
-import Modal from './Modal.vue'
+import Option from './Option.vue'
 import axios from 'axios'
     export default {
+      components:{
+        Option,
+        },
       mounted(){
-        this.reload()
+      	  this.grade = window.location.pathname.split('/')[3]
+          this.reload()
         },
         methods:{
+          
+        	func(e,id){
+        			axios.post('/option',{
+        				option:e,
+        				id:id
+        				})
+        			.then(res=>{
+        				this.reload()
+                this.$swal({
+                  icon: 'success',
+                  title: 'Student approved!',
+                  showConfirmButton: false,
+                  timer: 1500
+                })
+        			})
+        			.catch(err=>{
+
+        			})
+        		},
             reload(){
-              axios.post('/get_teacher')
+              axios.post('/get_student_advisory',{
+              	grade:'Grade '+this.grade
+              	})
               .then(res=>{
                   this.users= res.data.status
                 })
@@ -141,11 +163,8 @@ import axios from 'axios'
                 })
             }
           },
-      components:{
-        Modal,
-        Option
-        },
       data:() => ({
+      	grade:'',
         editActive: false,
         edit: null,
         editProp: {},
@@ -160,4 +179,3 @@ import axios from 'axios'
     }
     </script>
 
-        

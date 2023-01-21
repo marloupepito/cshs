@@ -40,6 +40,7 @@ Route::post('/option','App\Http\Controllers\RegistrationController@option');
 Route::post('/update_student','App\Http\Controllers\RegistrationController@update_student');
 Route::post('/update_teacher','App\Http\Controllers\RegistrationController@update_teacher');
 Route::post('/delete_user','App\Http\Controllers\RegistrationController@delete_user');
+Route::post('/get_student_advisory','App\Http\Controllers\RegistrationController@get_student_advisory');
 
 Route::post('/add_event','App\Http\Controllers\EventController@add_event');
 Route::post('/get_event','App\Http\Controllers\EventController@get_event');

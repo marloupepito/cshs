@@ -31,29 +31,22 @@
           </template>
           Teachers
         </vs-sidebar-item>
-        <vs-sidebar-group>
-          <template #header>
-            <vs-sidebar-item  color='black' arrow>
-              <template #icon>
-                <i class='bx bx-group'></i>
-              </template>
-              Students
-            </vs-sidebar-item>
-          </template>
 
-          <vs-sidebar-item to="/administrator/loading2?11" id="11">
-            <template #icon>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class='bx bx-user-plus' ></i>
-            </template>
-            Grade 11
-          </vs-sidebar-item>
-          <vs-sidebar-item to="/administrator/loading2?12" id="12">
-            <template #icon>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class='bx bx-user-plus' ></i>
-            </template>
-            Grade 12
-          </vs-sidebar-item>
-        </vs-sidebar-group>
+        <vs-sidebar-item color='black' to="/administrator/loading2?11" id="11">
+          <template #icon>
+            <i class='bx bx-group'></i>
+          </template>
+          Grade 11
+        </vs-sidebar-item>
+
+        <vs-sidebar-item color='black' to="/administrator/loading2?12" id="12">
+          <template #icon>
+            <i class='bx bx-group'></i>
+          </template>
+          Grade 12
+        </vs-sidebar-item>
+
+ 
 
 
         <vs-sidebar-item color='black' to="/administrator/logout" id="logout">
@@ -72,7 +65,22 @@
       active: 'administrator',
     }),
     mounted(){
-      this.active = window.location.pathname.split('/')[2] === undefined?'administrator':window.location.pathname.split('/')[2]
+
+      const path = this.$route.path.split('/')[2]
+      const path2 = this.$route.path.split('/')[3]
+      
+      if(path === undefined){
+        this.active ='administrator'
+      }else if(path === "events"){
+        this.active =path
+      }else if(path === "teachers"){
+        this.active =path
+      }else if(path === "grade" && path2 === '11'){
+        this.active =path2
+      }else if(path === "grade" && path2 === '12'){
+        this.active =path2
+      }
+      
     }
   }
   </script>

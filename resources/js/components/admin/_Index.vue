@@ -4,7 +4,7 @@
       <TopNavbar />
       <SidebarNav />
       <router-view></router-view> 
-    </div>
+       </div>
     
       <BottomNavbar />
   </div>

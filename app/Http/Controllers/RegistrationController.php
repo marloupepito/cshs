@@ -8,6 +8,13 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 class RegistrationController extends Controller
 {
+    
+    public function get_student_advisory(Request $request){
+        $student = User::where([['section','=', $request->session()->get('section')],['grade','=', $request->grade],['strand','=', $request->session()->get('strand')],['usertype','=','student']])->orderBy('id', 'DESC')->get();
+        return response()->json([
+              'status' => $student
+          ]); 
+    }
      public function update_student(Request $request){
         if($request->password !== null){
              User::where('id', $request->id)
@@ -50,6 +57,7 @@ class RegistrationController extends Controller
                 'contact' => $request->contact,
                 'idnumber' => $request->idnumber,
                 'grade' => $request->grade,
+                'strand' => $request->strand,
                 'section' => $request->section,
                 'username' => $request->username,
                 'password' => Hash::make($request->password),
@@ -64,6 +72,7 @@ class RegistrationController extends Controller
                 'contact' => $request->contact,
                 'idnumber' => $request->idnumber,
                 'grade' => $request->grade,
+                'strand' => $request->strand,
                 'section' => $request->section,
                 'username' => $request->username,
           ]);
@@ -94,6 +103,9 @@ class RegistrationController extends Controller
 
         if(Auth::attempt($request->only('username','password'))){
             $request->session()->put('id', Auth::user()->id);
+            $request->session()->put('strand', Auth::user()->strand);
+            $request->session()->put('grade', Auth::user()->grade);
+            $request->session()->put('section', Auth::user()->section);
             return response()->json([
                 'status' => Auth::user(),
                 'status2' => 'success'
@@ -207,6 +219,7 @@ class RegistrationController extends Controller
             'grade'=>['required'],
             'section'=>['required'],
             'username'=>['required'],
+            'strand'=>['required'],
             'contact'=>['required'],
             'idnumber'=>['required'],
             'password'=>['required'],
@@ -227,6 +240,7 @@ class RegistrationController extends Controller
                 $student->idnumber = $request->idnumber;
                 $student->grade = $request->grade;
                 $student->section = $request->section;
+                $student->strand = $request->strand;
                 $student->username = $request->username;
                 $student->password = Hash::make($request->password);
                 $student->usertype = 'teacher';
@@ -249,7 +263,7 @@ class RegistrationController extends Controller
      }
 
      public function get_teacher(Request $request){
-        $teacher = User::where('usertype','=','teacher')->get();
+        $teacher = User::where('usertype','=','teacher')->orderBy('id', 'DESC')->get();
           return response()->json([
                 'status' => $teacher
             ]); 

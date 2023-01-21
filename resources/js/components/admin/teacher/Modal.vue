@@ -64,9 +64,6 @@
 									        block
 									      class="mb-3"
 									      >
-									        <vs-option label="TVL" value="TVL">
-									          TVL
-									        </vs-option>
 											<vs-option label="TVL-Cookery" value="TVL-Cookery">
 									          TVL-Cookery
 									        </vs-option>
@@ -85,9 +82,9 @@
 									         <vs-option label="GAS" value="GAS">
 									          GAS
 									        </vs-option>
-									        <!-- <template v-if="error2.strand !== undefined" #message-danger>
-									          {{error2.strand[0]}}
-									      </template> -->
+									        <template v-if="error.strand !== undefined" #message-danger>
+									          {{error.strand[0]}}
+									      </template>
 									      </vs-select>
 			</div>
 			<div class="col-md-6 col-6">
@@ -223,6 +220,7 @@ import axios from 'axios'
 					fd.append("idnumber",this.idnumber);
 					fd.append("password",this.password);
 					fd.append("profile", this.profile);
+					fd.append("strand", this.strand);
 			axios.post('/add_teacher',fd)
 			.then(res=>{
 				this.active=false
@@ -237,12 +235,7 @@ import axios from 'axios'
 
 			})
 			.catch(err=>{
-					this.$swal({
-				  icon: 'error',
-				  title: 'error!',
-				  showConfirmButton: false,
-				  timer: 1500
-				})
+				
 				this.error =err.response.data.errors
 				this.loading=false
 				})

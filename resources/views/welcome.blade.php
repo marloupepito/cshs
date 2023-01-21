@@ -39,7 +39,9 @@
         button.vs-sidebar__item.hasIcon::after{
           background-color:rgb(64, 191, 128) !important
         }
-    
+        .vs-dialog{
+          width:40% !important
+        }
   </style>
     </head>
     <body>

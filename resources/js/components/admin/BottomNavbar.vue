@@ -6,7 +6,8 @@
   badge-color='#FBC02D'
   background-color='rgb(64, 191, 128)'
   icon-color='#0000008A'
-   :options="options" v-model="selected" />
+   :options="options" 
+   v-model="selected" />
 </template>
 
 <script>
@@ -25,7 +26,7 @@
           id: 2, 
           icon: "text-white fas fa-calendar", 
           title: "Events",
-          path:"/administrator/events"
+          path:"/administrator/events",
         },
         {
           id: 3,
@@ -51,6 +52,23 @@
           path:"/administrator/logout"
         },
       ],
+      path:''
     }),
+    mounted(){
+      const path = this.$route.path.split('/')[2]
+      const path2 = this.$route.path.split('/')[3]
+      
+      if(path === undefined){
+        this.selected =1
+      }else if(path === "events"){
+        this.selected =2
+      }else if(path === "teachers"){
+        this.selected =3
+      }else if(path === "grade" && path2 === '11'){
+        this.selected =4
+      }else if(path === "grade" && path2 === '12'){
+        this.selected =5
+      }
+    }
   };
 </script>

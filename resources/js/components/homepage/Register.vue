@@ -75,9 +75,6 @@
 									        block
 									      class="mb-3"
 									      >
-									        <vs-option label="TVL" value="TVL">
-									          TVL
-									        </vs-option>
 											<vs-option label="TVL-Cookery" value="TVL-Cookery">
 									          TVL-Cookery
 									        </vs-option>
