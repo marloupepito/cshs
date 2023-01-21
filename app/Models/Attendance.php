@@ -16,5 +16,8 @@ class Attendance extends Model
             'me',
             'ass',
             'ae',
+           'grade',
+           'section',
+           'strand',
      ];
 }

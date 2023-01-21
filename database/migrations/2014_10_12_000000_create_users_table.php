@@ -51,6 +51,9 @@ class CreateUsersTable extends Migration
             $table->string('me')->nullable();
             $table->string('ass')->nullable();
             $table->string('ae')->nullable();
+            $table->string('grade')->nullable();
+            $table->string('section')->nullable();
+            $table->string('strand')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

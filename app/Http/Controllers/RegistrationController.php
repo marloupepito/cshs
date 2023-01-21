@@ -9,6 +9,13 @@ use Illuminate\Support\Facades\Auth;
 class RegistrationController extends Controller
 {
     
+    public function set_session_attendace(Request $request){
+
+        $request->session()->put('strand', $request->strand);
+        $request->session()->put('grade', $request->grade);
+        $request->session()->put('section', $request->section);
+
+    }
     public function get_student_advisory(Request $request){
         $student = User::where([['section','=', $request->session()->get('section')],['grade','=', $request->grade],['strand','=', $request->session()->get('strand')],['usertype','=','student']])->orderBy('id', 'DESC')->get();
         return response()->json([

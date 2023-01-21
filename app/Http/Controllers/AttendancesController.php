@@ -4,9 +4,21 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Attendance;
+use App\Models\User;
 use Illuminate\Support\Facades\DB;
 class AttendancesController extends Controller
 {
+    
+    public function get_advisory_attendance(Request $request){
+      
+       $attendance = DB::table('users')
+            ->where([['attendance.strand','=', $request->session()->get('strand')],['attendance.section','=', $request->session()->get('section')],['attendance.grade','=', $request->session()->get('grade')],['attendance.event_id','=',$request->id]])
+            ->join('attendance', 'users.id', '=', 'attendance.student_id')
+            ->get();
+       return response()->json([
+            'status' => $attendance
+        ]);
+    }
      public function add_attendance(Request $request){
 
         $request->validate([
@@ -17,6 +29,8 @@ class AttendancesController extends Controller
 
         $student_id = $request->session()->get('id');
 
+        $stud=User::where('id',$student_id)->first();
+
         $user=Attendance::where([['event_id','=',$request->event_id],['student_id','=',$student_id]])->get();
 
             if($request->status === 'MS'){
@@ -25,6 +39,9 @@ class AttendancesController extends Controller
                     $attendance->student_id = $student_id;
                     $attendance->event_id = $request->event_id;
                     $attendance->ms = 'check';
+                    $attendance->grade = $stud->grade;
+                    $attendance->section = $stud->section;
+                    $attendance->strand = $stud->strand;
                     $attendance->save();
                 }else{
                     Attendance::where('id','=',$user[0]->id)
@@ -36,6 +53,9 @@ class AttendancesController extends Controller
                     $attendance->student_id = $student_id;
                     $attendance->event_id = $request->event_id;
                     $attendance->me = 'check';
+                    $attendance->grade = $stud->grade;
+                    $attendance->section = $stud->section;
+                    $attendance->strand = $stud->strand;
                     $attendance->save();
                 }else{
                      Attendance::where('id','=',$user[0]->id)
@@ -47,6 +67,9 @@ class AttendancesController extends Controller
                     $attendance->student_id = $student_id;
                     $attendance->event_id = $request->event_id;
                     $attendance->ass = 'check';
+                    $attendance->grade = $stud->grade;
+                    $attendance->section = $stud->section;
+                    $attendance->strand = $stud->strand;
                     $attendance->save();
                 }else{
                      Attendance::where('id','=',$user[0]->id)
@@ -58,6 +81,9 @@ class AttendancesController extends Controller
                     $attendance->student_id = $student_id;
                     $attendance->event_id = $request->event_id;
                     $attendance->ae = 'check';
+                    $attendance->grade = $stud->grade;
+                    $attendance->section = $stud->section;
+                    $attendance->strand = $stud->strand;
                     $attendance->save();
                 }else{
                      Attendance::where('id','=',$user[0]->id)

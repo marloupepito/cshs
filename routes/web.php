@@ -41,6 +41,7 @@ Route::post('/update_student','App\Http\Controllers\RegistrationController@updat
 Route::post('/update_teacher','App\Http\Controllers\RegistrationController@update_teacher');
 Route::post('/delete_user','App\Http\Controllers\RegistrationController@delete_user');
 Route::post('/get_student_advisory','App\Http\Controllers\RegistrationController@get_student_advisory');
+Route::post('/set_session_attendace','App\Http\Controllers\RegistrationController@set_session_attendace');
 
 Route::post('/add_event','App\Http\Controllers\EventController@add_event');
 Route::post('/get_event','App\Http\Controllers\EventController@get_event');
@@ -51,6 +52,9 @@ Route::post('/get_student_attendance','App\Http\Controllers\EventController@get_
 Route::post('/add_attendance','App\Http\Controllers\AttendancesController@add_attendance');
 Route::post('/get_attendance','App\Http\Controllers\AttendancesController@get_attendance');
 Route::post('/get_all_attendance','App\Http\Controllers\AttendancesController@get_all_attendance');
+Route::post('/get_advisory_attendance','App\Http\Controllers\AttendancesController@get_advisory_attendance');
+
+
 // Route::post('/register1',[RegistrationController::class, 'register1']);
 // Route::post('/register2',[RegistrationController::class, 'register2']);
 // Route::post('/add_student',[RegistrationController::class, 'add_student']);

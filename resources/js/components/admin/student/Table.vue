@@ -23,14 +23,18 @@
             <vs-th sort @click="users = $vs.sortData($event ,users, 'idnumber')">
               ID Number
             </vs-th>
-            <vs-th sort @click="users = $vs.sortData($event ,users, 'strand')">
-              Strand
-            </vs-th>
+         
             <vs-th sort @click="users = $vs.sortData($event ,users, 'contact')">
               Contact
             </vs-th>
+               <vs-th sort @click="users = $vs.sortData($event ,users, 'strand')">
+              Strand
+            </vs-th>
             <vs-th sort @click="users = $vs.sortData($event ,users, 'grade')">
               Grade
+            </vs-th>
+            <vs-th sort @click="users = $vs.sortData($event ,users, 'section')">
+              Section
             </vs-th>
             <vs-th sort @click="users = $vs.sortData($event ,users, 'section')">
               Approve
@@ -58,14 +62,18 @@
             <vs-td >
               {{ tr.idnumber }}
             </vs-td>
-            <vs-td>
-            {{ tr.strand }}
-            </vs-td>
+            
             <vs-td>
             {{ tr.contact }}
             </vs-td>
+            <vs-td>
+            {{ tr.strand }}
+            </vs-td>
              <vs-td>
             {{ tr.grade }}
+            </vs-td>
+            <vs-td>
+            {{ tr.section }}
             </vs-td>
              <vs-td>
             <vs-button v-if="tr.access === null" @click="func('approved',tr.id)" block border flat icon>

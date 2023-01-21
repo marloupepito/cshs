@@ -13,6 +13,7 @@ import Loading from './../admin/Loading.vue'
 import Event from './../admin/event/_Index.vue'
 import Home from './../admin/home/_Index.vue'
 import CheckAttendance from './../admin/home/CheckAttendance.vue'
+import ClassroomAttendance from './../admin/event/Card.vue'
 import Grade from './../admin/student/_Index.vue'
 import Loading2 from './../admin/student/Loading.vue'
 import Loading3 from './../admin/event/Loading.vue'
@@ -53,7 +54,8 @@ const routes = [
         children:[
           { path:'/administrator', component:Home},
           { path:'/administrator/loading', component:Loading},
-          { path:'/administrator/check_attendance', component:CheckAttendance},
+          { path:'/administrator/check_attendance', component:ClassroomAttendance},
+          { path:'/administrator/check_attendance_list', component:CheckAttendance},
           { path:'/administrator/teachers', component:Teacher},
           { path:'/administrator/events', component:Event},
           { path:'/administrator/grade/:id', component:Grade},

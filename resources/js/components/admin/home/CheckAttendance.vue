@@ -1,4 +1,4 @@
-
+<
 <template>
     <div class="center">
       <vs-table
@@ -94,11 +94,11 @@ import axios from 'axios'
         },
       methods:{
         mount(){
-         axios.post('/get_all_attendance',{
+         axios.post('/get_advisory_attendance',{
          	id:window.location.search.substring(1)
          	})
           .then(res =>{
-            this.events =res.data.status
+            this.events =Object.values(res.data.status)
             console.log(res.data.status)
           })
         }
@@ -118,3 +118,4 @@ import axios from 'axios'
     }
     </script>
 
+>

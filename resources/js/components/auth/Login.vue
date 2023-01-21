@@ -57,7 +57,7 @@
 
 			                    <div class="new">
 			                      New Here? <a @click="gotoRegister" href="#">Create New Account</a><br /> <br />      
-				                    <a href="#">Forgot Password?</a>
+				                    <!-- <a href="#">Forgot Password?</a> -->
 			                    </div>
 			                  </div>
 			                </div>
