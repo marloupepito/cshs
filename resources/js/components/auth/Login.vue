@@ -96,6 +96,7 @@ import axios from 'axios'
 					password:this.input2
 					})
 				.then(res=>{
+				
 						if(res.data.status2 === 'success'){
 								if(res.data.status.usertype === 'admin'){
 									this.$router.push({path:'/administrator'})
@@ -107,13 +108,14 @@ import axios from 'axios'
 									}else{
 										this.$router.push({path:'/student'})
 									}
-									
 								}
 							}else{
 								this.error =res.data.status
 						}
 					})
 				.catch(err=>{
+					console.log(this.input1)
+					console.log(this.input2)
 					this.error = 'Invalid Username or Password!'
 					})
 			}

@@ -50,7 +50,7 @@
             open-expand-only-td
           >
             <vs-td>
-              {{ tr.name }}
+              {{ tr.lastname }} {{ tr.name }}
             </vs-td>
             <vs-td>
               {{ tr.strand }}
@@ -132,7 +132,12 @@ import axios from 'axios'
         },
         methods:{
             reload(){
-              axios.post('/get_teacher')
+              const grade = this.$route.path.split('/')[3]
+              const strand = this.$route.path.split('/')[4]
+              axios.post('/get_teacher',{
+                strand:strand,
+                grade:'Grade '+grade
+              })
               .then(res=>{
                   this.users= res.data.status
                 })

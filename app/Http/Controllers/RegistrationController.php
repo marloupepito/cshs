@@ -99,7 +99,7 @@ class RegistrationController extends Controller
 
 
     public function logout(Request $request){
-        $request->session()->invalidate();
+        //$request->session()->invalidate();
         Auth::logout();
     }
       public function login_user(Request $request){
@@ -270,7 +270,7 @@ class RegistrationController extends Controller
      }
 
      public function get_teacher(Request $request){
-        $teacher = User::where('usertype','=','teacher')->orderBy('id', 'DESC')->get();
+        $teacher = User::where([['grade','=',$request->grade],['strand','=',$request->strand],['usertype','=','teacher']])->orderBy('lastname', 'ASC')->get();
           return response()->json([
                 'status' => $teacher
             ]); 

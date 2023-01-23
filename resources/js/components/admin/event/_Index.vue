@@ -4,8 +4,9 @@
 			<h3><center>Create <b>Event</b></center></h3>
 			<form @submit="submit">
 				<textarea placeholder="What" v-model="what" class="form-control mb-3"/>
-	           <textarea placeholder="When" v-model="when" class="form-control mb-3" />
-	           <textarea placeholder="Where" v-model="where" class="form-control mb-3"/>
+				When
+				<date-picker v-model="when" type="datetime" valueType="format" style="width:100%"/>
+	           <textarea placeholder="Where" v-model="where" class="form-control mb-3 mt-4"/>
 	           <vs-button  style="z-index:98 !important" block color="rgb(64, 191, 128)" :loading="loading" @click="submit">
 	              Submit
 	            </vs-button>
@@ -20,9 +21,13 @@
 <script>
 import axios from 'axios'
 import Event from './Event.vue'
+import DatePicker from 'vue2-datepicker';
+import 'vue2-datepicker/index.css';
+import moment from 'moment'
 	export default {
 		components:{
-			Event
+			Event,
+			DatePicker 
 			},
 		 data:() => ({
 	        loading: false,
@@ -30,7 +35,7 @@ import Event from './Event.vue'
 	        when:'',
 	        where:'',
 	        event:'',
-	        user:''
+	        user:'',
 	      }),
 	     
 	      methods:{
@@ -40,7 +45,7 @@ import Event from './Event.vue'
 	      		e.preventDefault();
 	      		axios.post('/add_event',{
 	      			what:this.what,
-	      			when:this.when,
+	      			when:moment(this.when).format('LLLL'),
 	      			where:this.where,
 	      		})
 	      		.then(res=>{

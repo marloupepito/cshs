@@ -18,6 +18,8 @@ import Grade from './../admin/student/_Index.vue'
 import Loading2 from './../admin/student/Loading.vue'
 import Loading3 from './../admin/event/Loading.vue'
 import Logout from './../admin/Logout.vue'
+import ShowGrade from './../admin/teacher/Grade.vue'
+import ShowStrand from './../admin/teacher/Strand.vue'
 
 import Student from './../student/_Index.vue'
 import Loading4 from './../student/Loading.vue'
@@ -56,7 +58,9 @@ const routes = [
           { path:'/administrator/loading', component:Loading},
           { path:'/administrator/check_attendance', component:ClassroomAttendance},
           { path:'/administrator/check_attendance_list', component:CheckAttendance},
-          { path:'/administrator/teachers', component:Teacher},
+          { path:'/administrator/teachers', component:ShowGrade},
+          { path:'/administrator/teachers/:id', component:ShowStrand},
+          { path:'/administrator/teachers/:id/:id', component:Teacher},
           { path:'/administrator/events', component:Event},
           { path:'/administrator/grade/:id', component:Grade},
           { path:'/administrator/loading2', component:Loading2},

@@ -5,7 +5,7 @@
       <h3>Advisory Attendance</h3>
     </template>
     <template #img>
-      <img src="/profile/aa.jpg" alt="">
+      <img :src="'/profile/'+i.profile" alt="">
     </template>
     <template #text>
         <vs-button

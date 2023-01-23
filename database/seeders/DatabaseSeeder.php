@@ -408,7 +408,7 @@ class DatabaseSeeder extends Seeder
                         $defaultGrade=['Grade 11','Grade 12'];
                         $randGrade = $defaultGrade[array_rand($defaultGrade)];
 
-                        $defaultStrand=['TVL-Cookery','TVL-SMAW','ABM','HUMSSS','STEM','GAS'];
+                        $defaultStrand=['TVL-Cookery','TVL-SMAW','ABM','HUMSS','STEM','GAS'];
                         $randStrand = $defaultStrand[array_rand($defaultStrand)];
 
                         $defaultGender=['Male','Female'];
@@ -440,7 +440,7 @@ class DatabaseSeeder extends Seeder
                         $defaultGrade=['Grade 11','Grade 12'];
                         $randGrade = $defaultGrade[array_rand($defaultGrade)];
 
-                        $defaultStrand=['TVL-Cookery','TVL-SMAW','ABM','HUMSSS','STEM','GAS'];
+                        $defaultStrand=['TVL-Cookery','TVL-SMAW','ABM','HUMSS','STEM','GAS'];
                         $randStrand = $defaultStrand[array_rand($defaultStrand)];
 
                         $defaultGender=['Male','Female'];
