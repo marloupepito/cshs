@@ -36,18 +36,18 @@
           title: "Teachers",
           path:"/administrator/teachers"
         },
-        {
-              id: 4, 
-              icon: "text-white fas fa-users", 
-              title: "Grade11",
-              path:"/administrator/loading2?11",
-            },
-             {
-              id: 5, 
-              icon: "text-white fas fa-users", 
-              title: "Grade12",
-              path:"/administrator/loading2?12",
-            },
+        // {
+        //       id: 4, 
+        //       icon: "text-white fas fa-users", 
+        //       title: "Grade11",
+        //       path:"/administrator/loading2?11",
+        //     },
+        //      {
+        //       id: 5, 
+        //       icon: "text-white fas fa-users", 
+        //       title: "Grade12",
+        //       path:"/administrator/loading2?12",
+        //     },
         { 
           icon: "text-white fas fa-sign-out-alt", 
           title: "Logout",
