@@ -1,6 +1,7 @@
 
 <template>
-    <div class="center">
+    <div>
+<h3>{{ g }} {{ s }} {{ ss }} </h3>
       <vs-table
         v-model="selected"
         >
@@ -157,6 +158,9 @@ import axios from 'axios'
               	})
               .then(res=>{
                   this.users= res.data.status
+                  this.s= res.data.strand
+                  this.g= res.data.grade
+                  this.ss= res.data.section
                 })
               .catch(err=>{
 
@@ -164,6 +168,9 @@ import axios from 'axios'
             }
           },
       data:() => ({
+        s:'',
+        g:'',
+        ss:'',
       	grade:'',
         editActive: false,
         edit: null,

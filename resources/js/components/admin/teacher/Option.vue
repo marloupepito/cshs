@@ -65,7 +65,7 @@
 			</div>
 			<div class="col-md-12 col-12">
 				<vs-select
-									        label-placeholder="Strand"
+									        placeholder="Strand"
 									        v-model="data2.strand"
 									        block
 									      class="mb-3"
@@ -207,7 +207,10 @@ export default {
   	},
   methods:{
   	clickMe(){
-  		this.$router.push({path:'/administrator/loading'})
+		const grade = this.$route.path.split('/')[3]
+		const strand = this.$route.path.split('/')[4].replace(/ /g,'_')
+		const section = window.location.search.substring(1).replace(/_/g,' ')
+		this.$router.push({path:'/administrator/loading?'+grade+','+strand})
   		},
   	clickOption(e){
   		console.log(this.data)
@@ -228,7 +231,9 @@ export default {
 					  if (result.isConfirmed) {
 					  	axios.post('/delete_user',this.data)
 					  	.then(res=>{
-					  		this.$router.push({path:'/administrator/loading'})
+							const grade = this.$route.path.split('/')[3]
+							const strand = this.$route.path.split('/')[4].replace(/ /g,'_')
+					  		this.$router.push({path:'/administrator/loading?'+grade+','+strand})
 					  		 this.$swal({
 									  icon: 'success',
 									  title: 'Your work has been deleted',
@@ -244,7 +249,9 @@ export default {
   	submit(){
   		axios.post('/update_teacher',this.data2)
   		.then(res=>{
-  			this.$router.push({path:'/administrator/loading'})
+			const grade = this.$route.path.split('/')[3]
+			const strand = this.$route.path.split('/')[4].replace(/ /g,'_')
+  			this.$router.push({path:'/administrator/loading?'+grade+','+strand})
   			 this.$swal({
 							  icon: 'success',
 							  title: 'Your work has been saved',

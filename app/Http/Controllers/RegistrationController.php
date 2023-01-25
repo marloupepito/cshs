@@ -17,9 +17,18 @@ class RegistrationController extends Controller
 
     }
     public function get_student_advisory(Request $request){
-        $student = User::where([['section','=', $request->session()->get('section')],['grade','=', $request->grade],['strand','=', $request->session()->get('strand')],['usertype','=','student']])->orderBy('id', 'DESC')->get();
+        $student = User::where([['section','=', $request->session()->get('section')],['grade','=', $request->session()->get('grade')],['strand','=', $request->session()->get('strand')],['usertype','=','student']])->orderBy('id', 'DESC')->get();
         return response()->json([
-              'status' => $student
+              'status' => $student,
+              'strand' =>$request->session()->get('strand'),
+              'grade' =>$request->session()->get('grade'),
+              'section' =>$request->session()->get('section')
+          ]); 
+    }
+    public function get_student_advisory2(Request $request){
+        $student = User::where([['section','=', $request->section],['grade','=', $request->grade],['strand','=', $request->strand],['usertype','=', 'student']])->orderBy('id', 'DESC')->get();
+        return response()->json([
+              'status' => $student,
           ]); 
     }
      public function update_student(Request $request){
@@ -178,7 +187,7 @@ class RegistrationController extends Controller
            $validated =  $request->validate([
             'username'=>['required'],
             'password'=>['required'],
-            'profile'=>'required|max:5128',
+            'profile'=>['required'],
         ]);
 
         $register = $request->session()->get('register');
@@ -276,7 +285,7 @@ class RegistrationController extends Controller
             ]); 
      }
       public function get_student(Request $request){
-        $student = User::where([['usertype','=','student'],['grade','=',$request->grade]])->get();
+        $student = User::where([['usertype','=','student'],['grade','=',$request->grade]])->orderBy('lastname', 'ASC')->get();
           return response()->json([
                 'status' => $student
             ]); 

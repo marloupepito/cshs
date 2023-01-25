@@ -71,24 +71,12 @@
 									        v-model="data2.strand"
 									        block
 									      >
-									        <vs-option label="TVL" value="TVL">
-									          TVL
-									        </vs-option>
-									        <vs-option label="ABM" value="ABM">
-									          ABM
-									        </vs-option>
-									         <vs-option label="HUMSS" value="HUMSS">
-									          HUMSS
-									        </vs-option>
-									         <vs-option label="STEM" value="STEM">
-									          STEM
-									        </vs-option>
-									         <vs-option label="GAS" value="GAS">
-									          GAS
+										   <vs-option v-for="i in datas" :key="i.id" :label="i.strand" :value="i.strand">
+									         {{ i.strand}}
 									        </vs-option>
 									        <template v-if="error.strand !== undefined" #message-danger>
 									          {{error.strand[0]}}
-									      </template>
+									      	</template>
 									      </vs-select>
           Section
           <vs-input v-model="data2.section" block  placeholder="Section">
@@ -145,6 +133,7 @@
 </template>
 
 <script>
+
 export default {
 	props:['data'],
   data:()=>({
@@ -153,16 +142,28 @@ export default {
     error:[],
     loading:false,
     data2:[],
+	datas:[],
     grade:'',
 	hasVisiblePassword: false,
+	s:'',
+        g:'',
+        ss:'',
   }),
   mounted(){
   	
-  			this.grade = window.location.pathname.split('/')[3]
+  		this.grade = window.location.pathname.split('/')[3]
+		axios.post('/show_strand')
+        .then(res=>{
+            this.datas = res.data.status
+			this.g = window.location.pathname.split('/')[3]
+          this.s= window.location.pathname.split('/')[4].replace(/_/g,' ')
+          this.ss = window.location.search.substring(1).replace(/_/g,' ')
+        })
   	},
   methods:{
   	clickMe(){
-  		this.$router.push({path:'/administrator/loading2?'+this.grade})
+		this.$router.push({path:'/administrator/loading2?'+this.g+','+this.s.replace(/ /g,'_')+','+this.ss.replace(/ /g,'_')})
+
   		},
   	clickOption(e){
   		if(e === 'edit'){
@@ -182,7 +183,8 @@ export default {
 					  if (result.isConfirmed) {
 					   	axios.post('/delete_user',this.data)
 					  	.then(res=>{
-  			this.$router.push({path:'/administrator/loading2?'+this.grade})
+  							this.$router.push({path:'/administrator/loading2?'+this.g+','+this.s.replace(/ /g,'_')+','+this.ss.replace(/ /g,'_')})
+
 					  		 this.$swal({
 									  icon: 'success',
 									  title: 'Your work has been deleted',
@@ -197,7 +199,7 @@ export default {
   	submit(){
   		axios.post('/update_student',this.data2)
   		.then(res=>{
-  			this.$router.push({path:'/administrator/loading2?'+this.grade})
+  			this.$router.push({path:'/administrator/loading2?'+this.g+','+this.s.replace(/ /g,'_')+','+this.ss.replace(/ /g,'_')})
   			 this.$swal({
 							  icon: 'success',
 							  title: 'Your work has been saved',

@@ -59,7 +59,7 @@
 			</div>
 			<div class="col-md-12 col-12">
 				<vs-select
-									        label-placeholder="Strand"
+									       placeholder="Strand"
 									        v-model="strand"
 									        block
 									      class="mb-3"
@@ -205,9 +205,18 @@ import axios from 'axios'
 	 	error:'',
 	 	loading:false,
 		 hasVisiblePassword: false,
-		 strand:""
+		 strand:"",
+		 g:"",
+		 s:''
       }),
-     
+     mounted(){
+		const grade = this.$route.path.split('/')[3]
+		const strand = this.$route.path.split('/')[4]
+		this.grade= 'Grade '+grade
+		this.strand=strand
+		this.g = window.location.pathname.split('/')[3]
+        this.s= window.location.pathname.split('/')[4].replace(/ /g,'_')
+	 },
       methods:{
       	submit(){
       		this.loading=true
@@ -231,7 +240,7 @@ import axios from 'axios'
 				  timer: 1500
 				})
 					this.loading=false
-				 this.$router.push({path:'/administrator/loading'})
+					this.$router.push({path:'/administrator/loading?'+this.g+','+this.s.replace(/ /g,'_')})
 
 			})
 			.catch(err=>{

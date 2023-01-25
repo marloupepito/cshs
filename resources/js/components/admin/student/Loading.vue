@@ -7,8 +7,10 @@
 <script>
 	export default {
 		mounted(){
-			const grade= window.location.search.substring(1);
-			this.$router.push({path:'/administrator/grade/'+grade})
+			const grade= window.location.search.substring(1).split(',')[0]
+			const strand= window.location.search.substring(1).split(',')[1]
+			const section= window.location.search.substring(1).split(',')[2]
+			this.$router.push({path:'/administrator/teachers/'+grade+'/'+strand+'/students?'+section})
 		}
 	}
 </script>

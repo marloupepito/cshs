@@ -13,6 +13,11 @@
         <title>Calatrava Monitoring System</title>
 
   <style>
+         @media only screen and (min-width:641px) {
+            .toHide{
+              display: none !important;
+            }
+          }
          div.botNavbar{
             display: none;
           }
@@ -26,6 +31,8 @@
           div.botNavbar{
             display: '' !important;
           }
+
+        
         }
         div.vs-card{
             margin: 0px !important;

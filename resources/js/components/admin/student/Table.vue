@@ -1,6 +1,7 @@
 
 <template>
     <div class="center">
+    
     	<!-- <div class="row">
           <div class="col-md-4 p-3">
              <Modal />
@@ -54,7 +55,7 @@
             open-expand-only-td
           >
             <vs-td >
-              {{ tr.name }} {{ tr.lastname }}
+              {{ tr.lastname }} {{ tr.name }}
             </vs-td>
             <vs-td edit @click="edit = tr, editProp = 'idnumber', editActive = true">
               {{ tr.username }}
@@ -124,9 +125,6 @@
             </vs-td>
           </vs-tr>
         </template>
-        <template #footer>
-          <vs-pagination v-model="page" :length="$vs.getLength($vs.getSearch(users, search), max)" />
-        </template>
       </vs-table>
 
       
@@ -144,6 +142,8 @@ import axios from 'axios'
         },
       mounted(){
       	  this.grade = window.location.pathname.split('/')[3]
+          this.g = window.location.pathname.split('/')[3]
+          this.s = window.location.pathname.split('/')[4].replace(/_/g,' ')
           this.reload()
         },
         methods:{
@@ -180,6 +180,8 @@ import axios from 'axios'
             }
           },
       data:() => ({
+        g:'',
+        s:'',
       	grade:'',
         editActive: false,
         edit: null,
@@ -187,7 +189,7 @@ import axios from 'axios'
         search: '',
         allCheck: false,
         page: 1,
-        max: 5,
+        max: 10000,
         active: 0,
         selected: [],
         users: []

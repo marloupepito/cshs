@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\User;
+use App\Models\Event;
+use App\Models\Strand;
 use Illuminate\Support\Facades\Hash;
 class DatabaseSeeder extends Seeder
 {
@@ -402,13 +404,39 @@ class DatabaseSeeder extends Seeder
                     $student->usertype = 'admin';
                     $student->save();
 
+                   $what = ['Tree Planting','Clean-up Drive','Entrepreneur Ship Day','Baliktaran 2023','Christmas Party 2023','Tree Planting','Science Month Celebration',
+                'Cost Play 2023','Nutrition Month','Acquintance Party 2023','Graduation Ball',"Valentine's Day",'Buwan ng Wika','Graduation'];
+                        
+                
+
+                $where=['Palampas Barangay Rizal','School Campus','School Ground','City Auditoruim','School Ground','Malview','School Ground','School Ground',
+                'School Ground','CSHS-SA GYM','CNHS-SA GYM','School Ground','School Court','3rd Floor Japan'];
+
+                        for ($i=0; $i < 13; $i++) { 
+                            $int= mt_rand(1262055681,1262055681);
+                            $date = date("l, F d, Y H:i:s",$int);
+                            $student = new Event;
+                            $student->what =$what[$i];
+                            $student->when =$date;
+                            $student->where =$where[$i];
+                            $student->qr =Hash::make($what[$i].$date.$where[$i]);
+                            $student->save();
+                        }
+                    $strand = ['STEM','ABM','HUMSS','SMAW','HOUSEKEPING','COOKERY','EIM','CCS'];
+
+                    for ($i=0; $i < count($strand); $i++) { 
+                        $student = new Strand;
+                        $student->strand =$strand[$i];
+                        $student->save();
+                    }
+
                     for ($i=0; $i < 100; $i++) { 
                         $defaultSection=['Section A','Section B','Section C','Section D','Section E','Section F','Section G','Section H'];
                         $randSection = $defaultSection[array_rand($defaultSection)];
                         $defaultGrade=['Grade 11','Grade 12'];
                         $randGrade = $defaultGrade[array_rand($defaultGrade)];
 
-                        $defaultStrand=['TVL-Cookery','TVL-SMAW','ABM','HUMSS','STEM','GAS'];
+                        $defaultStrand=['STEM','ABM','HUMSS','SMAW','HOUSEKEPING','COOKERY','EIM','CCS'];
                         $randStrand = $defaultStrand[array_rand($defaultStrand)];
 
                         $defaultGender=['Male','Female'];
@@ -440,7 +468,7 @@ class DatabaseSeeder extends Seeder
                         $defaultGrade=['Grade 11','Grade 12'];
                         $randGrade = $defaultGrade[array_rand($defaultGrade)];
 
-                        $defaultStrand=['TVL-Cookery','TVL-SMAW','ABM','HUMSS','STEM','GAS'];
+                        $defaultStrand=['STEM','ABM','HUMSS','SMAW','HOUSEKEPING','COOKERY','EIM','CCS'];
                         $randStrand = $defaultStrand[array_rand($defaultStrand)];
 
                         $defaultGender=['Male','Female'];

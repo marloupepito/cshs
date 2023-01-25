@@ -11,7 +11,7 @@
         open
         >
         <template #logo>
-          Logo
+          <img src="/images/logo2.png">
         </template>
         <vs-sidebar-item to="/administrator"  color='black' id="administrator">
           <template #icon>
@@ -32,7 +32,7 @@
           Teachers
         </vs-sidebar-item>
 
-        <vs-sidebar-item color='black' to="/administrator/loading2?11" id="11">
+        <!-- <vs-sidebar-item color='black' to="/administrator/loading2?11" id="11">
           <template #icon>
             <i class='bx bx-group'></i>
           </template>
@@ -44,7 +44,7 @@
             <i class='bx bx-group'></i>
           </template>
           Grade 12
-        </vs-sidebar-item>
+        </vs-sidebar-item> -->
 
  
 

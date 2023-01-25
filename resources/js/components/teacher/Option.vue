@@ -26,7 +26,7 @@
       <vs-dialog v-on:close="clickMe" v-model="active" prevent-close>
         <template #header>
           <h4 class="not-margin">
-            Edit <b>Teacher</b>
+            Edit <b>Student</b>
           </h4>
         </template>
 
@@ -207,7 +207,8 @@ export default {
   	},
   methods:{
   	clickMe(){
-  		this.$router.push({path:'/administrator/loading'})
+		const grade= window.location.pathname.split('/')[3];
+  		this.$router.push({path:'/teacher/loading?'+grade})
   		},
   	clickOption(e){
   		console.log(this.data)

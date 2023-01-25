@@ -1,6 +1,10 @@
 
 <template>
     <div class="center">
+      <div class="col-md-4 p-3">
+            <h4><a href="#" @click="goBack">BACK</a></h4>
+          </div>
+      <h3>Grade {{ g }}  {{ s }}  </h3>
       <div class="row">
           <div class="col-md-4 p-3">
              <Modal />
@@ -34,6 +38,9 @@
             </vs-th>
             <vs-th sort @click="users = $vs.sortData($event ,users, 'section')">
               Section
+            </vs-th>
+            <vs-th sort>
+              Show Student
             </vs-th>
             <vs-th sort @click="users = $vs.sortData($event ,users, 'section')">
               Option
@@ -69,6 +76,16 @@
             </vs-td>
              <vs-td>
             {{ tr.section }}
+            </vs-td>
+
+            <vs-td>
+              <vs-button
+			 icon
+			 size="small"
+		      @click="showStudent(tr.section)"
+		      >
+		        STUDENTS
+		      </vs-button>
             </vs-td>
 
              <vs-td>
@@ -113,9 +130,7 @@
             </template>
           </vs-tr>
         </template>
-        <template #footer>
-          <vs-pagination v-model="page" :length="$vs.getLength($vs.getSearch(users, search), max)" />
-        </template>
+       
       </vs-table><br /><br /><br /><br />
 
       
@@ -131,6 +146,15 @@ import axios from 'axios'
         this.reload()
         },
         methods:{
+          goBack(){
+            const grade = this.$route.path.split('/')[3]
+            this.$router.push('/administrator/teachers/'+grade)
+          },
+          showStudent(section){
+            const grade = this.$route.path.split('/')[3]
+              const strand = this.$route.path.split('/')[4]
+              this.$router.push('/administrator/teachers/'+grade+'/'+strand+'/students?'+section.replace(/ /g,'_'))
+          },
             reload(){
               const grade = this.$route.path.split('/')[3]
               const strand = this.$route.path.split('/')[4]

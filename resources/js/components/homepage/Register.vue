@@ -75,23 +75,8 @@
 									        block
 									      class="mb-3"
 									      >
-											<vs-option label="TVL-Cookery" value="TVL-Cookery">
-									          TVL-Cookery
-									        </vs-option>
-											<vs-option label="TVL-SMAW" value="TVL-SMAW">
-									          TVL-SMAW
-									        </vs-option>
-									        <vs-option label="ABM" value="ABM">
-									          ABM
-									        </vs-option>
-									         <vs-option label="HUMSS" value="HUMSS">
-									          HUMSS
-									        </vs-option>
-									         <vs-option label="STEM" value="STEM">
-									          STEM
-									        </vs-option>
-									         <vs-option label="GAS" value="GAS">
-									          GAS
+											<vs-option v-for="i in data" :key="i.id" :label="i.strand" :value="i.strand">
+									         {{ i.strand}}
 									        </vs-option>
 									        <template v-if="error2.strand !== undefined" #message-danger>
 									          {{error2.strand[0]}}
@@ -169,8 +154,15 @@ export default{
 		strand:'',
 		gender:'',
 		error1:'',
-		error2:''
+		error2:'',
+		data:[]
       }),
+	  mounted(){
+		axios.post('/show_strand')
+        .then(res=>{
+            this.data = res.data.status
+        })
+	  },
 	methods:{
 		registerNext(){
 			this.loading =true

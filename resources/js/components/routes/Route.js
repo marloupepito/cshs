@@ -9,6 +9,7 @@ import TopNavbar from './../homepage/TopNavbar.vue'
 
 import AdminTopNavbar from './../admin/TopNavbar.vue'
 import Teacher from './../admin/teacher/_Index.vue'
+import ShowStudent from './../admin/teacher/ShowStudent.vue'
 import Loading from './../admin/Loading.vue'
 import Event from './../admin/event/_Index.vue'
 import Home from './../admin/home/_Index.vue'
@@ -61,6 +62,7 @@ const routes = [
           { path:'/administrator/teachers', component:ShowGrade},
           { path:'/administrator/teachers/:id', component:ShowStrand},
           { path:'/administrator/teachers/:id/:id', component:Teacher},
+          { path:'/administrator/teachers/:id/:id/students', component:ShowStudent},
           { path:'/administrator/events', component:Event},
           { path:'/administrator/grade/:id', component:Grade},
           { path:'/administrator/loading2', component:Loading2},

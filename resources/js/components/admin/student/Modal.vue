@@ -7,7 +7,7 @@
  <vs-dialog v-model="active" prevent-close>
         <template #header>
           <h4 class="not-margin">
-            Create <b>Teacher</b>
+            Create <b>Student</b>
           </h4>
         </template>
 
@@ -35,7 +35,7 @@
 
           </vs-input>
 
-         	  <vs-select
+         	  <!-- <vs-select
 		        label-placeholder="Grade"
 		        v-model="grade"
 		        block class="mb-3"
@@ -49,7 +49,7 @@
 		        <template v-if="error.grade !== undefined" #message-danger>
 		          {{error.grade[0]}}
 		      </template>
-		      </vs-select>
+		      </vs-select> -->
 
 		       <vs-input type="text" v-model="idnumber" block class="mb-3"  placeholder="ID Number">
             
@@ -58,12 +58,12 @@
 			      </template>
           </vs-input>
 
-          <vs-input v-model="section" block class="mb-3"  placeholder="Section">
+          <!-- <vs-input v-model="section" block class="mb-3"  placeholder="Section">
             
             <template v-if="error.section !== undefined" #message-danger>
 		          {{error.section[0]}}
 		      </template>
-          </vs-input>
+          </vs-input> -->
 
            <vs-input type="number" v-model="contact" block class="mb-3"  placeholder="Contact">
             
@@ -127,26 +127,35 @@ import axios from 'axios'
 	 	profile:'',
 	 	error:'',
 		 hasVisiblePassword: false,
-	 	loading:false
+	 	loading:false,
+		 s:'',
+        g:'',
+        ss:'',
       }),
       methods:{
+		mounted(){
+			this.g = window.location.pathname.split('/')[3]
+          this.s= window.location.pathname.split('/')[4].replace(/_/g,' ')
+          this.ss = window.location.search.substring(1).replace(/_/g,' ')
+		},
       	submit(){
       		this.loading=true
       		var fd = new FormData();
       		fd.append("fullname",this.fullname);
-      		fd.append("grade",this.grade);
-      		fd.append("section",this.section);
+      		fd.append("grade",this.g);
+      		fd.append("section",this.ss);
 					fd.append("username",this.username);
+					fd.append("strand",this.s);
 					fd.append("contact",this.contact);
 					fd.append("idnumber",this.idnumber);
 					fd.append("password",this.password);
 					fd.append("profile", this.profile);
-			axios.post('/add_teacher',fd)
+			axios.post('/add_student',fd)
 			.then(res=>{
 				this.active=false
 
 					this.loading=false
-				 this.$router.push({path:'/administrator/loading'})
+				 this.$router.push({path:'/administrator/loading?'+this.g+','+this.s.replace(/ /g,'_')+','+this.ss.replace(/ /g,'_')})
 
 			})
 			.catch(err=>{

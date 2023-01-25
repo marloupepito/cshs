@@ -27,12 +27,12 @@
           title: "Grade 11",
           path:"/teacher/loading?11"
         },
-        { 
-          id: 3, 
-          icon: "text-white fas fa-users", 
-          title: "Grade 12",
-          path:"/teacher/loading?12"
-        },
+        // { 
+        //   id: 3, 
+        //   icon: "text-white fas fa-users", 
+        //   title: "Grade 12",
+        //   path:"/teacher/loading?12"
+        // },
          { 
           icon: "text-white fas fa-sign-out-alt", 
           title: "Grade 12",

@@ -1,13 +1,15 @@
 <template>
   
  <CurvedBottomNavigation
+ class="toHide"
  style="z-index:100 !important"
  foreground-color='#F7F7F8'
   badge-color='#FBC02D'
   background-color='rgb(64, 191, 128)'
   icon-color='#0000008A'
    :options="options" 
-   v-model="selected" />
+   v-model="selected"
+    />
 </template>
 
 <script>
@@ -57,12 +59,12 @@
     mounted(){
       const path = this.$route.path.split('/')[2]
       const path2 = this.$route.path.split('/')[3]
-      
-      if(path === undefined){
+      console.log(path2)
+      if(path === undefined && path2 === undefined){
         this.selected =1
-      }else if(path === "events"){
+      }else if(path === "events" && path2 === undefined){
         this.selected =2
-      }else if(path === "teachers"){
+      }else if(path === "teachers" && path2 === undefined){
         this.selected =3
       }else if(path === "grade" && path2 === '11'){
         this.selected =4
