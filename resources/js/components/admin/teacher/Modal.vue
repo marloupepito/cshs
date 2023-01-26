@@ -21,7 +21,7 @@
 		       		
 		      </vs-avatar>
               </center>
-
+			  <p style="color:red">{{ notify }}</p>
       		 <div v-if="error.profile !== undefined" class="text-danger">
 		         {{error.profile[0]}}
 		      </div>
@@ -207,7 +207,8 @@ import axios from 'axios'
 		 hasVisiblePassword: false,
 		 strand:"",
 		 g:"",
-		 s:''
+		 s:'',
+		 notify:''
       }),
      mounted(){
 		const grade = this.$route.path.split('/')[3]
@@ -221,6 +222,7 @@ import axios from 'axios'
       	submit(){
       		this.loading=true
       		var fd = new FormData();
+			this.notify = ''
       		fd.append("fullname",this.fullname);
       		fd.append("grade",this.grade);
       		fd.append("section",this.section);
@@ -232,16 +234,24 @@ import axios from 'axios'
 					fd.append("strand", this.strand);
 			axios.post('/add_teacher',fd)
 			.then(res=>{
-				this.active=false
+				console.log(res.data.has)
+				if(res.data.status ==='exist'){
+					this.loading=false
+					this.notify ='Grade and Section had already assigned to other teacher!'
+				}else{
+					this.active=false
 					this.$swal({
-				  icon: 'success',
-				  title: 'Saved!',
-				  showConfirmButton: false,
-				  timer: 1500
-				})
+					icon: 'success',
+					title: 'Saved!',
+					showConfirmButton: false,
+					timer: 1500
+					})
+					this.notify =''
 					this.loading=false
 					this.$router.push({path:'/administrator/loading?'+this.g+','+this.s.replace(/ /g,'_')})
 
+				}
+			
 			})
 			.catch(err=>{
 				

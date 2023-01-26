@@ -2,17 +2,51 @@
 	<div >
 		<div class="container mb-4 d-flex p-0 justify-content-center" style="width:100%;height:90vh !important"> 
 			<div class="card p-4"> <div class="d-flex flex-column justify-content-center align-items-center"> 
-                <img :src="'/profile/'+data.profile" height="200" class="mt-3" width="90%" />
-				 <span class="name mt-3">{{data.name}}</span> <span class="idd">{{data.grade}} {{data.section}}</span> 
-				<div class="d-flex flex-row justify-content-center align-items-center gap-2">
-				 <span class="idd1">{{data.strand}}</span> 
-				</div> 
-				<div class="d-flex flex-row justify-content-center align-items-center mt-3">
-				 <span class="number">{{data.idnumber}} <span class="follow">ID Number</span></span> 
-				</div>
-				<div class="text mt-3"> <span>Username:{{data.username}}</span>
-				 </div>
-				 
+         
+				
+                 <vs-card style="width:100%">
+                    
+                    <template #img>
+                    <img :src="'/profile/'+data.profile"  alt="">
+                    </template>
+                    
+                    <template #interactions>
+                        <input hidden id="uploadpp" @change="uploadPP2" ref="uploadpp" type="file"   accept="image/png, image/gif, image/jpeg"/>
+                    <vs-button :loading="loading" danger icon  @click="editProfile(data.id)">
+                        <i class='bx bx-camera'></i>
+                    </vs-button>
+                    
+                    </template>
+                </vs-card>
+
+				 <table class="table table-striped mt-3">
+                    <tbody>
+                        <tr>
+                        <th>Name</th>
+                        <td>{{data.name}}</td>
+                        </tr>
+                        <tr>
+                        <th>ID Number</th>
+                        <td>{{data.idnumber}}</td>
+                        </tr>
+                        <tr>
+                        <th>Grade</th>
+                        <td>{{data.grade}}</td>
+                        </tr>
+                        <tr>
+                        <th>Section</th>
+                        <td>{{data.section}}</td>
+                        </tr>
+                        <tr>
+                        <th>Strand</th>
+                        <td>{{data.strand}}</td>
+                        </tr>
+                        <tr>
+                        <th>Username</th>
+                        <td>{{data.username}}</td>
+                        </tr>
+                    </tbody>
+                    </table>
 				 </div>
 			 </div>
 </div>
@@ -20,18 +54,44 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 	export default {
 	data: () => ({
       data: 1,
+      profile:'',
+      pp:'',
+      id:'',
+      loading:false
     }),
 		mounted(){
 			this.mount()
 		},
 		methods:{
+            editProfile(){
+                this.$refs.uploadpp.click()
+                
+            },
+            uploadPP2(event){
+                this.profile = event.target.files[0]
+                var fd = new FormData();
+                this.loading=true
+		    	fd.append("profile", this.profile);
+                fd.append("id", this.id);
+                axios.post('/edit_student_image',fd)
+                .then(res=>{
+                    this.mount()
+                    this.loading=false
+                })
+                .catch(err=>{
+                    this.loading=false
+                })
+            },
 			mount(){
 				axios.get('/user')
 				.then(res=>{
 					this.data =res.data
+                    this.id =res.data.id
 				})
 			}
 		}

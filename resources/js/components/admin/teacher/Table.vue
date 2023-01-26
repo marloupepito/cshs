@@ -4,7 +4,7 @@
       <div class="col-md-4 p-3">
             <h4><a href="#" @click="goBack">BACK</a></h4>
           </div>
-      <h3>Grade {{ g }}  {{ s }}  </h3>
+      <h3>Grade {{ g }} - {{ s }}  </h3>
       <div class="row">
           <div class="col-md-4 p-3">
              <Modal />
@@ -164,6 +164,8 @@ import axios from 'axios'
               })
               .then(res=>{
                   this.users= res.data.status
+                  this.g = this.$route.path.split('/')[3]
+                  this.s = this.$route.path.split('/')[4]
                 })
               .catch(err=>{
 
@@ -175,6 +177,8 @@ import axios from 'axios'
         Option
         },
       data:() => ({
+        g:'',
+        s:'',
         editActive: false,
         edit: null,
         editProp: {},

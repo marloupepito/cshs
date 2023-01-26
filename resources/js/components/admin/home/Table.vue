@@ -50,9 +50,6 @@
             </vs-td>
           </vs-tr>
         </template>
-        <template #footer>
-          <vs-pagination v-model="page" :length="$vs.getLength($vs.getSearch(events, search), max)" />
-        </template>
       </vs-table>
 
      

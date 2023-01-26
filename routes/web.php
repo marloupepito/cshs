@@ -43,6 +43,9 @@ Route::post('/delete_user','App\Http\Controllers\RegistrationController@delete_u
 Route::post('/get_student_advisory','App\Http\Controllers\RegistrationController@get_student_advisory');
 Route::post('/get_student_advisory2','App\Http\Controllers\RegistrationController@get_student_advisory2');
 Route::post('/set_session_attendace','App\Http\Controllers\RegistrationController@set_session_attendace');
+Route::post('/edit_student_image','App\Http\Controllers\RegistrationController@edit_student_image');
+
+
 
 Route::post('/add_event','App\Http\Controllers\EventController@add_event');
 Route::post('/get_event','App\Http\Controllers\EventController@get_event');
@@ -58,6 +61,7 @@ Route::post('/get_advisory_attendance','App\Http\Controllers\AttendancesControll
 
 Route::post('/add_strand','App\Http\Controllers\StrandController@add_strand');
 Route::post('/show_strand','App\Http\Controllers\StrandController@show_strand');
+Route::post('/delete_strand','App\Http\Controllers\StrandController@delete_strand');
 
 
 

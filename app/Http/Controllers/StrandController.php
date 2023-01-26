@@ -15,6 +15,17 @@ class StrandController extends Controller
         $strand->strand =$request->strand;
         $strand->save();
     }
+
+    public function delete_strand(Request $request){
+
+        
+        Strand::where('id','=',$request->id)->delete();
+
+        return response()->json([
+            'status' => 'success'
+        ]);
+    }
+    
     
     public function show_strand(Request $request){
         $strand = Strand::all();

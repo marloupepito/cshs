@@ -31,7 +31,9 @@ import EventPost from './../student/event/Layout.vue'
 
 import Teacher2 from './../teacher/_Index.vue'
 import Loading22 from './../teacher/Loading.vue'
+import TeacherProfile from './../teacher/Profile.vue'
 import TeacherStudent1 from './../teacher/Table.vue'
+
 
 const routes = [
   { path: '/', component: TopNavbar,
@@ -106,11 +108,12 @@ const routes = [
           })
         },
         children:[
-        { path:'/teacher', component:EventPost},
+        { path:'/teacher/newsfeed', component:EventPost},
         { path:'/teacher/logout', component:Logout},
         { path:'/teacher/check_attendance', component:CheckAttendance},
         { path:'/teacher/student_list/11', component:TeacherStudent1},
         { path:'/teacher/student_list/12', component:TeacherStudent1},
+        { path:'/teacher/profile', component:TeacherProfile},
         { path:'/teacher/loading', component:Loading22},
 
         ]
