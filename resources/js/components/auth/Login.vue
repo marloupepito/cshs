@@ -103,7 +103,7 @@ import axios from 'axios'
 									localStorage.setItem("username", this.input1);
 									this.$router.push({path:'/administrator'})
 								}else if(res.data.status.usertype === 'teacher'){
-									this.$router.push({path:'/teacher'})
+									this.$router.push({path:'/teacher/profile'})
 								}else{
 									if(res.data.status.access === null){
 										this.error = 'Your account not already approved!'
