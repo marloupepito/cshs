@@ -8,6 +8,17 @@ use App\Models\User;
 use Illuminate\Support\Facades\DB;
 class AttendancesController extends Controller
 {
+
+    public function get_advisory_attendance2(Request $request){
+      
+        $attendance = DB::table('users')
+             ->where([['attendance.strand','=', $request->strand],['attendance.section','=', $request->section],['attendance.grade','=', $request->grade],['attendance.event_id','=',$request->id]])
+             ->join('attendance', 'users.id', '=', 'attendance.student_id')
+             ->get();
+        return response()->json([
+             'status' => $attendance
+         ]);
+     }
     
     public function get_advisory_attendance(Request $request){
       

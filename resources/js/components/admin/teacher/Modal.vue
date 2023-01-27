@@ -45,11 +45,13 @@
       
 		 
            <vs-input type="number" v-model="contact" block class="mb-3"  placeholder="Contact No.">
-           
             <template v-if="error.contact !== undefined" #message-danger>
 		          {{error.contact[0]}}
 		      </template>
           </vs-input>
+		  <div v-if="contact.length !== 11" class="text-danger">
+		         Contact # be must 11 digits!
+		      </div>
 
 
 
@@ -179,7 +181,7 @@
 
         <template #footer>
           <div class="footer-dialog">
-            <vs-button block color="rgb(64, 191, 128)" :loading="loading" @click="submit">
+            <vs-button :disabled="contact.length !== 11?true:false" block color="rgb(64, 191, 128)" :loading="loading" @click="submit">
               Submit
             </vs-button>
           </div>
@@ -254,8 +256,7 @@ import axios from 'axios'
 			
 			})
 			.catch(err=>{
-				
-				this.error =err.response.data.errors
+				this.notify ='The username is already exist!'
 				this.loading=false
 				})
 

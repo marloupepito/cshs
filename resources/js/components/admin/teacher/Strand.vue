@@ -21,7 +21,7 @@
                     </template>
                    
                     <template #img>
-                        <a @click="nextPage('STEM')">
+                        <a @click="nextPage(i.strand)">
                         <img src="/images/logo2.png" alt="" />
                        </a>
                     </template>
@@ -83,30 +83,51 @@ export default {
         deleteStrand(id){
 
             this.$swal({
-                title: 'Are you sure?',
-                text: "You won't be able to revert this!",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes, delete it!'
-                }).then((result) => {
-                if (result.isConfirmed) {
-                    axios.post('/delete_strand',{
-                        id:id
+				title: 'Enter your password',
+				input: 'password',
+				inputAttributes: {
+					autocapitalize: 'off'
+				},
+				showCancelButton: true,
+				confirmButtonText: 'Submit',
+				showLoaderOnConfirm: true,
+				preConfirm: (login) => {
+					axios.post('/get_admin',{
+                        password:login,
+                        username:localStorage.getItem("username")
                     })
                     .then(res=>{
-                        this.mount()
-                        Swal.fire({
-                        icon: 'success',
-                        title: 'Your work has been deleted',
-                        showConfirmButton: false,
-                        timer: 1500
-                        })
-                        
+                        if(res.data.status === 'success'){
+                            axios.post('/delete_strand',{
+                                    id:id
+                                })
+                                .then(res=>{
+                                    this.mount()
+                                    this.$swal({
+                                    icon: 'success',
+                                    title: 'Your work has been deleted',
+                                    showConfirmButton: false,
+                                    timer: 1500
+                                    })
+                                    
+                                })
+                        }else{
+                            this.$swal({
+                                    icon: 'error',
+                                    title: 'Incorrect Password!',
+                                    showConfirmButton: false,
+                                    timer: 1500
+                                    })
+
+                        }
                     })
-                }
-                })
+                    .then(res=>{
+
+                    })
+				},
+				allowOutsideClick: () => !Swal.isLoading()
+				})
+           
            
         },
         nextPage(e) {

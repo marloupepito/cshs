@@ -80,7 +80,7 @@ import axios from 'axios'
         search: '',
         allCheck: false,
         page: 1,
-        max: 5,
+        max: 500000,
         active: 0,
         selected: [],
         events: []

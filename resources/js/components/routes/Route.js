@@ -13,6 +13,10 @@ import ShowStudent from './../admin/teacher/ShowStudent.vue'
 import Loading from './../admin/Loading.vue'
 import Event from './../admin/event/_Index.vue'
 import Home from './../admin/home/_Index.vue'
+import HomeGrade from './../admin/home/Grade.vue'
+import HomeStrand from './../admin/home/Strand.vue'
+import HomeTeacher from './../admin/home/Teacher.vue'
+import HomeSection from './../admin/home/Section.vue'
 import CheckAttendance from './../admin/home/CheckAttendance.vue'
 import ClassroomAttendance from './../admin/event/Card.vue'
 import Grade from './../admin/student/_Index.vue'
@@ -59,7 +63,10 @@ const routes = [
         children:[
           { path:'/administrator', component:Home},
           { path:'/administrator/loading', component:Loading},
-          { path:'/administrator/check_attendance', component:ClassroomAttendance},
+          { path:'/administrator/check_attendance', component:HomeGrade},
+          { path:'/administrator/check_attendance/:id', component:HomeStrand},
+          { path:'/administrator/check_attendance/:id/:id', component:HomeTeacher},
+          { path:'/administrator/check_attendance/:id/:id/:id', component:HomeSection},
           { path:'/administrator/check_attendance_list', component:CheckAttendance},
           { path:'/administrator/teachers', component:ShowGrade},
           { path:'/administrator/teachers/:id', component:ShowStrand},

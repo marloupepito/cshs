@@ -9,6 +9,21 @@ use Illuminate\Support\Facades\Auth;
 class RegistrationController extends Controller
 {
     
+    public function get_admin(Request $request){
+
+        if(Auth::attempt($request->only('username','password'))){
+            return response()->json([
+                'status' =>'success',
+            ]);
+        }else{
+            return response()->json([
+                'status' => 'Incorrect password!',
+            ]);
+        }
+        throw ValidationException::withMessages([
+            'status' => ['Incorrect password!'],
+        ]);
+    }
     public function edit_student_image(Request $request){
         $path = 'profile/';
 

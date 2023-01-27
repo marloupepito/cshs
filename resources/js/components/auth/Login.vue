@@ -99,6 +99,8 @@ import axios from 'axios'
 				
 						if(res.data.status2 === 'success'){
 								if(res.data.status.usertype === 'admin'){
+									
+									localStorage.setItem("username", this.input1);
 									this.$router.push({path:'/administrator'})
 								}else if(res.data.status.usertype === 'teacher'){
 									this.$router.push({path:'/teacher'})
@@ -114,8 +116,6 @@ import axios from 'axios'
 						}
 					})
 				.catch(err=>{
-					console.log(this.input1)
-					console.log(this.input2)
 					this.error = 'Invalid Username or Password!'
 					})
 			}
