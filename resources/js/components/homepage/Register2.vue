@@ -14,6 +14,7 @@
 	               </center>
 	           </div>
 	           <div class="col-md-6 col-12">
+				<b class="text-danger" v-if="notify !== ''">{{ notify }}</b>
 	            		  <h1 class="not-margin mt-5">
 			                    Create <b>Account</b>
 			                  </h1>
@@ -90,6 +91,7 @@ export default{
 			.then(res=>{
 				if(res.data.status === 'exist'){
 					this.notify='Username is already exist!'
+					this.loading=false
 				}else if(res.data.status === 'success'){
 					this.$swal({
 					icon: 'success',
@@ -100,6 +102,7 @@ export default{
 					this.loading=false
 					this.$router.push({path:'/login'})
 				}else{
+					this.loading=false
 					this.notify='Error!'
 				}
 			

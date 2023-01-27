@@ -67,21 +67,22 @@
 									      </template>
 									      </vs-select>
 				                </div>
-				               
 				                 <div  class="col-md-6 col-12">
-				                	   <vs-select
-									        label-placeholder="Strand"
+				                	   <select
+									   class="form-select mb-3"
+									        placeholder="Strand"
 									        v-model="strand"
 									        block
-									      class="mb-3"
 									      >
-											<vs-option v-for="i in data" :key="i.id" :label="i.strand" :value="i.strand">
-									         {{ i.strand}}
-									        </vs-option>
-									        <template v-if="error2.strand !== undefined" #message-danger>
-									          {{error2.strand[0]}}
-									      </template>
-									      </vs-select>
+										  <option selected disabled>
+									         Select Strand
+									        </option>
+											<option v-for="i in data" :label="i" :value="i">
+									         {{ i}}
+									        </option>
+
+											
+									      </select>
 				                </div>
 				                 <div  class="col-md-6 col-12">
 				                
@@ -160,7 +161,7 @@ export default{
 	  mounted(){
 		axios.post('/show_strand')
         .then(res=>{
-            this.data = res.data.status
+            this.data = res.data.status.map(res=>res.strand)
         })
 	  },
 	methods:{
