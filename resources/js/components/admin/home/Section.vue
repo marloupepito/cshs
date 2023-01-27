@@ -1,6 +1,9 @@
 <
 <template>
     <div class="center">
+      <div class="col-md-12 p-3">
+            <h4><a href="#" @click="goBack">BACK</a></h4>
+          </div>
       <vs-table
         v-model="selected"
         >
@@ -93,6 +96,10 @@ import axios from 'axios'
         this.mount();
         },
       methods:{
+        goBack(){
+          
+        this.$router.push('/administrator/check_attendance/'+window.location.pathname.split('/')[3]+'/'+window.location.pathname.split('/')[4]+'?'+window.location.search.substring(1))
+        },
         mount(){
          axios.post('/get_advisory_attendance2',{
          	id:window.location.search.substring(1),

@@ -12,6 +12,10 @@
            
         </div> -->
 
+        <div class="col-md-12 p-3">
+            <h4><a href="#" @click="goBack">BACK</a></h4>
+          </div>
+
 
         <div class="col-md-4 col-6 mt-5" v-for="i in data" :key="i.id">
            
@@ -58,6 +62,9 @@ export default {
        this.mount()
     },
     methods: {
+        goBack(){
+            this.$router.push({path:'/administrator/check_attendance?'+window.location.search.substring(1)})
+        },
         mount(){
             axios.post('/show_strand')
         .then(res=>{

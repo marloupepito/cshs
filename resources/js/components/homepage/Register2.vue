@@ -72,13 +72,15 @@ export default{
 	 	password:'',
 	 	error:'',
 		loading:false,
-		hasVisiblePassword: false
+		hasVisiblePassword: false,
+		notify:''
       }),
       mounted(){
       		this.mount()
       	},
 	methods:{
 		submit(){
+			this.notify=''
 			this.loading=true
 			var fd = new FormData();
 			fd.append("username",this.username);
@@ -86,14 +88,21 @@ export default{
 			fd.append("profile", this.profile);
 			axios.post('/add_student',fd)
 			.then(res=>{
-				this.$swal({
-				  icon: 'success',
-				  title: 'Your work has been saved',
-				  showConfirmButton: false,
-				  timer: 1500
-				})
-				this.loading=false
-				 this.$router.push({path:'/login'})
+				if(res.data.status === 'exist'){
+					this.notify='Username is already exist!'
+				}else if(res.data.status === 'success'){
+					this.$swal({
+					icon: 'success',
+					title: 'Your work has been saved',
+					showConfirmButton: false,
+					timer: 1500
+					})
+					this.loading=false
+					this.$router.push({path:'/login'})
+				}else{
+					this.notify='Error!'
+				}
+			
 			})
 			.catch(err=>{
 				this.$swal({

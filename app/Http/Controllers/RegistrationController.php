@@ -233,39 +233,49 @@ class RegistrationController extends Controller
         ]);
 
         $register = $request->session()->get('register');
-        if($request->hasFile('profile')){
-            $profile = $request->file('profile');
-            $fileName = $profile->getClientOriginalName();
-            $profile->move($path, $fileName);
 
-                $student = new User;
-                $student->profile =$fileName;
-                $student->name = $register['lastname'].' '.$register['name'];
-                $student->lastname = $register['lastname'];
-                $student->contact = $register['contact'];
-                $student->idnumber = $register['idnumber'];
-                $student->grade = $register['grade'];
-                $student->section = $register['section'];
-                $student->strand = $register['strand'];
-                $student->gender = $register['gender'];
-                $student->username = $request->username;
-                $student->usertype = 'student';
-                $student->password = Hash::make($request->password);
-                $student->save();
+        $exist = User::where('username','=',$request->username)->get();
 
-               
-                if($student){
-                    $request->session()->forget('register'); 
-                       return response()->json([
-                            'status' => true
-                        ]);
-                }
-            
+        if(count($exist) === 0){
+            if($request->hasFile('profile')){
+                $profile = $request->file('profile');
+                $fileName = $profile->getClientOriginalName();
+                $profile->move($path, $fileName);
+    
+                    $student = new User;
+                    $student->profile =$fileName;
+                    $student->name = $register['lastname'].' '.$register['name'];
+                    $student->lastname = $register['lastname'];
+                    $student->contact = $register['contact'];
+                    $student->idnumber = $register['idnumber'];
+                    $student->grade = $register['grade'];
+                    $student->section = $register['section'];
+                    $student->strand = $register['strand'];
+                    $student->gender = $register['gender'];
+                    $student->username = $request->username;
+                    $student->usertype = 'student';
+                    $student->password = Hash::make($request->password);
+                    $student->save();
+    
+                   
+                    if($student){
+                        $request->session()->forget('register'); 
+                           return response()->json([
+                                'status' => 'success'
+                            ]);
+                    }
+                
+            }else{
+                  return response()->json([
+                    'status' => 'error'
+                ]); 
+            }
         }else{
-              return response()->json([
-                'status' => false
+            return response()->json([
+                'status' => 'exist'
             ]); 
         }
+       
 
      }
 
