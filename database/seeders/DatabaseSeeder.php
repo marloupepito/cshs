@@ -427,6 +427,14 @@ class DatabaseSeeder extends Seeder
                     for ($i=0; $i < count($strand); $i++) { 
                         $student = new Strand;
                         $student->strand =$strand[$i];
+                        $student->grade ='11';
+                        $student->save();
+                    }
+
+                    for ($i=0; $i < count($strand); $i++) { 
+                        $student = new Strand;
+                        $student->strand =$strand[$i];
+                        $student->grade ='12';
                         $student->save();
                     }
 

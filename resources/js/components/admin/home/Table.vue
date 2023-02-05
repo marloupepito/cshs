@@ -52,6 +52,9 @@
         </template>
       </vs-table>
 
+    <br />
+    <br />
+    <br />
      
     </div>
   </template>

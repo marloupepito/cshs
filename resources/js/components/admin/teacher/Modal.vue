@@ -43,15 +43,14 @@
           </vs-input>
 
       
-		 
+		  <div v-if="contact.length !== 11" class="text-danger">
+		         Contact # be must 11 digits!
+		      </div>
            <vs-input type="number" v-model="contact" block class="mb-3"  placeholder="Contact No.">
             <template v-if="error.contact !== undefined" #message-danger>
 		          {{error.contact[0]}}
 		      </template>
           </vs-input>
-		  <div v-if="contact.length !== 11" class="text-danger">
-		         Contact # be must 11 digits!
-		      </div>
 
 
 
@@ -60,34 +59,19 @@
 				Advisory
 			</div>
 			<div class="col-md-12 col-12">
-				<vs-select
+				<select
 									       placeholder="Strand"
 									        v-model="strand"
 									        block
-									      class="mb-3"
+									       class="form-select mb-3"
 									      >
-											<vs-option label="TVL-Cookery" value="TVL-Cookery">
-									          TVL-Cookery
-									        </vs-option>
-											<vs-option label="TVL-SMAW" value="TVL-SMAW">
-									          TVL-SMAW
-									        </vs-option>
-									        <vs-option label="ABM" value="ABM">
-									          ABM
-									        </vs-option>
-									         <vs-option label="HUMSS" value="HUMSS">
-									          HUMSS
-									        </vs-option>
-									         <vs-option label="STEM" value="STEM">
-									          STEM
-									        </vs-option>
-									         <vs-option label="GAS" value="GAS">
-									          GAS
-									        </vs-option>
-									        <template v-if="error.strand !== undefined" #message-danger>
-									          {{error.strand[0]}}
-									      </template>
-									      </vs-select>
+										  <option selected disabled>
+									         Select Strand
+									        </option>
+													<option v-for="i in datasss" :label="i" :value="i">
+									         {{ i}}
+									        </option>
+									      </select>
 			</div>
 			<div class="col-md-6 col-6">
 				<vs-select
@@ -148,7 +132,6 @@
         
 
 
-
           <vs-input  block class="mb-3" v-model="username" placeholder="Username">
             <template #icon>
               <i class='bx bxs-user'></i>
@@ -158,7 +141,12 @@
 		      </template>
           </vs-input>
 
-		  <vs-input
+
+
+
+		 <p style="color:red" v-if="password.length < 8">Password must be 8 characters and above!</p>
+
+					  <vs-input
 									type="password"
 									v-model="password"
 									placeholder="Password"
@@ -181,7 +169,7 @@
 
         <template #footer>
           <div class="footer-dialog">
-            <vs-button :disabled="contact.length !== 11?true:false" block color="rgb(64, 191, 128)" :loading="loading" @click="submit">
+            <vs-button :disabled="contact.length !== 11 || password.length < 8?true:false" block color="rgb(64, 191, 128)" :loading="loading" @click="submit">
               Submit
             </vs-button>
           </div>
@@ -194,6 +182,7 @@
 import axios from 'axios'
     export default {
       data:() => ({
+      	datasss:[],
         active: false,
         fullname: '',
          grade: '',
@@ -219,6 +208,15 @@ import axios from 'axios'
 		this.strand=strand
 		this.g = window.location.pathname.split('/')[3]
         this.s= window.location.pathname.split('/')[4].replace(/ /g,'_')
+
+
+        axios.post('/show_strand',{
+            grade:window.location.pathname.split('/')[3]
+            })
+        .then(res=>{
+        	console.log('fff',res.data.status.map(res=>res.strand))
+            this.datasss = res.data.status.map(res=>res.strand)
+        })
 	 },
       methods:{
       	submit(){
@@ -236,8 +234,11 @@ import axios from 'axios'
 					fd.append("strand", this.strand);
 			axios.post('/add_teacher',fd)
 			.then(res=>{
-				console.log(res.data.has)
-				if(res.data.status ==='exist'){
+
+				if(res.data.status ==='exist2'){
+					this.loading=false
+					this.notify ='Teacher ID is already exist!'
+				}else if(res.data.status ==='exist'){
 					this.loading=false
 					this.notify ='Grade and Section had already assigned to other teacher!'
 				}else{
@@ -256,7 +257,7 @@ import axios from 'axios'
 			
 			})
 			.catch(err=>{
-				this.notify ='The username is already exist!'
+				this.notify ='The username is already exist or profile picture is required!'
 				this.loading=false
 				})
 

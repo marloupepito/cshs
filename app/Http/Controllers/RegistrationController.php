@@ -180,6 +180,7 @@ class RegistrationController extends Controller
       
      }
      public function register1(Request $request){
+
         $validated =  $request->validate([
             'name'=>['required'],
             'lastname'=>['required'],
@@ -191,21 +192,34 @@ class RegistrationController extends Controller
             'gender'=>['required'],
         ]);
 
-             $request->session()->put('register',[
-               'name' => $request->name,
-               'lastname' => $request->lastname,
-               'contact' => $request->contact,
-               'idnumber' => $request->idnumber,
-               'grade' => $request->grade,
-               'section' => $request->section,
-               'strand' => $request->strand,
-               'gender' => $request->gender,
-              ]);
+        $user = User::where('idnumber','=', $request->idnumber)->get();
 
-        $register = $request->session()->get('register');
-        return response()->json([
-            'status' => $register
-        ]);
+        if(count($user) === 0){
+
+                  $request->session()->put('register',[
+                       'name' => $request->name,
+                       'lastname' => $request->lastname,
+                       'contact' => $request->contact,
+                       'idnumber' => $request->idnumber,
+                       'grade' => $request->grade,
+                       'section' => $request->section,
+                       'strand' => $request->strand,
+                       'gender' => $request->gender,
+                       'address' => $request->address,
+                      ]);
+
+                $register = $request->session()->get('register');
+                return response()->json([
+                    'status' => $register
+                ]);
+        }else{
+             return response()->json([
+                    'status' => 'exist'
+                ]);
+        }
+
+
+       
 
 
     }
@@ -252,6 +266,7 @@ class RegistrationController extends Controller
                     $student->section = $register['section'];
                     $student->strand = $register['strand'];
                     $student->gender = $register['gender'];
+                    $student->address = $register['address'];
                     $student->username = $request->username;
                     $student->usertype = 'student';
                     $student->password = Hash::make($request->password);
@@ -297,8 +312,13 @@ class RegistrationController extends Controller
         $register = $request->session()->get('register');
         $user=User::where([['usertype','=','teacher'],['grade','=',$request->grade],['section','=',$request->section],['strand','=',$request->strand]])->get();
 
-       
-        if($request->hasFile('profile')){
+       $zzz = User::where('idnumber','=', $request->idnumber)->get();
+
+       if(count($zzz) !== 0){
+         return response()->json([
+                    'status' => 'exist2',
+                ]); 
+       }else if($request->hasFile('profile')){
 
             if(count($user) === 0){
                 $profile = $request->file('profile');

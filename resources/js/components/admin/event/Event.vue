@@ -3,7 +3,7 @@
 		<h3 class="mt-4"><center>Event <b>List</b></center></h3>
 
 		<div  v-for="i in event" class="col-md-12 col-12">
-		<vs-sidebar-group>
+		<vs-sidebar-group >
           <template #header>
             <vs-sidebar-item arrow>
               <template #icon>

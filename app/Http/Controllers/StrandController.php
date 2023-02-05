@@ -13,6 +13,7 @@ class StrandController extends Controller
         ]);
         $strand = new Strand;
         $strand->strand =$request->strand;
+        $strand->grade =$request->grade;
         $strand->save();
     }
 
@@ -28,7 +29,7 @@ class StrandController extends Controller
     
     
     public function show_strand(Request $request){
-        $strand = Strand::all();
+        $strand = Strand::where('grade','=',$request->grade)->orderBy('id', 'DESC')->get();
 
         return response()->json([
             'status' => $strand

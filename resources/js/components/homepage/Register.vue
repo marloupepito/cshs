@@ -36,6 +36,7 @@
 				                	</vs-input>
 				                </div>
 				                 <div class="col-md-6 col-12">
+				                 <div class='text-danger' v-if="contact.length !== 11">Mobile must be 11 digits</div>
 				                	<vs-input type="number" class="mb-3 " v-model="contact" block placeholder="Contact" >
 				                	 <template v-if="error2.contact !== undefined" #message-danger>
 										{{error2.contact[0]}}
@@ -43,6 +44,8 @@
 				                	</vs-input>
 				                </div>
 				                <div  class="col-md-6 col-12">
+
+				                 <div class='text-danger' v-if="exist !== ''">{{exist}}</div>
 				                	 <vs-input  class="mb-3 " v-model="idnumber" block  placeholder="ID Number" >
 				                	  <template v-if="error2.idnumber !== undefined" #message-danger>
 								          Required
@@ -55,6 +58,7 @@
 									        v-model="grade"
 									        block
 									         class="mb-3"
+									         @input="selectGrade"
 									      >
 									        <vs-option label="Grade 11" value="Grade 11">
 									          Grade 11
@@ -121,7 +125,9 @@
 									      </template>
 									      </vs-select>
 
+
 				                </div>
+				             
 				                <div  class="col-md-6 col-12 row">
 
 				                <vs-radio class="col-md-6 col-6" v-model="gender" val="Male">
@@ -130,6 +136,11 @@
 							        <vs-radio class="col-md-6 col-6" v-model="gender" val="Female">
 							          Female
 							        </vs-radio>
+				                </div>
+
+				                   <div  class="col-md-12 col-12">
+									      <textarea placeholder="Address" class="form-control" v-model="address">
+									      </textarea>
 				                </div>
 				                <div  class="col-md-12 col-12 mt-5">
 				                	 <vs-button :loading="loading" @click="registerNext" block color="rgb(64, 191, 128)">
@@ -156,18 +167,25 @@ export default{
 		gender:'',
 		error1:'',
 		error2:'',
-		data:[]
+		data:[],
+		address:'',
+		exist:''
       }),
 	  mounted(){
-		axios.post('/show_strand')
-        .then(res=>{
-            this.data = res.data.status.map(res=>res.strand)
-        })
 	  },
 	methods:{
+		selectGrade(e){
+			  axios.post('/show_strand',{
+                grade:e.substring(5)
+            })
+            .then(res=>{
+            	this.data  = res.data.status.map(res=>res.strand)
+            })
+            },
 		registerNext(){
 			this.loading =true
-			axios.post('/register1',{
+			if(this.contact.length === 11){
+				axios.post('/register1',{
 				name:this.name,
 				lastname:this.lastname,
 				contact:this.contact,
@@ -176,15 +194,26 @@ export default{
 				section:this.section,
 				strand:this.strand,
 				gender:this.gender,
+				address:this.address,
 				})
 			.then(res=>{
-				this.loading =false
-			 this.$router.push({path:'/register2'})
+				if(res.data.status !== 'exist'){
+					this.loading =false
+					 this.$router.push({path:'/register2'})
+				}else{
+					this.exist='The ID number is already exist!'
+					this.loading =false
+				}
+				
 			})
 			.catch(err=>{
 				this.loading =false
 				this.error2 =err.response.data.errors
 			})
+			}else{
+				this.loading =false
+			}
+			
 		}
 	}
 }

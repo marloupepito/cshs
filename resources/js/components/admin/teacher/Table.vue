@@ -131,7 +131,7 @@
           </vs-tr>
         </template>
        
-      </vs-table><br /><br /><br /><br />
+      </vs-table><br /><br /><br />
 
       
     </div>
@@ -185,7 +185,7 @@ import axios from 'axios'
         search: '',
         allCheck: false,
         page: 1,
-        max: 5,
+        max: 50000,
         active: 0,
         selected: [],
         users: []

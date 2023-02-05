@@ -45,6 +45,10 @@
                         <th>Username</th>
                         <td>{{data.username}}</td>
                         </tr>
+                        <tr>
+                        <th>Address</th>
+                        <td>{{data.address}}</td>
+                        </tr>
                     </tbody>
                     </table>
 				 </div>

@@ -66,9 +66,6 @@
             </vs-td>
           </vs-tr>
         </template>
-        <template #footer>
-          <vs-pagination v-model="page" :length="$vs.getLength($vs.getSearch(events, search), max)" />
-        </template>
       </vs-table>
 
      
@@ -96,7 +93,7 @@ import axios from 'axios'
         search: '',
         allCheck: false,
         page: 1,
-        max: 5,
+        max: 5000000,
         active: 0,
         selected: [],
         events: []

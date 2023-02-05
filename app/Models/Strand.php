@@ -11,5 +11,6 @@ class Strand extends Model
     protected $table = 'strands';
     protected $fillable = [
       'strand',
+      'grade'
    ];
 }

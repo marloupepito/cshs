@@ -37,6 +37,7 @@
 				                </div>
 
 				                <div  class="col-md-12 col-12">
+				                 <div class='text-danger' v-if="password.length < 8">Password must be 8 and above!</div>
 									 <vs-input
 									type="password"
 									v-model="password"
@@ -87,7 +88,12 @@ export default{
 			fd.append("username",this.username);
 			fd.append("password",this.password);
 			fd.append("profile", this.profile);
-			axios.post('/add_student',fd)
+
+			if(this.password.length < 8){
+
+					this.loading=false
+				}else{
+					axios.post('/add_student',fd)
 			.then(res=>{
 				if(res.data.status === 'exist'){
 					this.notify='Username is already exist!'
@@ -117,6 +123,8 @@ export default{
 				this.loading=false
 				this.error =err.response.data.errors
 				})
+				}
+			
 		},
 
 		uploadPP(){

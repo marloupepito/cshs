@@ -58,7 +58,9 @@ export default {
     },
     methods: {
         mount(){
-            axios.post('/show_strand')
+            axios.post('/show_strand',{
+                grade:window.location.pathname.split('/')[3]
+                })
         .then(res=>{
             this.data = res.data.status
         })
@@ -66,9 +68,11 @@ export default {
         submit(){
             this.loading=true
             axios.post('/add_strand',{
-                strand:this.strand
+                strand:this.strand,
+                grade:window.location.pathname.split('/')[3]
             })
             .then(res=>{
+                this.strand=''
                 this.$swal({
 				  icon: 'success',
 				  title: 'Saved!',

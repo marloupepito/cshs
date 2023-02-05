@@ -16,6 +16,7 @@ class CreateStrandsTable extends Migration
         Schema::create('strands', function (Blueprint $table) {
             $table->id();
             $table->text('strand')->nullable();
+            $table->text('grade')->nullable();
             $table->timestamps();
         });
     }
