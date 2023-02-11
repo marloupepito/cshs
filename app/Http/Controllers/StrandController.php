@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Strand;
+use App\Models\User;
 class StrandController extends Controller
 {
 
@@ -30,6 +31,13 @@ class StrandController extends Controller
     
     public function show_strand(Request $request){
         $strand = Strand::where('grade','=',$request->grade)->orderBy('id', 'DESC')->get();
+
+        return response()->json([
+            'status' => $strand
+        ]); 
+    }
+    public function show_section(Request $request){
+        $strand = User::where([['strand','=',$request->strand],['grade','=',$request->grade]])->orderBy('id', 'DESC')->get();
 
         return response()->json([
             'status' => $strand

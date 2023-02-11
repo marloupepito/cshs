@@ -11,7 +11,7 @@
                 </template>
                 <template #text>
                     <p>
-                        Calatrava Nation High School
+                        Calatrava Senior High-SA
                     </p>
                 </template>
                 <template #interactions>
@@ -31,7 +31,7 @@
                 </template>
                 <template #text>
                     <p>
-                        Calatrava Nation High School
+                        Calatrava Senior High-SA
                     </p>
                 </template>
                 <template #interactions>

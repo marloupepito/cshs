@@ -63,6 +63,7 @@ Route::post('/get_advisory_attendance2','App\Http\Controllers\AttendancesControl
 
 Route::post('/add_strand','App\Http\Controllers\StrandController@add_strand');
 Route::post('/show_strand','App\Http\Controllers\StrandController@show_strand');
+Route::post('/show_section','App\Http\Controllers\StrandController@show_section');
 Route::post('/delete_strand','App\Http\Controllers\StrandController@delete_strand');
 
 

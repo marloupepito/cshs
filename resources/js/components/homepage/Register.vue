@@ -77,6 +77,7 @@
 									        placeholder="Strand"
 									        v-model="strand"
 									        block
+									        @input="selectStrand"
 									      >
 										  <option selected disabled>
 									         Select Strand
@@ -84,46 +85,20 @@
 											<option v-for="i in data" :label="i" :value="i">
 									         {{ i}}
 									        </option>
-
-											
 									      </select>
 				                </div>
 				                 <div  class="col-md-6 col-12">
 				                
-									<vs-select
+									<select
 									        label-placeholder="Section"
 											v-model="section"
 									        block
-									      class="mb-3"
+									     class="form-select mb-3"
 									      >
-									        <vs-option label="Section A" value="Section A">
-									          Section A
-									        </vs-option>
-									        <vs-option label="Section B" value="Section B">
-									          Section B
-									        </vs-option>
-									         <vs-option label="Section C" value="Section C">
-									          Section C
-									        </vs-option>
-									         <vs-option label="Section D" value="Section D">
-									          Section D
-									        </vs-option>
-									         <vs-option label="Section E" value="Section E">
-									          Section E
-									        </vs-option>
-											<vs-option label="Section F" value="Section F">
-									          Section F
-									        </vs-option>
-											<vs-option label="Section G" value="Section G">
-									          Section G
-									        </vs-option>
-											<vs-option label="Section H" value="Section H">
-									          Section H
-									        </vs-option>
-									        <template v-if="error2.section !== undefined" #message-danger>
-									          {{error2.section[0]}}
-									      </template>
-									      </vs-select>
+									       	<option v-for="i in data2" :label="i" :value="i">
+									         {{ i}}
+									        </option>
+									      </select>
 
 
 				                </div>
@@ -168,13 +143,34 @@ export default{
 		error1:'',
 		error2:'',
 		data:[],
+		data2:[],
 		address:'',
-		exist:''
+		exist:'',
+		section:[]
       }),
 	  mounted(){
 	  },
 	methods:{
+		selectStrand(e){
+			 axios.post('/show_section',{
+	                strand:e.target.value,
+	                grade:this.grade
+	            })
+	            .then(res=>{
+	            this.data2  = res.data.status.map(res=>res.section)
+	           
+	            })
+			},
 		selectGrade(e){
+			 axios.post('/show_section',{
+	                strand:this.strand,
+	                grade:e.substring(5)
+	            })
+	            .then(res=>{
+	            this.data2  = res.data.status.map(res=>res.section)
+	           
+	            })
+
 			  axios.post('/show_strand',{
                 grade:e.substring(5)
             })

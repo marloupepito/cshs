@@ -49,6 +49,7 @@
         .vs-dialog{
           width:40% !important
         }
+       
   </style>
     </head>
     <body>

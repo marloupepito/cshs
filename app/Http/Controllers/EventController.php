@@ -97,7 +97,7 @@ class EventController extends Controller
     }
      public function event_set_time(Request $request){
        Event::where('id', $request->id)
-             ->update(['status' => $request->status]);
+             ->update(['status' => $request->status,'remember_token' => $request->timer]);
        return response()->json([
             'status' => 'success'
         ]);

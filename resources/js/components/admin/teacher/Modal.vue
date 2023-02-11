@@ -92,40 +92,39 @@
 		      </vs-select>
 				</div>
 				<div class="col-md-6 col-6">
-					<vs-select
+					<select
 		        label-placeholder="Section"
 		        v-model="section"
 		        block
-		         class="mb-3"
+		        
+		       class="form-select mb-3"
 		      >
-			  <vs-option label="Section A" value="Section A">
+			  <option label="Section A" value="Section A">
 									          Section A
-									        </vs-option>
-									        <vs-option label="Section B" value="Section B">
+									        </option>
+									        <option label="Section B" value="Section B">
 									          Section B
-									        </vs-option>
-									         <vs-option label="Section C" value="Section C">
+									        </option>
+									         <option label="Section C" value="Section C">
 									          Section C
-									        </vs-option>
-									         <vs-option label="Section D" value="Section D">
+									        </option>
+									         <option label="Section D" value="Section D">
 									          Section D
-									        </vs-option>
-									         <vs-option label="Section E" value="Section E">
+									        </option>
+									         <option label="Section E" value="Section E">
 									          Section E
-									        </vs-option>
-											<vs-option label="Section F" value="Section F">
+									        </option>
+											<option label="Section F" value="Section F">
 									          Section F
-									        </vs-option>
-											<vs-option label="Section G" value="Section G">
+									        </option>
+											<option label="Section G" value="Section G">
 									          Section G
-									        </vs-option>
-											<vs-option label="Section H" value="Section H">
+									        </option>
+											<option label="Section H" value="Section H">
 									          Section H
-									        </vs-option>
-		        <template v-if="error.section !== undefined" #message-danger>
-		          {{error.section[0]}}
-		      </template>
-		      </vs-select>
+									        </option>
+		       
+		      </select>
 
 				</div>
 		  </div>

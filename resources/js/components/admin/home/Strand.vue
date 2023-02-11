@@ -31,7 +31,7 @@
                     </template>
                 
                     <template #text>
-                        <p>Calatrava Nation High School</p>
+                        <p>Calatrava Senior High-SA</p>
                     </template>
                     <!-- <template #interactions>
                         <vs-button danger icon @click="deleteStrand(i.id)">
