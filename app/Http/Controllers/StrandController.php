@@ -37,7 +37,7 @@ class StrandController extends Controller
         ]); 
     }
     public function show_section(Request $request){
-        $strand = User::where([['strand','=',$request->strand],['grade','=',$request->grade]])->orderBy('id', 'DESC')->get();
+        $strand = User::where([['usertype','=','teacher'],['strand','=',$request->strand],['grade','=',$request->grade]])->orderBy('id', 'DESC')->get();
 
         return response()->json([
             'status' => $strand

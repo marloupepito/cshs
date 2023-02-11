@@ -162,14 +162,8 @@ export default{
 	            })
 			},
 		selectGrade(e){
-			 axios.post('/show_section',{
-	                strand:this.strand,
-	                grade:e.substring(5)
-	            })
-	            .then(res=>{
-	            this.data2  = res.data.status.map(res=>res.section)
-	           
-	            })
+			this.section=[]
+			this.strand=[]
 
 			  axios.post('/show_strand',{
                 grade:e.substring(5)
