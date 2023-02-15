@@ -66,9 +66,13 @@ export default {
             this.$router.push({path:'/administrator/check_attendance?'+window.location.search.substring(1)})
         },
         mount(){
-            axios.post('/show_strand')
+
+            axios.post('/show_strand',{
+                grade:window.location.pathname.split('/')[3]
+                })
         .then(res=>{
             this.data = res.data.status
+            console.log('www',res.data.status)
             this.eventid=window.location.search.substring(1)
         })
         },
