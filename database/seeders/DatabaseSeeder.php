@@ -422,108 +422,108 @@ class DatabaseSeeder extends Seeder
                             $student->qr =Hash::make($what[$i].$date.$where[$i]);
                             $student->save();
                         }
-                    $strand = ['STEM','ABM','HUMSS','SMAW','HOUSEKEPING','COOKERY','EIM','CCS'];
+                    // $strand = ['STEM','ABM','HUMSS','SMAW','HOUSEKEPING','COOKERY','EIM','CCS'];
 
-                    for ($i=0; $i < count($strand); $i++) { 
-                        $student = new Strand;
-                        $student->strand =$strand[$i];
-                        $student->grade ='11';
-                        $student->save();
-                    }
+                    // for ($i=0; $i < count($strand); $i++) { 
+                    //     $student = new Strand;
+                    //     $student->strand =$strand[$i];
+                    //     $student->grade ='11';
+                    //     $student->save();
+                    // }
 
-                    for ($i=0; $i < count($strand); $i++) { 
-                        $student = new Strand;
-                        $student->strand =$strand[$i];
-                        $student->grade ='12';
-                        $student->save();
-                    }
+                    // for ($i=0; $i < count($strand); $i++) { 
+                    //     $student = new Strand;
+                    //     $student->strand =$strand[$i];
+                    //     $student->grade ='12';
+                    //     $student->save();
+                    // }
 
-                    for ($i=0; $i < 100; $i++) { 
-                        $defaultSection=['Section A','Section B','Section C','Section D','Section E','Section F','Section G','Section H'];
-                        $randSection = $defaultSection[array_rand($defaultSection)];
-                        $defaultGrade=['Grade 11','Grade 12'];
-                        $randGrade = $defaultGrade[array_rand($defaultGrade)];
+                    // for ($i=0; $i < 100; $i++) { 
+                    //     $defaultSection=['Section A','Section B','Section C','Section D','Section E','Section F','Section G','Section H'];
+                    //     $randSection = $defaultSection[array_rand($defaultSection)];
+                    //     $defaultGrade=['Grade 11','Grade 12'];
+                    //     $randGrade = $defaultGrade[array_rand($defaultGrade)];
 
-                        $defaultStrand=['STEM','ABM','HUMSS','SMAW','HOUSEKEPING','COOKERY','EIM','CCS'];
-                        $randStrand = $defaultStrand[array_rand($defaultStrand)];
+                    //     $defaultStrand=['STEM','ABM','HUMSS','SMAW','HOUSEKEPING','COOKERY','EIM','CCS'];
+                    //     $randStrand = $defaultStrand[array_rand($defaultStrand)];
 
-                        $defaultGender=['Male','Female'];
-                        $randGender = $defaultGender[array_rand($defaultGender)];
+                    //     $defaultGender=['Male','Female'];
+                    //     $randGender = $defaultGender[array_rand($defaultGender)];
 
-                        $randName = $defaultName[array_rand($defaultName)]; 
-                        $randName2 = $defaultName[array_rand($defaultName2)]; 
+                    //     $randName = $defaultName[array_rand($defaultName)]; 
+                    //     $randName2 = $defaultName[array_rand($defaultName2)]; 
 
-                        $student = new User;
-                        $student->profile ='logo.png';
-                        $student->name = $randName;
-                        $student->lastname =  $randName2;
-                        $student->contact = '09183646362';
-                        $student->idnumber = 'Student ID'.rand(1000000,9999999);
-                        $student->grade = $randGrade;
-                        $student->section = $randSection;
-                        $student->strand = $randStrand;
-                        $student->gender = $randGender;
-                        $student->username ='student'.$i;
-                        $student->password = Hash::make('student');
-                        $student->usertype = 'student';
-                        $student->save();
-                    }
+                    //     $student = new User;
+                    //     $student->profile ='logo.png';
+                    //     $student->name = $randName;
+                    //     $student->lastname =  $randName2;
+                    //     $student->contact = '09183646362';
+                    //     $student->idnumber = 'Student ID'.rand(1000000,9999999);
+                    //     $student->grade = $randGrade;
+                    //     $student->section = $randSection;
+                    //     $student->strand = $randStrand;
+                    //     $student->gender = $randGender;
+                    //     $student->username ='student'.$i;
+                    //     $student->password = Hash::make('student');
+                    //     $student->usertype = 'student';
+                    //     $student->save();
+                    // }
 
 
-                    for ($i=0; $i < 7; $i++) { 
-                        $defaultSection=['Section A','Section B','Section C','Section D','Section E','Section F','Section G','Section H'];
+                    // for ($i=0; $i < 7; $i++) { 
+                    //     $defaultSection=['Section A','Section B','Section C','Section D','Section E','Section F','Section G','Section H'];
 
-                        $defaultStrand=['STEM','ABM','HUMSS','SMAW','HOUSEKEPING','COOKERY','EIM','CCS','HTML'];
-                       // $randStrand = $defaultStrand[array_rand($defaultStrand)];
+                    //     $defaultStrand=['STEM','ABM','HUMSS','SMAW','HOUSEKEPING','COOKERY','EIM','CCS','HTML'];
+                    //    // $randStrand = $defaultStrand[array_rand($defaultStrand)];
 
-                        $defaultGender=['Male','Female'];
-                        $randGender = $defaultGender[array_rand($defaultGender)];
+                    //     $defaultGender=['Male','Female'];
+                    //     $randGender = $defaultGender[array_rand($defaultGender)];
 
-                        $randName = $defaultName[array_rand($defaultName)]; 
-                        $randName2 = $defaultName[array_rand($defaultName2)]; 
+                    //     $randName = $defaultName[array_rand($defaultName)]; 
+                    //     $randName2 = $defaultName[array_rand($defaultName2)]; 
 
-                        $student = new User;
-                        $student->profile ='logo.png';
-                        $student->name = $randName;
-                        $student->lastname =  $randName2;
-                        $student->contact = '09177383849';
-                        $student->idnumber = 'Teacher ID'.rand(1000000,9999999);
-                        $student->grade = 'Grade 11';
-                        $student->section = $defaultSection[$i];
-                        $student->strand = $defaultStrand[$i];
-                        $student->gender = $randGender;
-                        $student->username ='teacher'.$i;
-                        $student->password = Hash::make('teacher');
-                        $student->usertype = 'teacher';
-                        $student->save();
-                    }
+                    //     $student = new User;
+                    //     $student->profile ='logo.png';
+                    //     $student->name = $randName;
+                    //     $student->lastname =  $randName2;
+                    //     $student->contact = '09177383849';
+                    //     $student->idnumber = 'Teacher ID'.rand(1000000,9999999);
+                    //     $student->grade = 'Grade 11';
+                    //     $student->section = $defaultSection[$i];
+                    //     $student->strand = $defaultStrand[$i];
+                    //     $student->gender = $randGender;
+                    //     $student->username ='teacher'.$i;
+                    //     $student->password = Hash::make('teacher');
+                    //     $student->usertype = 'teacher';
+                    //     $student->save();
+                    // }
 
-                    for ($i=7; $i < 14; $i++) { 
-                        $defaultSection=['Section A','Section B','Section C','Section D','Section E','Section F','Section G','Section H'];
+                    // for ($i=7; $i < 14; $i++) { 
+                    //     $defaultSection=['Section A','Section B','Section C','Section D','Section E','Section F','Section G','Section H'];
 
-                        $defaultStrand=['STEM','ABM','HUMSS','SMAW','HOUSEKEPING','COOKERY','EIM','CCS','HTML'];
+                    //     $defaultStrand=['STEM','ABM','HUMSS','SMAW','HOUSEKEPING','COOKERY','EIM','CCS','HTML'];
                    
-                        $defaultGender=['Male','Female'];
-                        $randGender = $defaultGender[array_rand($defaultGender)];
+                    //     $defaultGender=['Male','Female'];
+                    //     $randGender = $defaultGender[array_rand($defaultGender)];
 
-                        $randName = $defaultName[array_rand($defaultName)]; 
-                        $randName2 = $defaultName[array_rand($defaultName2)]; 
+                    //     $randName = $defaultName[array_rand($defaultName)]; 
+                    //     $randName2 = $defaultName[array_rand($defaultName2)]; 
 
-                        $student = new User;
-                        $student->profile ='logo.png';
-                        $student->name = $randName;
-                        $student->lastname =  $randName2;
-                        $student->contact = '09177383849';
-                        $student->idnumber = 'Teacher ID'.rand(1000000,9999999);
-                        $student->grade = 'Grade 12';
-                        $student->section =$defaultSection[$i-6];
-                        $student->strand = $defaultStrand[$i-6];
-                        $student->gender = $randGender;
-                        $student->username ='teacher'.$i;
-                        $student->password = Hash::make('teacher');
-                        $student->usertype = 'teacher';
-                        $student->save();
-                    }
+                    //     $student = new User;
+                    //     $student->profile ='logo.png';
+                    //     $student->name = $randName;
+                    //     $student->lastname =  $randName2;
+                    //     $student->contact = '09177383849';
+                    //     $student->idnumber = 'Teacher ID'.rand(1000000,9999999);
+                    //     $student->grade = 'Grade 12';
+                    //     $student->section =$defaultSection[$i-6];
+                    //     $student->strand = $defaultStrand[$i-6];
+                    //     $student->gender = $randGender;
+                    //     $student->username ='teacher'.$i;
+                    //     $student->password = Hash::make('teacher');
+                    //     $student->usertype = 'teacher';
+                    //     $student->save();
+                    // }
                     
 
     }
