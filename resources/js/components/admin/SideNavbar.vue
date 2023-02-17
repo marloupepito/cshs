@@ -32,6 +32,13 @@
           Teachers
         </vs-sidebar-item>
 
+         <vs-sidebar-item color='black' to="/administrator/settings" id="settings">
+          <template #icon>
+            <i class='bx bxs-cog'></i>
+          </template>
+          Settings
+        </vs-sidebar-item>
+
         <!-- <vs-sidebar-item color='black' to="/administrator/loading2?11" id="11">
           <template #icon>
             <i class='bx bx-group'></i>
@@ -74,6 +81,8 @@
       }else if(path === "events"){
         this.active =path
       }else if(path === "teachers"){
+        this.active =path
+      }else if(path === "settings"){
         this.active =path
       }else if(path === "grade" && path2 === '11'){
         this.active =path2

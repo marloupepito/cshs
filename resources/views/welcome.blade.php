@@ -10,7 +10,7 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
-        <title>Calatrava Monitoring System</title>
+        <title></title>
 
   <style>
          @media only screen and (min-width:641px) {
@@ -58,3 +58,7 @@
         </div>
     </body>
 </html>
+
+<script>
+    
+</script>

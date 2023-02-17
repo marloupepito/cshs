@@ -135,9 +135,6 @@ import axios from 'axios'
       	  this.g = window.location.pathname.split('/')[3]
           this.s= window.location.pathname.split('/')[4].replace(/ /g,'_')
           this.ss = window.location.search.substring(1).replace(/ /g,'_')
-          console.log(this.g)
-          console.log(this.s)
-          console.log(this.ss)
           this.reload()
         },
         methods:{

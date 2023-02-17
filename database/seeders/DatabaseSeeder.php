@@ -422,21 +422,21 @@ class DatabaseSeeder extends Seeder
                             $student->qr =Hash::make($what[$i].$date.$where[$i]);
                             $student->save();
                         }
-                    // $strand = ['STEM','ABM','HUMSS','SMAW','HOUSEKEPING','COOKERY','EIM','CCS'];
+                    $strand = ['STEM','ABM','HUMSS','SMAW','HOUSEKEPING','COOKERY','EIM','CCS'];
 
-                    // for ($i=0; $i < count($strand); $i++) { 
-                    //     $student = new Strand;
-                    //     $student->strand =$strand[$i];
-                    //     $student->grade ='11';
-                    //     $student->save();
-                    // }
+                    for ($i=0; $i < count($strand); $i++) { 
+                        $student = new Strand;
+                        $student->strand =$strand[$i];
+                        $student->grade ='11';
+                        $student->save();
+                    }
 
-                    // for ($i=0; $i < count($strand); $i++) { 
-                    //     $student = new Strand;
-                    //     $student->strand =$strand[$i];
-                    //     $student->grade ='12';
-                    //     $student->save();
-                    // }
+                    for ($i=0; $i < count($strand); $i++) { 
+                        $student = new Strand;
+                        $student->strand =$strand[$i];
+                        $student->grade ='12';
+                        $student->save();
+                    }
 
                     // for ($i=0; $i < 100; $i++) { 
                     //     $defaultSection=['Section A','Section B','Section C','Section D','Section E','Section F','Section G','Section H'];

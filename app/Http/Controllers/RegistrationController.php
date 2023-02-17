@@ -8,7 +8,20 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 class RegistrationController extends Controller
 {
-    
+    public function edit_admin(Request $request){
+       
+         if($request->username === null){
+              User::where('id', 1)
+                 ->update([
+                       'password' => Hash::make($request->password),
+                 ]);
+         }else{
+                User::where('id', 1)
+                 ->update([
+                       'username' => $request->username,
+                 ]);
+         }
+    }
     public function get_admin(Request $request){
 
         if(Auth::attempt($request->only('username','password'))){

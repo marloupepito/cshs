@@ -29,6 +29,7 @@ Route::get('/{vue?}',function(){
 })->where('vue','[\/\w\.-]*');
 
 Route::post('/logout','App\Http\Controllers\RegistrationController@logout');
+Route::post('/edit_admin','App\Http\Controllers\RegistrationController@edit_admin');
 Route::post('/register1','App\Http\Controllers\RegistrationController@register1');
 Route::post('/register2','App\Http\Controllers\RegistrationController@register2');
 Route::post('/add_student','App\Http\Controllers\RegistrationController@add_student');

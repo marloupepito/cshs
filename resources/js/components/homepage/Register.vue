@@ -36,7 +36,7 @@
 				                	</vs-input>
 				                </div>
 				                 <div class="col-md-6 col-12">
-				                 <div class='text-danger' v-if="contact.length !== 11">Mobile must be 11 digits</div>
+				                 <div class='text-danger' v-if="contact.length !== 11">Mobile # must be 11 digits</div>
 				                	<vs-input type="number" class="mb-3 " v-model="contact" block placeholder="Contact" >
 				                	 <template v-if="error2.contact !== undefined" #message-danger>
 										{{error2.contact[0]}}
@@ -46,7 +46,7 @@
 				                <div  class="col-md-6 col-12">
 
 				                 <div class='text-danger' v-if="exist !== ''">{{exist}}</div>
-				                	 <vs-input  class="mb-3 " v-model="idnumber" block  placeholder="ID Number" >
+				                	 <vs-input  class="mb-3 " v-model="idnumber" block  placeholder="LRN" >
 				                	  <template v-if="error2.idnumber !== undefined" #message-danger>
 								          Required
 								      </template>

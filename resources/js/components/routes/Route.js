@@ -25,6 +25,7 @@ import Loading3 from './../admin/event/Loading.vue'
 import Logout from './../admin/Logout.vue'
 import ShowGrade from './../admin/teacher/Grade.vue'
 import ShowStrand from './../admin/teacher/Strand.vue'
+import Settings from './../admin/Settings.vue'
 
 import Student from './../student/_Index.vue'
 import Loading4 from './../student/Loading.vue'
@@ -63,6 +64,7 @@ const routes = [
         children:[
           { path:'/administrator', component:Home},
           { path:'/administrator/loading', component:Loading},
+          { path:'/administrator/settings', component:Settings},
           { path:'/administrator/check_attendance', component:HomeGrade},
           { path:'/administrator/check_attendance/:id', component:HomeStrand},
           { path:'/administrator/check_attendance/:id/:id', component:HomeTeacher},

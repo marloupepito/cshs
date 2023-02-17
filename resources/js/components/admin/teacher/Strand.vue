@@ -17,7 +17,7 @@
            
                 <vs-card style="float: right !important">
                     <template #title>
-                        <h3><b>{{i.strand}}</b></h3>
+                        <h3><b>Grade {{grade}} - {{i.strand}}</b></h3>
                     </template>
                    
                     <template #img>
@@ -51,7 +51,8 @@ export default {
     data:() => ({
 		 strand:"",
          loading:false,
-         data:[]
+         data:[],
+         grade:''
       }),
     mounted(){
        this.mount()
@@ -63,6 +64,7 @@ export default {
                 })
         .then(res=>{
             this.data = res.data.status
+            this.grade = window.location.pathname.split('/')[3]
         })
         },
         submit(){

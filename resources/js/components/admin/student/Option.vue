@@ -67,17 +67,15 @@
 			      </template>
           </vs-input>
        			   Strand
-        					   <vs-select
+        					   <select
+        					     class="form-select mb-3"
 									        v-model="data2.strand"
 									        block
 									      >
-										   <vs-option v-for="i in datas" :key="i.id" :label="i.strand" :value="i.strand">
+										   <option v-for="i in datas" :key="i.id" :label="i.strand" :value="i.strand">
 									         {{ i.strand}}
-									        </vs-option>
-									        <template v-if="error.strand !== undefined" #message-danger>
-									          {{error.strand[0]}}
-									      	</template>
-									      </vs-select>
+									        </option>
+									      </select>
           Section
           <vs-input v-model="data2.section" block  placeholder="Section">
           
@@ -152,7 +150,9 @@ export default {
   mounted(){
   	
   		this.grade = window.location.pathname.split('/')[3]
-		axios.post('/show_strand')
+				axios.post('/show_strand',{
+					grade:window.location.pathname.split('/')[3]
+					})
         .then(res=>{
             this.datas = res.data.status
 			this.g = window.location.pathname.split('/')[3]
