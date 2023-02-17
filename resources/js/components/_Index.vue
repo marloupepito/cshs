@@ -1,8 +1,8 @@
 
 <template>
       <div class="col-md-12">
-         <!-- <router-view></router-view> -->
-         <button @click="clickMe">Click Me</button>
+         <router-view></router-view>
+         <!-- <button @click="clickMe">Click Me</button> -->
       </div>
 </template>
 
