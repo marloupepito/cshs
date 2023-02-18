@@ -58,8 +58,17 @@ import moment from 'moment'
                       message_id:494667424208
                     },
                     notification: {
+                    color:'#00ff0',
+                    default_vibrate_timings: false,
+					    vibrate_timings: [
+					                "0.0s",
+					                "0.2s",
+					                "0.1s",
+					                "o.2s"
+					     ],
                       title: a,
                       body: b,
+                      image: "https://cshs-monitoring.herokuapp.com/images/logo2.png"
                     },
                     to: item,
                   },
