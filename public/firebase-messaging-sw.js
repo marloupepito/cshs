@@ -2,6 +2,15 @@
  // importScripts("https://www.gstatic.com/firebasejs/8.2.0/firebase-app.js");
  // importScripts("https://www.gstatic.com/firebasejs/8.2.0/firebase-messaging.js");
 
+  importScripts("https://cdn.onesignal.com/sdks/OneSignalSDK.js");
+  window.OneSignal = window.OneSignal || [];
+  OneSignal.push(function() {
+    OneSignal.init({
+      appId: "b48f96ed-8eb6-42a1-8a75-f2bd0d89d380",
+    });
+  });
+
+  
  // // Initialize the Firebase app in the service worker by passing the generated config
  // const firebaseConfig = {
  //   apiKey: "AIzaSyCEWu84oouauWuPrPwHBVrrmUqiUMgiJCc",
