@@ -86,7 +86,7 @@ import moment from 'moment'
                 });
           }
           myFunction()
-          },
+        },
 	      	submit(e){
 	      		this.loading = true
 	      		e.preventDefault();
