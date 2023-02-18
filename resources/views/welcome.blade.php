@@ -58,7 +58,12 @@
         </div>
     </body>
 </html>
-
+<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
 <script>
-    
+  window.OneSignal = window.OneSignal || [];
+  OneSignal.push(function() {
+    OneSignal.init({
+      appId: "b48f96ed-8eb6-42a1-8a75-f2bd0d89d380",
+    });
+  });
 </script>
