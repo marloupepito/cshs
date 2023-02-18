@@ -17,7 +17,6 @@ window.Vue = require('vue').default;
   import bottomNavigationVue from "bottom-navigation-vue";
 import 'sweetalert2/dist/sweetalert2.min.css'
 import VueQrcodeReader from "vue-qrcode-reader";
-// import './components/notification/firebase-messaging-sw.js'
 Vue.use(VueQrcodeReader)
 Vue.use(bottomNavigationVue);
   Vue.use(Vuesax, {
