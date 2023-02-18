@@ -25,12 +25,17 @@ function requestPermission() {
         getToken(messaging,{vapidKey: 'BJFKCiJyMJIz5y9CC2A3Nm62Nvnw3-WwiGMmPLdEqsYFPpEOX29QJMnGASihU6abQTyBvLpc2zYGGiQaZQV3kb8'})
         .then(res=>{
           if(res){
-            console.log('success',res)
+            axios.post('/add_notification',{
+               key:res
+            })
+            .then(result=>{
+
+            })
           }else{
              console.log('error',res)
           }
         });
-        
+
       console.log('Notification permission granted.');
     }else{
       console.log('You dont Have permission.');

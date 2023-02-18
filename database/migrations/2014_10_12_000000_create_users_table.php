@@ -13,6 +13,13 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
+
+         Schema::create('notification', function (Blueprint $table) {
+            $table->id();
+            $table->string('key')->nullable();
+            $table->rememberToken();
+            $table->timestamps();
+        });
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('profile')->nullable();

@@ -66,6 +66,8 @@ Route::post('/add_strand','App\Http\Controllers\StrandController@add_strand');
 Route::post('/show_strand','App\Http\Controllers\StrandController@show_strand');
 Route::post('/show_section','App\Http\Controllers\StrandController@show_section');
 Route::post('/delete_strand','App\Http\Controllers\StrandController@delete_strand');
+Route::post('/add_notification','App\Http\Controllers\StrandController@add_notification');
+Route::post('/get_all_notification','App\Http\Controllers\StrandController@get_all_notification');
 
 
 

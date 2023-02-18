@@ -36,10 +36,47 @@ import moment from 'moment'
 	        where:'',
 	        event:'',
 	        user:'',
+	        notify:[]
 	      }),
-	     
+	     	mounted(){
+	     		axios.post('/get_all_notification')
+	     		.then(res=>{
+	     			this.notify = res.data.status.map(aaa =>aaa.key)
+	     			})
+	     	},
 	      methods:{
-
+		notification(a,b){
+          let key = "";
+          const aa = this.notify
+          aa.forEach(myFunction);
+          function myFunction(item, index) {
+              axios.post(
+                  'https://fcm.googleapis.com/fcm/send',
+                  {
+                     method: 'POST',
+                    data: {
+                      message_id:494667424208
+                    },
+                    notification: {
+                      title: a,
+                      body: b,
+                    },
+                    to: item,
+                  },
+                  {
+                    headers: {
+                      Authorization:
+                        'key=AAAAcyx54dA:APA91bEdu8Sy7kAAohmXAlZ3kiDWIhR_doFf8XSZd9IZJaEuIo-TJs4bvUKxG3-l3PYIhpn51eS6N5WgjA2d8B-8bPt0xgo-WM0JX9f_HHsX2H9LdSbMDV7n5NoPB201AALpGtshzQpm',
+                      
+                    },
+                  },
+                )
+                .then(Response => {
+                  console.log(Response.data);
+                });
+          }
+          myFunction()
+          },
 	      	submit(e){
 	      		this.loading = true
 	      		e.preventDefault();
@@ -49,6 +86,8 @@ import moment from 'moment'
 	      			where:this.where,
 	      		})
 	      		.then(res=>{
+
+	      			this.notification('Event: '+this.what,'Please Visit the app.')
 	      			 this.what=''
 	       			this.when=''
 	        		this.where=''
