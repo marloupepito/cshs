@@ -37,6 +37,7 @@ Route::post('/login_user','App\Http\Controllers\RegistrationController@login_use
 Route::post('/add_teacher','App\Http\Controllers\RegistrationController@add_teacher');
 Route::post('/get_teacher','App\Http\Controllers\RegistrationController@get_teacher');
 Route::post('/get_student','App\Http\Controllers\RegistrationController@get_student');
+Route::post('/get_student_pending','App\Http\Controllers\RegistrationController@get_student_pending');
 Route::post('/option','App\Http\Controllers\RegistrationController@option');
 Route::post('/update_student','App\Http\Controllers\RegistrationController@update_student');
 Route::post('/update_teacher','App\Http\Controllers\RegistrationController@update_teacher');

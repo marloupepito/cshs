@@ -8,6 +8,21 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 class RegistrationController extends Controller
 {
+
+      public function get_student_pending(Request $request){
+
+            $user = User::where([['grade','=',$request->grade],['access','=',null],['usertype','=','student']])->get();
+             $all = User::where([['access','=',null],['usertype','=','student']])->get();
+             $all1 = User::where([['grade','=','Grade 11'],['access','=',null],['usertype','=','student']])->get();
+             $all2 = User::where([['grade','=','Grade 12'],['access','=',null],['usertype','=','student']])->get();
+
+               return response()->json([
+             'status' => $user,
+             'status2' =>$all,
+             'status3' =>$all1,
+             'status4' =>$all2,
+         ]); 
+      }
     public function edit_admin(Request $request){
        
          if($request->username === null){

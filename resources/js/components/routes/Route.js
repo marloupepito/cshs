@@ -24,6 +24,8 @@ import Loading2 from './../admin/student/Loading.vue'
 import Loading3 from './../admin/event/Loading.vue'
 import Logout from './../admin/Logout.vue'
 import ShowGrade from './../admin/teacher/Grade.vue'
+import PendingGrade from './../admin/pending/Grade.vue'
+import PendingTable from './../admin/pending/Table.vue'
 import ShowStrand from './../admin/teacher/Strand.vue'
 import Settings from './../admin/Settings.vue'
 
@@ -75,6 +77,8 @@ const routes = [
           { path:'/administrator/teachers/:id/:id', component:Teacher},
           { path:'/administrator/teachers/:id/:id/students', component:ShowStudent},
           { path:'/administrator/events', component:Event},
+          { path:'/administrator/pending', component:PendingGrade},
+          { path:'/administrator/pending/:id', component:PendingTable},
           { path:'/administrator/grade/:id', component:Grade},
           { path:'/administrator/loading2', component:Loading2},
           { path:'/administrator/loading3', component:Loading3},

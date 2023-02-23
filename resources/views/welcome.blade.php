@@ -58,9 +58,10 @@
         </div>
     </body>
 </html>
-<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
-<script>
 
+<!-- <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></script> -->
+
+<script>
 
 
   if ('serviceWorker' in navigator) {

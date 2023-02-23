@@ -39,14 +39,19 @@
           Settings
         </vs-sidebar-item>
 
-        <!-- <vs-sidebar-item color='black' to="/administrator/loading2?11" id="11">
+      <vs-sidebar-item color='black' to="/administrator/pending" id="pending">
           <template #icon>
-            <i class='bx bx-group'></i>
+            <i class='bx bx-user-x'></i>
           </template>
-          Grade 11
+          Pending
+          <span style="  background-color: red;
+          color: white;
+          padding: 4px 8px;
+          text-align: center;
+          border-radius: 5px;">{{users}}</span>
         </vs-sidebar-item>
 
-        <vs-sidebar-item color='black' to="/administrator/loading2?12" id="12">
+          <!-- <vs-sidebar-item color='black' to="/administrator/loading2?12" id="12">
           <template #icon>
             <i class='bx bx-group'></i>
           </template>
@@ -70,11 +75,19 @@
   export default {
     data:() => ({
       active: 'administrator',
+      users:''
     }),
     mounted(){
 
       const path = this.$route.path.split('/')[2]
       const path2 = this.$route.path.split('/')[3]
+
+        axios.post('/get_student_pending',{
+                grade:'Grade 11'
+                })
+              .then(res=>{
+                  this.users= res.data.status2.length
+                })
       
       if(path === undefined){
         this.active ='administrator'
@@ -83,6 +96,8 @@
       }else if(path === "teachers"){
         this.active =path
       }else if(path === "settings"){
+        this.active =path
+      }else if(path === "pending"){
         this.active =path
       }else if(path === "grade" && path2 === '11'){
         this.active =path2
