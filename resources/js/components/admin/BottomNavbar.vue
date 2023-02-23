@@ -30,18 +30,32 @@
           title: "Events",
           path:"/administrator/events",
         },
-        {
+    
+         {
+               id: 4, 
+               icon: "text-white fas fa-users", 
+               title: "Users",
+              childs: [
+                  {
           id: 3,
           icon: "text-white fas fa-user-circle",
           title: "Teachers",
           path:"/administrator/teachers"
         },
-        // {
-        //       id: 4, 
-        //       icon: "text-white fas fa-users", 
-        //       title: "Grade11",
-        //       path:"/administrator/loading2?11",
-        //     },
+               {
+          id: 4,
+          icon: "text-white fas fa-clock",
+          title: "Pending",
+          path:"/administrator/pending"
+        },
+        {
+          id: 5,
+          icon: "text-white fas fa-cog",
+          title: "Settings",
+          path:"/administrator/settings"
+        },
+              ],
+             },
         //      {
         //       id: 5, 
         //       icon: "text-white fas fa-users", 
