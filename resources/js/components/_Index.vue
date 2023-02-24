@@ -38,7 +38,7 @@ import axios from 'axios'
                          key:res
                       })
                       .then(result=>{
-
+                         console.log('keys',res)
                       })
                     }else{
                        console.log('error',res)

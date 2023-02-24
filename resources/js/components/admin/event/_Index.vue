@@ -42,6 +42,7 @@ import moment from 'moment'
 	     		axios.post('/get_all_notification')
 	     		.then(res=>{
 	     			this.notify = res.data.status.map(aaa =>aaa.key)
+	     			console.log(this.notify)
 	     			})
 	     	},
 	      methods:{
@@ -75,6 +76,7 @@ import moment from 'moment'
                   },
                   {
                     headers: {
+                    	'Content-Type': 'application/json',
                       Authorization:
                         'key=AAAAcyx54dA:APA91bEdu8Sy7kAAohmXAlZ3kiDWIhR_doFf8XSZd9IZJaEuIo-TJs4bvUKxG3-l3PYIhpn51eS6N5WgjA2d8B-8bPt0xgo-WM0JX9f_HHsX2H9LdSbMDV7n5NoPB201AALpGtshzQpm',
                       
@@ -82,10 +84,12 @@ import moment from 'moment'
                   },
                 )
                 .then(Response => {
+                	console.log('keylist',item)
                   console.log(Response.data);
                 });
           }
           myFunction()
+
         },
 	      	submit(e){
 	      		this.loading = true
