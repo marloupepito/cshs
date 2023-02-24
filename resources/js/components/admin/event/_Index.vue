@@ -42,16 +42,16 @@ import moment from 'moment'
 	     		axios.post('/get_all_notification')
 	     		.then(res=>{
 	     			this.notify = res.data.status.map(aaa =>aaa.key)
-	     			console.log(this.notify)
+	     			
 	     			})
 	     	},
 	      methods:{
 		notification(a,b){
           let key = "";
           const aa = this.notify
-          aa.forEach(myFunction);
-          function myFunction(item, index) {
-              axios.post(
+        
+         for (let i = 0; i < aa.length; i++) {
+				   axios.post(
                   'https://fcm.googleapis.com/fcm/send',
                   {
                      method: 'POST',
@@ -62,21 +62,20 @@ import moment from 'moment'
                     icon: "https://cshs-monitoring.herokuapp.com/images/logo2.png",
                     color:'#00ff0',
                     default_vibrate_timings: false,
-					    vibrate_timings: [
-					                "0.0s",
-					                "0.2s",
-					                "0.1s",
-					                "o.2s"
-					     ],
+              vibrate_timings: [
+                          "0.0s",
+                          "0.2s",
+                          "0.1s",
+                          "o.2s"
+               ],
                       title: a,
                       body: b,
-                      image: "https://cshs-monitoring.herokuapp.com/images/logo2.png"
                     },
-                    to: item,
+                    to: aa[i],
                   },
                   {
                     headers: {
-                    	'Content-Type': 'application/json',
+                      'Content-Type': 'application/json',
                       Authorization:
                         'key=AAAAcyx54dA:APA91bEdu8Sy7kAAohmXAlZ3kiDWIhR_doFf8XSZd9IZJaEuIo-TJs4bvUKxG3-l3PYIhpn51eS6N5WgjA2d8B-8bPt0xgo-WM0JX9f_HHsX2H9LdSbMDV7n5NoPB201AALpGtshzQpm',
                       
@@ -84,11 +83,9 @@ import moment from 'moment'
                   },
                 )
                 .then(Response => {
-                	console.log('keylist',item)
                   console.log(Response.data);
                 });
-          }
-          myFunction()
+				}
 
         },
 	      	submit(e){
@@ -101,7 +98,7 @@ import moment from 'moment'
 	      		})
 	      		.then(res=>{
 
-	      			this.notification('Event: '+this.what,'Please Visit the app.')
+	      			this.notification('Incomming Events: '+this.what,'Please Visit CSHS-SA.')
 	      			 this.what=''
 	       			this.when=''
 	        		this.where=''
