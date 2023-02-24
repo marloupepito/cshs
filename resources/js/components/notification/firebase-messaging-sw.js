@@ -29,7 +29,7 @@ function requestPermission() {
                key:res
             })
             .then(result=>{
-
+              console.log(res)
             })
           }else{
              console.log('error',res)
