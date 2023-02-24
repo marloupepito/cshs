@@ -39,17 +39,20 @@
           Settings
         </vs-sidebar-item>
 
-      <vs-sidebar-item color='black' to="/administrator/pending" id="pending">
+    
+      <vs-sidebar-item color='black' >
           <template #icon>
-            <i class='bx bx-user-x'></i>
+            <vs-avatar to="/administrator/pending" id="pending" badge-color="danger" badge-position="top-right">
+              <i class='bx bx-user-x' ></i>
+              <template #badge>
+               {{users}}
+              </template>
+            </vs-avatar>
           </template>
           Pending
-          <span style="  background-color: red;
-          color: white;
-          padding: 4px 8px;
-          text-align: center;
-          border-radius: 5px;">{{users}}</span>
         </vs-sidebar-item>
+
+
 
           <!-- <vs-sidebar-item color='black' to="/administrator/loading2?12" id="12">
           <template #icon>
@@ -67,6 +70,8 @@
             </template>
             Logout
           </vs-sidebar-item>
+
+  
        
       </vs-sidebar>
     </div>
