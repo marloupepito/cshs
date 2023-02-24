@@ -40,9 +40,9 @@
         </vs-sidebar-item>
 
     
-      <vs-sidebar-item color='black' >
+      <vs-sidebar-item color='black' to="/administrator/pending"  >
           <template #icon>
-            <vs-avatar to="/administrator/pending" id="pending" badge-color="danger" badge-position="top-right">
+            <vs-avatar id="pending" badge-color="danger" badge-position="top-right">
               <i class='bx bx-user-x' ></i>
               <template #badge>
                +{{users}}
