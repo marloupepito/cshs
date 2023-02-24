@@ -45,7 +45,7 @@
             <vs-avatar to="/administrator/pending" id="pending" badge-color="danger" badge-position="top-right">
               <i class='bx bx-user-x' ></i>
               <template #badge>
-               {{users}}
+               +{{users}}
               </template>
             </vs-avatar>
           </template>
