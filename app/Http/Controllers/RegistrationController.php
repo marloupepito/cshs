@@ -88,11 +88,17 @@ class RegistrationController extends Controller
     }
     public function get_student_advisory(Request $request){
         $student = User::where([['section','=', $request->session()->get('section')],['grade','=', $request->session()->get('grade')],['strand','=', $request->session()->get('strand')],['usertype','=','student']])->orderBy('id', 'DESC')->get();
+
+
+             $pending = User::where([['strand','=', $request->session()->get('strand')],['section','=', $request->session()->get('section')],['grade','=',$request->session()->get('grade')],['access','=',null],['usertype','=','student']])->get();
+             
+
         return response()->json([
               'status' => $student,
               'strand' =>$request->session()->get('strand'),
               'grade' =>$request->session()->get('grade'),
-              'section' =>$request->session()->get('section')
+              'section' =>$request->session()->get('section'),
+              'pending' =>$pending
           ]); 
     }
     public function get_student_advisory2(Request $request){

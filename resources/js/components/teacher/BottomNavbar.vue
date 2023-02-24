@@ -3,7 +3,7 @@
   <CurvedBottomNavigation
   style="z-index:100 !important"
  foreground-color='#F7F7F8'
-  badge-color='#FBC02D'
+  badge-color='#F40101'
   background-color='rgb(64, 191, 128)'
   icon-color='#0000008A'
    :options="options" v-model="selected" />
@@ -14,6 +14,7 @@
   export default {
     data: () => ({
       selected: 1,
+      pending:'',
       options: [
            { 
           id: 1, 
@@ -31,7 +32,7 @@
           id: 3, 
           icon: "text-white fas fa-users", 
           title: "Grade 11",
-          path:"/teacher/loading?11"
+          path:"/teacher/loading?11", badge: 15 
         },
      
          { 
@@ -49,6 +50,16 @@
       },
     mounted(){
      const grade = window.location.pathname.split('/')[2]
+
+          axios.post('/get_student_advisory',{
+                grade:'Grade '+grade
+                })
+              .then(res=>{
+                  this.options[2].badge = res.data.pending.length
+                })
+              .catch(err=>{
+
+                })
     //  
         if(grade==='profile'){
           this.selected = 1
