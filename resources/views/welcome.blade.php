@@ -10,8 +10,11 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
-        <title></title>
-
+        <title>CSHS</title>
+        <link rel="manifest" href="manifest.json" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <meta name="apple-mobile-web-app-status-bar" content="#db4938" />
+        <meta name="theme-color" content="#db4938" />
   <style>
          @media only screen and (min-width:641px) {
             .toHide{
@@ -63,7 +66,14 @@
 
 <script>
 
-
+    if ("serviceWorker" in navigator) {
+  window.addEventListener("load", function() {
+    navigator.serviceWorker
+      .register("/serviceWorker.js")
+      .then(res => console.log("service worker registered"))
+      .catch(err => console.log("service worker not registered", err))
+  })
+}
   if ('serviceWorker' in navigator) {
 navigator.serviceWorker.register('/firebase-messaging-sw.js')
   .then(function(registration) {
