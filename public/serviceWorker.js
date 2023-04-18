@@ -4,6 +4,7 @@ const assets = [
   "/index.php",
   "/css/style.css",
   "/js/app.js",
+  "/login",
 ]
 
 self.addEventListener("install", installEvent => {

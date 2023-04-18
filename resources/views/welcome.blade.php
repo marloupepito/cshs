@@ -11,7 +11,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
         <title>CSHS</title>
-        <link rel="manifest" href="manifest.json" />
+        <link rel="manifest" href="./manifest.json">
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
         <meta name="apple-mobile-web-app-status-bar" content="#db4938" />
         <meta name="theme-color" content="#db4938" />
@@ -67,13 +67,15 @@
 <script>
 
   if ('serviceWorker' in navigator) {
-    window.addEventListener("load", function() {
-    navigator.serviceWorker
-      .register("/serviceWorker.js")
-      .then(res => console.log("service worker registered"))
-      .catch(err => console.log("service worker not registered", err))
-  })
-  
+    navigator.serviceWorker.register('/serviceWorker.js')
+    .then(function(registration) {
+      // Registration was successful
+      console.log('ServiceWorker registration successful with scope: ', registration.scope);
+    }).catch(function(err) {
+      // registration failed :(
+      console.log('ServiceWorker registration failed: ', err);
+    });
+    
 navigator.serviceWorker.register('/firebase-messaging-sw.js')
   .then(function(registration) {
     console.log('Registration successful, scope is:', registration.scope);
